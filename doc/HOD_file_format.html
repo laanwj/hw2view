@@ -1,0 +1,3280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en" id="vbulletin_html">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta id="e_vb_meta_bburl" name="vb_meta_bburl" content="http://forums.relicnews.com" />
+<base href="http://forums.relicnews.com/" /><!--[if IE]></base><![endif]-->
+<meta name="generator" content="vBulletin 4.2.1" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+
+	<link rel="Shortcut Icon" href="favicon.ico" type="image/x-icon" />
+
+
+
+
+
+
+
+
+	
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.9.0/build/yuiloader-dom-event/yuiloader-dom-event.js"></script>
+	
+
+<script type="text/javascript">
+<!--
+	if (typeof YAHOO === 'undefined') // Load ALL YUI Local
+	{
+		document.write('<script type="text/javascript" src="clientscript/yui/yuiloader-dom-event/yuiloader-dom-event.js?v=421"><\/script>');
+		document.write('<script type="text/javascript" src="clientscript/yui/connection/connection-min.js?v=421"><\/script>');
+		var yuipath = 'clientscript/yui';
+		var yuicombopath = '';
+		var remoteyui = false;
+	}
+	else	// Load Rest of YUI remotely (where possible)
+	{
+		var yuipath = 'http://ajax.googleapis.com/ajax/libs/yui/2.9.0/build';
+		var yuicombopath = '';
+		var remoteyui = true;
+		if (!yuicombopath)
+		{
+			document.write('<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.9.0/build/connection/connection-min.js?v=421"><\/script>');
+		}
+	}
+	var SESSIONURL = "s=46d3ff8a26c1ded49933ecc1582d32ce&";
+	var SECURITYTOKEN = "guest";
+	var IMGDIR_MISC = "images/misc";
+	var IMGDIR_BUTTON = "images/buttons";
+	var vb_disable_ajax = parseInt("0", 10);
+	var SIMPLEVERSION = "421";
+	var BBURL = "http://forums.relicnews.com";
+	var LOGGEDIN = 0 > 0 ? true : false;
+	var THIS_SCRIPT = "showthread";
+	var RELPATH = "showthread.php?99226-HOD-File-Format-%28Regardless-of-type%29";
+	var PATHS = {
+		forum : "",
+		cms   : "",
+		blog  : ""
+	};
+	var AJAXBASEURL = "http://forums.relicnews.com/";
+// -->
+</script>
+<script type="text/javascript" src="http://forums.relicnews.com/clientscript/vbulletin-core.js?v=421"></script>
+
+
+
+	<link rel="alternate" type="application/rss+xml" title="Relicnews Forums RSS Feed" href="http://forums.relicnews.com/external.php?type=RSS2" />
+	
+		<link rel="alternate" type="application/rss+xml" title="Relicnews Forums - Archive Dump - RSS Feed" href="http://forums.relicnews.com/external.php?type=RSS2&amp;forumids=87" />
+	
+
+
+
+	<link rel="stylesheet" type="text/css" href="css.php?styleid=70&amp;langid=1&amp;d=1380931558&amp;td=ltr&amp;sheet=bbcode.css,editor.css,popupmenu.css,reset-fonts.css,vbulletin.css,vbulletin-chrome.css,vbulletin-formcontrols.css," />
+
+	<!--[if lt IE 8]>
+	<link rel="stylesheet" type="text/css" href="css.php?styleid=70&amp;langid=1&amp;d=1380931558&amp;td=ltr&amp;sheet=popupmenu-ie.css,vbulletin-ie.css,vbulletin-chrome-ie.css,vbulletin-formcontrols-ie.css,editor-ie.css" />
+	<![endif]-->
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1409481-2']);
+  _gaq.push(['_setDomainName', 'relicnews.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script><script type="text/javascript" src="http://yui.yahooapis.com/combo?2.8.0r4/build/selector/selector-min.js&amp;2.8.0r4/build/event-delegate/event-delegate-min.js&amp;2.8.0r4/build/animation/animation-min.js"></script>
+<script type="text/javascript" src="http://forums.relicnews.com/clientscript/vsqspoiler.js"></script>
+<link rel="stylesheet" type="text/css" href="css.php?styleid=70&amp;langid=1&amp;d=1380931558&amp;td=ltr&amp;sheet=vsq_spoiler.css" /> 
+	
+	<meta name="description" content="So, this is complete-regardless of type file format for HODs ( and the one which CFHodEd uses, heyhey ) 
+  
+ 
+########################################################################################################################## 
+---- format ---- 
+FORM 
+-&gt; Version FORM 
+FORM 
+-&gt; NAME FORM 
+FORM" />
+
+	<title> HOD File Format (Regardless of type)</title>
+	<link rel="canonical" href="showthread.php?99226-HOD-File-Format-(Regardless-of-type)&s=46d3ff8a26c1ded49933ecc1582d32ce" />
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+		<link rel="stylesheet" type="text/css" href="css.php?styleid=70&amp;langid=1&amp;d=1380931558&amp;td=ltr&amp;sheet=toolsmenu.css,postlist.css,showthread.css,postbit.css,options.css,attachment.css,poll.css,lightbox.css" />
+	
+	<!--[if lt IE 8]><link rel="stylesheet" type="text/css" href="css.php?styleid=70&amp;langid=1&amp;d=1380931558&amp;td=ltr&amp;sheet=toolsmenu-ie.css,postlist-ie.css,showthread-ie.css,postbit-ie.css,poll-ie.css" /><![endif]-->
+<link rel="stylesheet" type="text/css" href="css.php?styleid=70&amp;langid=1&amp;d=1380931558&amp;td=ltr&amp;sheet=additional.css" />
+<script type="text/javascript" src="http://forums.relicnews.com/clientscript/ncode_imageresizer.js"></script>
+
+<script type="text/javascript">
+<!--
+NcodeImageResizer.MODE = 'newwindow';
+NcodeImageResizer.MAXWIDTH = '640';
+NcodeImageResizer.MAXHEIGHT = '0';
+NcodeImageResizer.BBURL = 'http://forums.relicnews.com';
+
+vbphrase['ncode_imageresizer_warning_small'] = 'Click this bar to view the full image.';
+vbphrase['ncode_imageresizer_warning_filesize'] = 'Click this bar to view the original image of %1$sx%2$spx and %3$sKB.';
+vbphrase['ncode_imageresizer_warning_no_filesize'] = 'Click this bar to view the original image of %1$sx%2$spx.';
+vbphrase['ncode_imageresizer_warning_fullsize'] = 'Click this bar to view the small image.';
+// -->
+</script>
+
+
+    <style type="text/css">
+    table.ncode_imageresizer_warning {background: #FFFACD; color: #000000; cursor: pointer; border: 1px solid #EADB9D; margin-bottom: 3px; margin-top: 10px;}
+    table.ncode_imageresizer_warning td {font-size: 11px; font-family: Verdana, Arial, Helvetica, sans-serif; vertical-align: middle; text-decoration: none; border-width: 0px;}
+    table.ncode_imageresizer_warning td.td1 {padding: 4px 0px 4px 4px;}
+    table.ncode_imageresizer_warning td.td2 {padding: 4px;}
+    table.ncode_imageresizer_warning td.td1 img {margin: 0px;}
+    </style>
+ 
+</head>
+
+<body>
+
+<div class="above_body">
+<div id="header" class="floatcontainer doc_header">
+	<div><a name="top" href="forum.php?s=46d3ff8a26c1ded49933ecc1582d32ce" class="logo-image"><img src="images/rn_logo.gif" alt="Relicnews Forums - Powered by vBulletin" /></a></div>
+	<div id="toplinks" class="toplinks">
+		
+			<ul class="nouser">
+			
+				<li><a href="register.php?s=46d3ff8a26c1ded49933ecc1582d32ce" rel="nofollow">Register</a></li>
+			
+				<li><a rel="help" href="faq.php?s=46d3ff8a26c1ded49933ecc1582d32ce">Help</a></li>
+				<li>
+			<script type="text/javascript" src="clientscript/vbulletin_md5.js?v=421"></script>
+			<form id="navbar_loginform" action="login.php?s=46d3ff8a26c1ded49933ecc1582d32ce&amp;do=login" method="post" onsubmit="md5hash(vb_login_password, vb_login_md5password, vb_login_md5password_utf, 0)">
+				<fieldset id="logindetails" class="logindetails">
+					<div>
+						<div>
+					<input type="text" class="textbox default-value" name="vb_login_username" id="navbar_username" size="10" accesskey="u" tabindex="101" value="User Name" />
+					<input type="password" class="textbox" tabindex="102" name="vb_login_password" id="navbar_password" size="10" />
+					<input type="text" class="textbox default-value" tabindex="102" name="vb_login_password_hint" id="navbar_password_hint" size="10" value="Password" style="display:none;" />&nbsp;<input type="checkbox" name="cookieuser" value="1" id="cb_cookieuser_navbar" class="cb_cookieuser_navbar" accesskey="c" tabindex="103" checked="checked" />
+					<input type="submit" class="loginbutton" tabindex="104" value="Log in" title="Enter your username and password in the boxes provided to login, or click the 'register' button to create a profile for yourself." accesskey="s" />
+						</div>
+					</div>
+				</fieldset>
+				
+
+				<input type="hidden" name="s" value="46d3ff8a26c1ded49933ecc1582d32ce" />
+				<input type="hidden" name="securitytoken" value="guest" />
+				<input type="hidden" name="do" value="login" />
+				<input type="hidden" name="vb_login_md5password" />
+				<input type="hidden" name="vb_login_md5password_utf" />
+			</form>
+			<script type="text/javascript">
+			YAHOO.util.Dom.setStyle('navbar_password_hint', "display", "inline");
+			YAHOO.util.Dom.setStyle('navbar_password', "display", "none");
+			vB_XHTML_Ready.subscribe(function()
+			{
+			//
+				YAHOO.util.Event.on('navbar_username', "focus", navbar_username_focus);
+				YAHOO.util.Event.on('navbar_username', "blur", navbar_username_blur);
+				YAHOO.util.Event.on('navbar_password_hint', "focus", navbar_password_hint);
+				YAHOO.util.Event.on('navbar_password', "blur", navbar_password);
+			});
+			
+			function navbar_username_focus(e)
+			{
+			//
+				var textbox = YAHOO.util.Event.getTarget(e);
+				if (textbox.value == 'User Name')
+				{
+				//
+					textbox.value='';
+					textbox.style.color='#fff';
+				}
+			}
+
+			function navbar_username_blur(e)
+			{
+			//
+				var textbox = YAHOO.util.Event.getTarget(e);
+				if (textbox.value == '')
+				{
+				//
+					textbox.value='User Name';
+					textbox.style.color='#fff';
+				}
+			}
+			
+			function navbar_password_hint(e)
+			{
+			//
+				var textbox = YAHOO.util.Event.getTarget(e);
+				
+				YAHOO.util.Dom.setStyle('navbar_password_hint', "display", "none");
+				YAHOO.util.Dom.setStyle('navbar_password', "display", "inline");
+				YAHOO.util.Dom.get('navbar_password').focus();
+			}
+
+			function navbar_password(e)
+			{
+			//
+				var textbox = YAHOO.util.Event.getTarget(e);
+				
+				if (textbox.value == '')
+				{
+					YAHOO.util.Dom.setStyle('navbar_password_hint', "display", "inline");
+					YAHOO.util.Dom.setStyle('navbar_password', "display", "none");
+				}
+			}
+			</script>
+				</li>
+				
+			</ul>
+		
+	</div>
+	<div class="ad_global_header">
+		 
+		 
+	</div>
+	<hr />
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-19489941-1']);
+  _gaq.push(['_setDomainName', '.relicnews.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</div>
+<div id="navbar" class="navbar">
+
+	<ul id="navtabs" class="navtabs floatcontainer">
+		
+		
+			<li class="selected"><a class="navtab" href="forum.php?s=46d3ff8a26c1ded49933ecc1582d32ce">Forum</a>
+				<ul class="floatcontainer">
+					
+					
+					
+					
+					
+					<li><a rel="help" href="faq.php?s=46d3ff8a26c1ded49933ecc1582d32ce" accesskey="5">FAQ</a></li>
+					
+					<li><a href="calendar.php?s=46d3ff8a26c1ded49933ecc1582d32ce">Calendar</a></li>
+					
+
+					
+					<li class="popupmenu">
+						<a href="javascript://" class="popupctrl" accesskey="6">Community</a>
+						<ul class="popupbody popuphover">
+							
+							
+							
+							
+							
+								<li><a href="memberlist.php?s=46d3ff8a26c1ded49933ecc1582d32ce">Member List</a></li>
+							
+							
+						</ul>
+					</li>
+					
+					
+					<li class="popupmenu">
+						<a href="javascript://" class="popupctrl">Forum Actions</a>
+						<ul class="popupbody popuphover">
+							<li>
+								<a href="forumdisplay.php?s=46d3ff8a26c1ded49933ecc1582d32ce&amp;do=markread&amp;markreadhash=guest">Mark Forums Read</a>
+							</li>
+                                                        
+						</ul>
+					</li>
+					<li class="popupmenu">
+						<a href="javascript://" class="popupctrl" accesskey="3">Quick Links</a>
+						<ul class="popupbody popuphover">
+							
+							
+							<li><a href="showgroups.php?s=46d3ff8a26c1ded49933ecc1582d32ce" rel="nofollow">
+		
+			View Site Leaders
+		
+	</a></li>
+							
+							
+							
+							
+							
+							
+						</ul>
+					</li>
+					
+				</ul>
+
+			</li>
+		
+		
+		
+			<li><a class="navtab" href="search.php?s=46d3ff8a26c1ded49933ecc1582d32ce&amp;do=getdaily&amp;contenttype=vBForum_Post" accesskey="2">What's New?</a></li>
+		
+		
+	</ul>
+
+	
+	<div id="globalsearch" class="globalsearch">
+		<form action="search.php?s=46d3ff8a26c1ded49933ecc1582d32ce&amp;do=process" method="post" id="navbar_search" class="navbar_search">
+			
+			<input type="hidden" name="securitytoken" value="guest" />
+			<input type="hidden" name="do" value="process" />
+			<span class="textboxcontainer"><span><input type="text" placeholder="Search" name="query" class="textbox" tabindex="99"/></span></span>
+			<span class="buttoncontainer"><span><input type="image" class="searchbutton" src="images/buttons/search.png" name="submit" onclick="document.getElementById('navbar_search').submit;" tabindex="100"/></span></span>
+		</form>
+		
+	</div>
+	
+</div>
+</div><!-- closing div for above_body -->
+
+<div class="body_wrapper">
+
+<div id="breadcrumb" class="breadcrumb">
+	<ul class="floatcontainer">
+		<li class="navbithome"><a href="index.php?s=46d3ff8a26c1ded49933ecc1582d32ce" accesskey="1"><img src="images/misc/navbit-home.png" alt="Home" /></a></li>
+
+		
+	<li class="navbit"><a href="forum.php?s=46d3ff8a26c1ded49933ecc1582d32ce">Forum</a></li>
+
+	<li class="navbit"><a href="forumdisplay.php?291-Game-Mods&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Game Mods</a></li>
+
+	<li class="navbit"><a href="forumdisplay.php?47-Relic-Game-Mods&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Relic Game Mods</a></li>
+
+	<li class="navbit"><a href="forumdisplay.php?72-Homeworld-2-Tanis-Shipyards&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Homeworld 2 - Tanis Shipyards</a></li>
+
+	<li class="navbit"><a href="forumdisplay.php?87-Archive-Dump&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Archive Dump</a></li>
+
+		
+	<li class="navbit lastnavbit"><span> HOD File Format (Regardless of type)</span></li>
+
+	</ul>
+	<hr />
+</div>
+
+ 
+<div id="ad_global_below_navbar"><table border="0" width="100%" cellpadding="1" align="center" cellspacing="0">
+<tr>
+<td width="728" align=left>
+<!-- Beginning of Project Wonderful ad code: -->
+<!-- Ad box ID: 42750 -->
+<script type="text/javascript">
+<!--
+var pw_d=document;
+pw_d.projectwonderful_adbox_id = "42750";
+pw_d.projectwonderful_adbox_type = "5";
+pw_d.projectwonderful_foreground_color = "";
+pw_d.projectwonderful_background_color = "";
+//-->
+</script>
+<script type="text/javascript" src="http://www.projectwonderful.com/ad_display.js"></script>
+<noscript><map name="admap42750" id="admap42750"><area href="http://www.projectwonderful.com/out_nojs.php?r=0&amp;c=0&amp;id=42750&amp;type=5" shape="rect" coords="0,0,728,90" title="" alt="" target="_blank" /></map>
+<table cellpadding="0" border="0" cellspacing="0" width="728" bgcolor="#D9D9D9"><tr><td><img src="http://www.projectwonderful.com/nojs.php?id=42750&amp;type=5" width="728" height="90" usemap="#admap42750" border="0" alt="" /></td></tr><tr><td bgcolor="#D9D9D9" colspan="1"><center><a style="font-size:10px;color:#000066;text-decoration:none;line-height:1.2;font-weight:bold;font-family:Tahoma, verdana,arial,helvetica,sans-serif;text-transform: none;letter-spacing:normal;text-shadow:none;white-space:normal;word-spacing:normal;" href="http://www.projectwonderful.com/advertisehere.php?id=42750&amp;type=5" target="_blank">Ads by Project Wonderful!  Your ad here, right now: $0</a></center></td></tr></table>
+</noscript>
+<!-- End of Project Wonderful ad code. --></td>
+
+<td align=right>
+
+  <div align="left">
+  <!-- Beginning of Project Wonderful ad code: -->
+  <!-- Ad box ID: 43340 -->
+  <script type="text/javascript">
+<!--
+var pw_d=document;
+pw_d.projectwonderful_adbox_id = "43340";
+pw_d.projectwonderful_adbox_type = "2";
+pw_d.projectwonderful_foreground_color = "";
+pw_d.projectwonderful_background_color = "";
+//-->
+</script>
+  <script type="text/javascript" src="http://www.projectwonderful.com/ad_display.js"></script>
+  <noscript>
+  <map name="admap43340" id="admap43340">
+    <area href="http://www.projectwonderful.com/out_nojs.php?r=0&amp;c=0&amp;id=43340&amp;type=2" shape="rect" coords="0,0,117,30" title="" alt="" target="_blank" />
+    <area href="http://www.projectwonderful.com/out_nojs.php?r=0&amp;c=1&amp;id=43340&amp;type=2" shape="rect" coords="117,0,234,30" title="" alt="" target="_blank" />
+    <area href="http://www.projectwonderful.com/out_nojs.php?r=1&amp;c=0&amp;id=43340&amp;type=2" shape="rect" coords="0,30,117,60" title="" alt="" target="_blank" />
+    <area href="http://www.projectwonderful.com/out_nojs.php?r=1&amp;c=1&amp;id=43340&amp;type=2" shape="rect" coords="117,30,234,60" title="" alt="" target="_blank" />
+    <area href="http://www.projectwonderful.com/out_nojs.php?r=2&amp;c=0&amp;id=43340&amp;type=2" shape="rect" coords="0,60,117,90" title="" alt="" target="_blank" />
+    <area href="http://www.projectwonderful.com/out_nojs.php?r=2&amp;c=1&amp;id=43340&amp;type=2" shape="rect" coords="117,60,234,90" title="" alt="" target="_blank" />
+  </map>
+  <table cellpadding="0" border="0" cellspacing="0" width="234" bgcolor="">
+    <tr>
+      <td><img src="http://www.projectwonderful.com/nojs.php?id=43340&amp;type=2" width="234" height="90" usemap="#admap43340" border="0" alt="" /></td>
+    </tr>
+    <tr>
+      <td bgcolor="" colspan="2"><center>
+        <a style="font-size:10px;color:#000000;text-decoration:none;line-height:1.2;font-weight:bold;font-family:Tahoma, verdana,arial,helvetica,sans-serif;text-transform: none;letter-spacing:normal;text-shadow:none;white-space:normal;word-spacing:normal;" href="http://www.projectwonderful.com/advertisehere.php?id=43340&amp;type=2" target="_blank">Your ad here, right now: $0.02</a>
+      </center></td>
+    </tr>
+  </table>
+  </noscript>
+  </div>
+<!-- End of Project Wonderful ad code. -->
+
+</tr></td></table></div>
+
+
+	<form action="profile.php?do=dismissnotice" method="post" id="notices" class="notices">
+		<input type="hidden" name="do" value="dismissnotice" />
+		<input type="hidden" name="s" value="s=46d3ff8a26c1ded49933ecc1582d32ce&amp;" />
+		<input type="hidden" name="securitytoken" value="guest" />
+		<input type="hidden" id="dismiss_notice_hidden" name="dismiss_noticeid" value="" />
+		<input type="hidden" name="url" value="" />
+		<ol>
+			<li class="restore" id="navbar_notice_1">
+	
+	If this is your first visit, be sure to
+		check out the <a href="faq.php?s=46d3ff8a26c1ded49933ecc1582d32ce" target="_blank"><b>FAQ</b></a> by clicking the
+		link above. You may have to <a href="register.php?s=46d3ff8a26c1ded49933ecc1582d32ce" target="_blank"><b>register</b></a>
+		before you can post: click the register link above to proceed. To start viewing messages,
+		select the forum that you want to visit from the selection below.
+</li>
+		</ol>
+	</form>
+ 
+
+
+
+	<div id="above_postlist" class="above_postlist">
+		
+
+		<div id="pagination_top" class="pagination_top">
+		
+			<div id="postpagestats_above" class="postpagestats">
+				Results 1 to 3 of 3
+			</div>
+		</div>
+	</div>
+<div id="pagetitle" class="pagetitle">
+	<h1><span class="forumtitle2"><a href="showthread.php?99226-HOD-File-Format-(Regardless-of-type)&s=46d3ff8a26c1ded49933ecc1582d32ce" title="Reload this Page">HOD File Format (Regardless of type)</a></span>
+		
+	</h1>
+</div>
+	<div id="thread_controls" class="thread_controls toolsmenu">
+		<div>
+		<ul id="postlist_popups" class="postlist_popups popupgroup">
+			
+			
+			<li class="popupmenu" id="threadtools">
+				<h6><a class="popupctrl" href="javascript://">Thread Tools</a></h6>
+				<ul class="popupbody popuphover">
+					<li><a href="printthread.php?s=46d3ff8a26c1ded49933ecc1582d32ce&amp;t=99226&amp;pp=50&amp;page=1" accesskey="3" 
+						rel="nofollow">Show Printable Version</a></li>
+					<li><a href="sendmessage.php?s=46d3ff8a26c1ded49933ecc1582d32ce&amp;do=sendtofriend&amp;t=99226"
+						rel="nofollow">Email this Page&hellip;</a></li>
+					<li>
+						
+							<a href="subscription.php?s=46d3ff8a26c1ded49933ecc1582d32ce&amp;do=addsubscription&amp;t=99226" 
+								rel="nofollow">Subscribe to this Thread&hellip;</a>
+											
+					</li>
+					
+				</ul>
+			</li>
+
+			
+
+			
+
+			
+
+			
+
+			
+		</ul>
+		</div>
+	</div>
+
+<div id="postlist" class="postlist restrain">
+	
+
+	
+		<ol id="posts" class="posts" start="1">
+			
+<li class="postbitlegacy postbitim postcontainer" id="post_1599794">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+		
+			<span class="postdate old">
+				
+					<span class="date">18th Jul 06&nbsp;<span class="time">6:41 AM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+			
+				<span><img src="images/badges_small/seniormember.png" alt="" border="" /></span>
+			
+				
+					<a name="post1599794" href="showthread.php?99226-HOD-File-Format-(Regardless-of-type)&amp;s=46d3ff8a26c1ded49933ecc1582d32ce&amp;p=1599794&amp;viewfull=1#post1599794" class="postcounter">#1</a><a id="postcount1599794" name="1"></a>
+				
+				
+				
+			</span>
+		
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			
+				<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?70892-4E534B&amp;s=46d3ff8a26c1ded49933ecc1582d32ce" title="4E534B is offline"><strong>4E534B</strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<a href="member.php?70892-4E534B&amp;s=46d3ff8a26c1ded49933ecc1582d32ce" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="search.php?s=46d3ff8a26c1ded49933ecc1582d32ce&amp;do=finduser&amp;userid=70892&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+		
+		<li class="right">
+			<a href="http://forums.relicnews.com/list.php?author/70892-4E534B&amp;s=46d3ff8a26c1ded49933ecc1582d32ce" class="siteicon_article" rel="nofollow">
+				View Articles
+			</a>
+		</li>
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="4E534B is offline" border="0" />
+
+			
+			</div>
+			<span class="usertitle">
+				Senior Member
+			</span>
+
+			
+			
+			 
+			
+				<hr />
+				<dl class="userinfo_extra">
+					<dt>Join Date</dt> <dd>May 2006</dd>
+					
+					
+						
+					
+				</dl>
+				
+				
+				<div class="imlinks">
+					    
+				</div>
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow has_after_content">
+				
+				
+				<h2 class="title icon">
+					HOD File Format (Regardless of type)
+				</h2>
+				
+
+
+						
+							
+							
+						
+						
+				<div class="content">
+					<div id="post_message_1599794">
+						<blockquote class="postcontent restore ">
+							So, this is complete-regardless of type file format for HODs ( and the one which CFHodEd uses, heyhey )<br />
+ <br />
+<div class="bbcode_container">
+	<div class="bbcode_description">Code:</div>
+	<pre class="bbcode_code"style="height:372px;">##########################################################################################################################
+---- format ----
+FORM
+-&gt; Version FORM
+FORM
+-&gt; NAME FORM
+FORM
+-&gt; HVMD FORM
+-&gt; -&gt; LITE form
+-&gt; -&gt; for each material, STAT FORM
+-&gt; -&gt; for each textured material, LMIP FORM
+-&gt; -&gt; VARY FORMS for each object
+-&gt; -&gt; NRML FORM
+-&gt; -&gt; -&gt; BGLT FORM
+-&gt; -&gt; FORM
+-&gt; -&gt; -&gt; BGMS FORM
+-&gt; -&gt; -&gt; -&gt; Basic MeSHes form
+-&gt; -&gt; SIMP FORM, for each SIMPle mesh
+-&gt; -&gt; NRML FORM
+-&gt; -&gt; -&gt; MULTi-Mesh Form
+-&gt; -&gt; -&gt; -&gt; &quot;NRML&quot; Form
+-&gt; -&gt; -&gt; -&gt; -&gt; Basic MeSH Form (LOD0)
+-&gt; -&gt; -&gt; -&gt; -&gt; -&gt; For each material used, a polygonal object.
+-&gt; -&gt; -&gt; -&gt; -&gt; -&gt; -&gt; Face Strips (if needed)
+-&gt; -&gt; -&gt; -&gt; -&gt; -&gt; -&gt; Face List for misc faces (usually this is ALWAYS present)
+-&gt; -&gt; -&gt; -&gt; &quot;NRML&quot; Form
+-&gt; -&gt; -&gt; -&gt; -&gt; Basic MeSH Form (LOD1)
+-&gt; -&gt; -&gt; -&gt; &quot;NRML&quot; Form
+-&gt; -&gt; -&gt; -&gt; -&gt; Basic MeSH Form (LOD2)
+-&gt; -&gt; -&gt; -&gt; &quot;NRML&quot; Form
+-&gt; -&gt; -&gt; -&gt; -&gt; Basic MeSH Form (LOD3)
+-&gt; -&gt; -&gt; -&gt; &quot;NRML&quot; Form
+-&gt; -&gt; -&gt; -&gt; -&gt; Basic MeSH Form (LOD4)
+-&gt; -&gt; -&gt; -&gt; &quot;NRML&quot; Form
+-&gt; -&gt; -&gt; -&gt; -&gt; Basic MeSH Form (LOD5)
+-&gt; -&gt; -&gt; -&gt; &quot;NRML&quot; Form
+-&gt; -&gt; -&gt; -&gt; -&gt; Basic MeSH Form (LOD6)
+-&gt; -&gt; -&gt; -&gt; &quot;NRML&quot; Form
+-&gt; -&gt; -&gt; -&gt; -&gt; Basic MeSH Form (LOD7)
+-&gt; -&gt; -&gt; -&gt; &quot;NRML&quot; Form
+-&gt; -&gt; -&gt; -&gt; -&gt; Basic MeSH Form (LOD8)
+-&gt; -&gt; -&gt; -&gt; &quot;NRML&quot; Form
+-&gt; -&gt; -&gt; -&gt; -&gt; Basic MeSH Form (LOD9)
+-&gt; -&gt; &quot;NRML&quot; form
+-&gt; -&gt; -&gt; GOBlin-Group Form ( same as MULT, except that doesn't have &quot;Number of LoDs&quot; paramter in its Basic MeSH )
+-&gt; -&gt; -&gt; -&gt; Basic MeSH Form
+-&gt; -&gt; -&gt; &quot;GOBS&quot; -&gt; Out dated and not used
+-&gt; -&gt; -&gt; &quot;GOBD&quot; -&gt; Out dated and unused
+-&gt; -&gt; FORM
+-&gt; -&gt; -&gt; BackGround Star Group FORM [Only for Backgrounds]
+FORM
+-&gt; DTRM Form
+-&gt; -&gt; HEIRarchy Form
+-&gt; -&gt; Engine Trail SHape Form
+-&gt; -&gt; engine GLOW Form
+-&gt; -&gt; engine BURN Form
+-&gt; -&gt; NAVigation Lights Form
+-&gt; -&gt; DAMaGe points Form -&gt; (seems obsolete)
+-&gt; -&gt; DOCKing paths Form
+-&gt; -&gt; HARDpoints Form -&gt; Not used now
+-&gt; -&gt; MaRKeRs Form (may contain ANiMation forms)
+-&gt; -&gt; STaR Fields form [Only for Backgrounds]
+-&gt; -&gt; BouNDary Values Form
+-&gt; -&gt; COLlision Detection meshes Form
+-&gt; -&gt; Battle Scar Ref Mesh Form (NOT for Backgrounds)
+-&gt; -&gt; -&gt; &quot;DESC&quot; Form
+-&gt; -&gt; -&gt; Bounding BOX Form.
+-&gt; -&gt; -&gt; Boundary SPHere Form
+-&gt; -&gt; -&gt; &quot;TRIS&quot; Form (probably)
+-&gt; -&gt; -&gt; Vertex NoRMals Form
+-&gt; -&gt; -&gt; Spatial SUBdivision Form
+FORM
+-&gt; INFO Form
+[if needed]
+-&gt; -&gt; WARN Form
+-&gt; -&gt; -&gt; Form Length
+-&gt; -&gt; ERRR Form
+-&gt; -&gt; -&gt; Form Length
+[usually always present]
+-&gt; -&gt; OWNR Form
+-&gt; -&gt; -&gt; Form Length
+---- End ----
+##########################################################################################################################
+---- Version FORM ----
+&quot;FORM&quot;
+&lt;length, in bytes, big endian&gt; {ulong}
+&quot;VERS&quot;
+&lt;version, always HEX:[00020000], ie 512, LittleEndian&gt;
+--- End ----
+---- NAME FORM ----
+&quot;FORM&quot;
+&lt;length, in bytes, big endian&gt; {ulong}
+&quot;NAME&quot;
+&lt;type of file. Can be as follows:
+ &quot;Homeworld2 Multi Mesh File&quot;
+ &quot;Homeworld2 Simple Mesh File&quot;
+ &quot;Homeworld2 Wireframe Mesh File&quot;&gt;
+--- End ----
+---- HVMD FORM ----
+(seems to be a non-deterministic section of data)
+&quot;FORM&quot;
+&lt;length, in bytes, big endian&gt; {ulong}
+&quot;HVMD&quot;
+LITE chunks for each light.
+STAT chunks for each material.
+LMIP chunks for materials.
+MULT\GOBG chunks for objects.
+---- end ----
+---- LITE FORM ----
+&quot;LITE&quot;
+&lt;length of this FORM, in bytes, big endian&gt; {ulong}
+&lt;no of lights, little endian&gt; {ulong}
+ for each light
+ --
+ &lt;length of light's name, in bytes, little endian&gt; {ulong}
+ &lt;name of light&gt; {char}
+ &lt;type of light: 0 = Ambient Light
+			   1 = Area Light
+			   2 = Directional Light
+			   3 = Point Light
+			   4 = Spot Light
+			   5 = Volume Light, little endian&gt; {ulong}
+ &lt;X Y Z co-ords, LE&gt; {float, ie single}
+ &lt;R G B Colour, LE&gt; {float, ie single}
+ &lt;R G B Specularity, LE&gt; {float, ie single}
+ &lt;Attenuation, LE&gt; {ulong}
+ &lt;Attenuation Distance, LE&gt; {float, ie single}
+ --
+---- end ----
+---- STAT FORM ----
+&quot;STAT&quot;
+HEX:[000003E9] &lt;- always next to stat, like an identifier. It's the version!!!
+&lt;length of material's name, in bytes, little endian&gt; {ulong}
+&lt;name of the material&gt; {char}
+&lt;length of shader's name, in bytes, little endian&gt; {ulong}
+&lt;no of layers for this material, little endian&gt; {ulong}
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT if zero, next chunk won't exist, end of STAT
+ HEX: [0500000004000000]  &lt;--- Looks like a identifer for a material with texture.
+  TTTTTTTTTTTTTTTT   &lt;--- Yes. This is an identifier for a textured material
+&lt;layer number, globally, for this 'parameter', little endian&gt; {ulong}
+&lt;length of layer('parameter')'s name, little endian&gt; {ulong}
+&lt;name of layer('parameter')&gt; {char}
+---- end ----
+---- LMIP FORM ----
+&quot;LMIP&quot;
+&lt;length of this LMIP chunk, in bytes, big endian&gt; {ulong}
+&lt;length of file name with path, in bytes, little endian&gt; {ulong}
+&lt;file name\path&gt; {char}
+&lt;type of file&gt; {char}
+&lt;no of mips, little endian&gt; ulong
+&lt;width, little endian&gt; ulong
+&lt;height, little endian&gt; ulong
+&lt;data stream for picture&gt;
+---- end ----
+---- VARY FORM ----
+&quot;VARY&quot;
+&lt;length of this chunk, in bytes, big endian&gt; {ulong}
+&lt;length of name of this mesh, Little Endian&gt; {ulong}
+&lt;name of this mesh&gt; {char}
+&lt;length of name of the joint, which this mesh is attached to, Little Endian&gt; {ulong}
+&lt;name of the joint this mesh is attached to&gt; {char}
+&lt;number of vertices, LE&gt;, {ulong}
+&lt;number of wedges, LE&gt;, {ulong}
+&lt;number of faces, LE&gt;, {ulong}
+&lt;number of collapses (?), LE&gt;, {ulong}
+&lt;number of uv sets, always 1, LE&gt;, {ulong}
+for each vertex
+ &lt;X Y Z position of the vert., LE&gt;, {ulong}
+for each wedge
+ &lt;vertex number, LE&gt;, {ulong}
+ &lt;X Y Z position, LE&gt;, {ulong}
+ &lt;U V co-ords., LE&gt;, {ulong}
+ &lt;colour, LE&gt;, {ulong}
+for each face
+ &lt;material used, LE&gt;, {ulong}
+ &lt;wedge used, LE&gt;, {ulong}
+ &lt;face (?), LE&gt;, {slong (!)}
+for each collapse
+ &lt;number of fix-ups, LE&gt;, {ulong}
+ for each fix-up
+  &lt;type of fix, LE&gt;, {ulong}
+  &lt;data0, LE&gt;, {ulong}
+  &lt;data1, LE&gt;, {ushort}
+  &lt;data2, LE&gt;, {ushort}
+---- end ----
+---- BGLT FORM ----
+&quot;NRML&quot;
+&lt;length of this chunk, in bytes, big endian&gt; {ulong}
+&quot;BGLT&quot;
+&lt;length of this chunk, in bytes, always ZERO???, big endian&gt; {ulong}
+---- end ----
+---- BGMS FORM ----
+&quot;NRML&quot;
+&lt;length of this chunk, in bytes, big endian&gt; {ulong}
+&quot;BGMS&quot;
+&lt;Basic MeSHes for different parts, usually 16&gt;
+---- end ----
+---- SIMP FORM ----
+&quot;SIMP&quot;
+&lt;length of this chunk, in bytes, big endian&gt; {ulong}
+&lt;length of name of this mesh, this is zero for wire-frame(s) and single SIMP exists (!), Little Endian&gt; {ulong}
+&lt;name of this mesh&gt; {char}
+&lt;number of vertices, LE&gt;, {ulong}
+&lt;vertex data...&gt;
+&lt;num face lists\strips, this is zero in wire-frame(s) LE&gt;, {ulong}
+&lt;face list data..., note: this is LONGs instead of SHORTs in the usual format (!)&gt;
+---- end ----
+---- MULT FORM ----
+(mult = multi mesh, for ships, somewhat like simple meshes)
+&quot;NRML&quot;
+&lt;form length, BE&gt; {ulong}
+&quot;MULT&quot; or &quot;GOBG&quot;
+&lt;version, of this MultiMesh 
+ Note: This should ALWAYS be 1400 (for MULT) or 1000 (for GOBG), big endian(BE)&gt; {ulong}
+&lt;length of name of this mesh, Little Endian&gt; {ulong}
+&lt;name of this mesh&gt; {char}
+&lt;length of name of the joint, which this mesh is attached to, Little Endian&gt; {ulong}
+&lt;name of the joint this mesh is attached to&gt; {char}
+&lt;number of BMSH forms in this MM form, LE, not present for &quot;GOBG&quot; chunks&gt; {ulong}
+  BMSH forms, for each lod...
+---- end -----
+---- BMSH FORM ----
+&quot;NRML&quot;
+&lt;num bytes for this form&gt;, {ulong}
+&quot;BMSH&quot;
+&lt;version, of this BasicMesh.
+ Note: This should ALWAYS be 1400 (type doesn't matter), big endian(BE)&gt; {ulong}
+&lt;lod of the mesh(es), Little Endian(LE)&gt; {ulong}
+&lt;number of mesh(es) in this BMSH form, LE&gt; {ulong}
+&lt;STAT(material) number used, probably LE&gt; {ulong}
+&lt;vertex mask, this is 27 for Normal MULTi-meshes, and 11 if the vertex data only has X Y Z co-ords (no normals, UVs, of Colours) (ie not a background), LE &gt; {ulong} ???
+&lt;num vertices in this part, LE&gt; {ulong}
+&lt;vertex data...&gt;
+&lt;num face lists\strips, LE&gt;, {ulong}
+&lt;face list data...&gt;
+---- vtxd ----
+&lt;co-ords, LE&gt; {float, ie single}
+&lt;filler1, always 1, LE&gt; {float, ie single}
+&lt;vertex normal, LE&gt; {float, ie single}
+&lt;filler2, always 1, LE&gt; {float, ie single}
+&lt;uv coords&gt; {float, ie single}
+---- end ----
+---- facd ----
+&lt;type of facelists, 514( (optimized?) strips) OR 518(lists), LE&gt;, {ulong}
+&lt;number of faces this this list, not faces, but entries,
+  for lists, this is numFaces * 3, for strips, this is, should be, numFaces - 2, LE&gt;, {ulong}
+&lt;face list, in triplets, LE&gt;, ushort (Important!!! This starts from zero! wOBJ starts from 1!)
+  (Strips are a bit... different that lists, Stay Sharp)
+---- end ---- 
+---- HEIR FORM ----
+&quot;HEIR&quot;
+&lt;num bytes for this form&gt;, {ulong}
+&lt;number of joints, LE&gt;, {ulong}
+- for each joint -
+  &lt;length of name of joint, LE&gt;, {ulong}
+  &lt;name of joint&gt;, {char}
+  &lt;length of name of parent, LE&gt;, {ulong}
+  &lt;name of parent&gt;, {char} &lt;- note, this CAN be null, and above one zero...
+  &lt;position in X,Y,Z axis, LE&gt;, float
+  &lt;rotation in X,Y,Z axis, this is radians, LE&gt;, float
+  &lt;scale in X,Y,Z axis, LE&gt;, float
+  &lt;axis of this joint, ie 0,0,0 is normal, 0,180,0 means reverse Z-axis, 
+  ie maybe this is applied to it's children after rotation. again, this is 
+  in radians, not degrees, LE&gt;, float
+  &lt;freedom, in X, Y, Z axis, this is zero for 'EngineNozzle's
+	note: in Maya, children joints\objects can be rotated if deg. of freedom is 
+	off. This may not be true in game, Also, it is POSSIBLE to give rotation 
+	even when deg. of freedom is false, or zero... LE&gt;, {bool}
+- next joint -
+---- end ----
+---- ETSH FORM ----
+&quot;ETSH&quot;
+&lt;num bytes for this form&gt;, {ulong}
+&lt;length of name of this mesh, Little Endian&gt; {ulong}
+&lt;name of this mesh&gt; {char}
+&lt;length of name of the joint, which this mesh is attached to, Little Endian&gt; {ulong}
+&lt;name of the joint this mesh is attached to&gt; {char}
+&lt;number of vertices, LE&gt;, {ulong}
+&lt;vertices, (these are usually in form of QUADs) position at X Y Z axis ONLY, LE&gt;, {float}
+---- end ----
+---- GLOW FORM ----
+&quot;FORM&quot;
+&lt;num bytes for this form&gt;, {ulong}
+&quot;GLOW&quot;
+&lt;&quot;INFO&quot;:
+  &lt;version, always 1000, BE&gt;, unlong
+  &lt;length of name of this mesh, LE&gt; {ulong}
+  &lt;name of this mesh&gt; {char}
+  &lt;length of name of the joint, which this mesh is attached to, LE&gt; {ulong}
+  &lt;name of the joint this mesh is attached to&gt;, {char}
+  &lt;LoD of this mesh, LE&gt;, {ulong} &gt;
+&lt;BMSH Forms for LoD&gt;
+---- end ----
+---- BURN FORM ----
+&quot;BURN&quot;
+&lt;num bytes for this form&gt;, {ulong}
+&lt;length of name of this mesh, Little Endian&gt; {ulong}
+&lt;name of this mesh&gt; {char}
+&lt;length of name of the joint, which this mesh is attached to, Little Endian&gt; {ulong}
+&lt;name of the joint this mesh is attached to&gt; {char}
+&lt;number of vertices, LE&gt;, {ulong}
+&lt;nurbs count, this should be one, LE&gt;, {ulong}
+&lt;vertices, position at X Y Z axis ONLY, LE&gt;, {float}
+  note: these are usually a NURBS Curve, but are points, 
+  later points have higher Z position, X,Y deviation is possible
+---- end ----
+---- NAVL FORM ----
+&quot;NRML&quot;
+&lt;num bytes for this form&gt;, {ulong}
+&quot;NAVL&quot;
+&lt;version, LE&gt;, {ulong}
+&lt;number of NavLights, LE&gt;, {ulong}
+-- for each NavLight --
+  &lt;length of name of this navlight, LE&gt;, {ulong}
+  &lt;name of navlight&gt;, {char}
+  &lt;section, LE&gt;, {ulong}
+  &lt;size, LE&gt;, {float}
+  &lt;phase, LE&gt;, {float}
+  &lt;frequency, LE&gt;, {float}
+  &lt;length of style name&gt; {ulong}
+  &lt;style&gt; {char}
+  &lt;colour, RGBA, normalized, LE&gt;, {float}
+  &lt;distance of light casting, LE&gt;, {float}
+  &lt;sprite is visible&gt;, {bool}
+  &lt;light casted on high-end systems only&gt;, {bool}
+-- next Navlight --
+---- end ----
+---- DOCK FORM ----
+&quot;DOCK&quot;
+&lt;num bytes for this form&gt;, {ulong}
+&lt;num of paths, LE&gt;, {ulong}
+-- for each path --
+  &lt;length of name of this path, LE&gt;, {ulong}
+  &lt;name of path&gt;, {char}
+  &lt;length of name of parent of this path, LE&gt;, {ulong}
+  &lt;name of parent, &gt;, {char}
+	note: that unlike joints, this is world, instead of null, and usually this IS
+	world, instead of joint&gt;, {char}
+  &lt;number of properties, global for this path, this is SIX, LE&gt;, {ulong}
+  &lt;number of properties, for point on the path, this is TEN, LE&gt;, {ulong}
+  &lt;is this a exit path?, LE&gt;, {ulong}
+  &lt;is this a latch path?, LE&gt;, {ulong}
+  &lt;global tolerence, this is obsolete and should ALWAYS be zero, LE&gt;, {float}
+  &lt;length of name of dockable families, LE&gt;, {ulong}
+  &lt;dockable families&gt;, {char}
+  &lt;use animations?, LE&gt;, {ulong}
+  &lt;length of name of linked paths, LE&gt;, {ulong}
+  &lt;linked paths&gt;, {char}
+  &lt;number of frames, LE&gt;, {ulong}
+  -- for each frame --
+	&lt;X Y Z position at this frame, LE&gt;, {float}
+	&lt;X Y Z orientation at this frame, again, this is in radians, LE&gt;, {float}
+	&lt;use rotation?, LE&gt;, {ulong}
+	&lt;point tolerance, LE&gt;, {float}
+	&lt;drop focus?, LE&gt;, {ulong}
+	&lt;max speed, LE&gt;, {float}
+	&lt;check rotation before proceeding?, LE&gt;, {ulong}
+	&lt;force close behaviour, LE&gt;, {ulong}
+	&lt;player is in control?, LE&gt;, {ulong}
+	&lt;queue origin?, LE&gt;, {ulong}
+	&lt;use clip plane?, LE&gt;, {ulong}
+	&lt;clear reservation?, LE&gt;, {ulong}
+  -- next frame --
+-- next path --
+---- end ----
+---- MRKR FORM ----
+&quot;FORM&quot;
+&lt;num bytes for this form&gt;, {ulong}
+&quot;MRKR&quot; 
+&quot;NRML&quot;
+&lt;num bytes for this sub-form&gt;
+-- -- -- --
+  &quot;HEAD&quot;
+  &lt;version, for this sub sub-form, this is ONE for MARKERS, BE&gt;, {ulong}
+  &lt;length of name, LE&gt;, {ulong}
+  &lt;name&gt;, {char}
+  &lt;length of name of parent, LE&gt;, {ulong}
+  &lt;name of parent&gt;, {char}
+  &lt;start keyframe time, this is 24fps, LE&gt;, {float}
+  &lt;end keyframe time, this is 24fps, LE&gt;, {float}
+  &lt;X Y Z position, LE&gt;, {double}
+  &lt;X Y Z rotation, this is in radians, LE&gt;, {double}
+-- -- -- --
+  &quot;KEYF&quot;
+  &lt;num bytes for this sub-form&gt;
+	&quot;ANIM&quot;
+	&lt;version, for this sub sub-form, this is ONE here, LE&gt;, {ulong}
+	&lt;length of name of curve, LE&gt;, {ulong}
+	&lt;name of curve&gt;, {char}
+	&lt;number of keyframes, LE&gt;, {ulong}
+	-- for each keyframe --
+	  &lt;time, LE&gt;, {double}
+	  &lt;Value, LE&gt;, {double}
+	  &lt;inTangentX, LE&gt;, {float}
+	  &lt;inTangentY, LE&gt;, {float}
+	  &lt;outTangentX, LE&gt;, {float}
+	  &lt;outTangentY, LE&gt;, {float}
+	-- next keyframe --
+	&lt;Pre-infinity, LE&gt;, {ulong}
+	&lt;Post-infinity, LE&gt;, {ulong}
+---- end ----
+--- BGSG FORM ----
+&quot;FORM&quot;
+&lt;length of this chunk, in bytes, big endian&gt; {ulong}
+&quot;BGSG&quot;
+&lt;length of name of texture used, for stars, here, LE&gt;, {ulong}
+&lt;name of texture used, for stars, here&gt;, {char}
+&lt;number of star objects, LE&gt;, {ulong}
+  -- -- -- --[for each star]-- -- -- --
+  &lt;X Y Z position of the star, LE&gt;, {float}
+  &lt;size of the star, LE&gt;, {float}
+  &lt;R G B A colour of the star, LE&gt;, {float}
+  -- -- -- -- -- -- -- -- -- -- -- --
+---- end ----
+---- STRF FORM ----
+&quot;NRML&quot;
+&lt;num bytes for this form, BE&gt;, {ulong}
+&quot;STRF&quot;
+&lt;version, for this sub sub-form, this is 1000 for STRF, BE&gt;, {ulong}
+&lt;number of star objects, LE&gt;, {ulong}
+  -- -- -- --[for each star]-- -- -- --
+  &lt;X Y Z position of the star, LE&gt;, {float}
+  &lt;R G B colour of the star, LE&gt;, {float}
+  &lt;size of the star, LE&gt;, {float}
+  -- -- -- -- -- -- -- -- -- -- -- --
+---- end ----
+---- BNDV FORM ----
+&quot;BNDV&quot;
+&lt;num bytes for this form&gt;, {ulong}
+&lt;length of name of this object, LE&gt;, {ulong}
+&lt;name of this object&gt;, {char}
+&lt;length of name of parent of this object, LE&gt;, {ulong}
+&lt;name of object, always ROOT???&gt;, {ulong}
+&lt;number of vetices, or elements, this is ALWAYS 8, LE&gt;, {ulong}
+&lt;vertices, with X Y Z co-ords only.
+ Note: only the 1st and 7th vertex have data.
+ Rest ALL are ZERO ( 2-6 and 8 ), LE&gt;, {float}
+&lt;side information, ALWAYS 0, LE&gt;, {ulong}
+---- end ----
+---- COLD FORM ----
+&quot;FORM&quot;
+&lt;num bytes for this form&gt;, {ulong}
+&lt;length of name of joint for which this CM info is intended, LE&gt;, {ulong}
+&lt;name of joint for which this CM info is intended, LE&gt;, {ulong}
+  -- -- -- --
+  &quot;BBOX&quot;
+  &lt;length of this Form, BE&gt;, {ulong}
+  &lt;left-top-back extens, X Y Z, LE&gt;, {float}
+  &lt;right-bottom-front extents, X Y Z, LE&gt;, {float}
+  -- -- -- --
+  &quot;BSPH&quot;
+  &lt;version, this is 1000, BE&gt;, {ulong}
+  &lt;X Y Z center of this sphere, LE&gt;, {float}
+  &lt;radius of this sphere, LE&gt;, {float}
+  -- -- -- --
+  &quot;TRIS&quot;			   -&gt; This seems to be the collision Mesh itself
+  &lt;version, this is 1000, again and again... BE&gt;, {ulong}
+  &lt;num vertices, LE&gt;, {ulong}
+  &lt;vertex data, for each vertex only X Y Z, no UVs or Normals, LE&gt;, {float}
+  &lt;number of entries, ie num faces * 3&gt;  
+  &lt;face data, in triplets, LE&gt;, {ulong}
+---- end ----
+---- BSRM FORM ----
+&quot;FORM&quot;
+&lt;num bytes for this form&gt;, {ulong}
+&quot;BSRM&quot;
+&quot;NRML&quot;
+&lt;num bytes for this sub-form&gt;, {ulong}
+  &quot;DESC&quot;
+  &lt;version, this is 1000, BE&gt;, {ulong}
+  &lt;length of name of this object's parent mesh, Little Endian&gt; {ulong}
+  &lt;name of this object's parent mesh&gt; {char}
+  &lt;length of name of the joint, which this object's parent mesh is attached to, LE&gt; {ulong}
+  &lt;name of the joint this object's parent mesh is attached to&gt; {char}
+  &lt;LoD of this object's parent mesh, LE&gt;, {ulong}
+&quot;NRML&quot;
+&lt;num bytes for this sub-form&gt;, {ulong}
+  &quot;BBOX&quot;
+  &lt;version, this is 1000, BE&gt;, {ulong}
+  &lt;left-top-back extens, X Y Z, LE&gt;, {float}
+  &lt;right-bottom-front extents, X Y Z, LE&gt;, {float}
+&quot;NRML&quot;
+&lt;num bytes for this sub-form&gt;, {ulong}
+  &quot;BSPH&quot;
+  &lt;version, this is 1000, BE&gt;, {ulong}
+  &lt;X Y Z center of this sphere, LE&gt;, {float}
+  &lt;radius of this sphere, LE&gt;, {float}
+&quot;NRML&quot;
+&lt;num bytes for this sub-form&gt;, {ulong}
+  &quot;TRIS&quot;
+  &lt;version, this is 1000, again and again... BE&gt;, {ulong}
+  &lt;num vertices, LE&gt;, {ulong}
+  &lt;vertex data, for each vertex only X Y Z, no UVs or Normals, LE&gt;, {float}
+  &lt;number of entries, ie num faces * 3&gt;
+  &lt;face data, in triplets, LE&gt;, {ulong}
+&quot;NRML&quot;
+&lt;num bytes for this sub-form&gt;, {ulong}
+  &quot;VNRM&quot;		   -&gt; And this looks like normals for TRIS, like numVerts there is equal to numNormals here.
+  &lt;version, this is, *sigh*, 1000, BE&gt;, {ulong}
+  &lt;number of normals present, LE&gt;, {ulong}
+  &lt;vertex normal data, for each vertex only X Y Z Normals, LE&gt;, {float}
+  &lt;number of face-Indices, LE&gt;, {ulong}
+  &lt;face indice data, in triplets, LE&gt;, {ulong}
+&quot;NRML&quot;
+&lt;num bytes for this sub-form&gt;, {ulong}
+  &quot;SSUB&quot;			 -&gt; This is calculated by basis of &quot;grids&quot; in the plugins.
+  &lt;version, this is 1000, BE&gt;, {ulong}
+  &lt;num Sub-Divisions in X Plane, LE&gt;, {ulong}
+  &lt;num Sub-Divisions in Y Plane, LE&gt;, {ulong}
+  &lt;num Sub-Divisions in Z Plane, LE&gt;, {ulong}
+  -- for each sub division [ grid (!) ], ie X*Y*Z --
+	&lt;number of triangles, LE&gt;, {ulong}
+	&lt;face list, which are to be sub-divided&gt;
+---- end ----
+---- INFO FORM ----
+&quot;FORM&quot;
+&lt;num bytes for this form&gt;, {ulong}
+&quot;INFO&quot;
+[if needed, these two maybe present]
+&quot;WARN&quot;
+&lt;length of warning + 1, LE&gt;, {ulong}
+&lt;warning + NULL&gt;, {char}				&lt;- looks like that NULL is string terminator here 
+&quot;ERRR&quot;
+&lt;length of error + 1, LE&gt;, {ulong}
+&lt;error + NULL&gt;, {char}				 &lt;- looks like that NULL is string terminator here 
+[usually this is always present]
+&quot;OWNR&quot;
+&lt;length of name of Owner + 1, LE&gt;, {ulong}
+&lt;Name of Owner + NULL&gt;, {char}		 &lt;- looks like that NULL is string terminator here 
+---- end ----
+##########################################################################################################################
+##########################################################################################################################</pre>
+</div>Sounds informative? I've taken this information mostly from the RDN plugins. Some parts (for MULTs\GOBGs are from 'HW2 HOD Reporter' by Pesmontis)
+						</blockquote>
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="after_content">
+				
+				<!-- edit note -->
+				<blockquote class="postcontent lastedited">
+<!--					<img src="images/buttons/edit_40b.png" class="inlineimg" alt="" /> -->
+					
+						Last edited by 4E534B; 9th Sep 06 at <span class="time">7:50 AM</span>.
+					
+					
+				</blockquote>
+				<!-- / edit note -->
+				
+                                       
+                                 
+				
+                                        
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_1599794" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+ 
+<li class="postbitlegacy postbitim postcontainer" id="post_1627991">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+		
+			<span class="postdate old">
+				
+					<span class="date">4th Aug 06&nbsp;<span class="time">7:34 AM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+			
+				<span><img src="images/badges_small/seniormember.png" alt="" border="" /></span>
+			
+				
+					<a name="post1627991" href="showthread.php?99226-HOD-File-Format-(Regardless-of-type)&amp;s=46d3ff8a26c1ded49933ecc1582d32ce&amp;p=1627991&amp;viewfull=1#post1627991" class="postcounter">#2</a><a id="postcount1627991" name="2"></a>
+				
+				
+				
+			</span>
+		
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			
+				<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?70892-4E534B&amp;s=46d3ff8a26c1ded49933ecc1582d32ce" title="4E534B is offline"><strong>4E534B</strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<a href="member.php?70892-4E534B&amp;s=46d3ff8a26c1ded49933ecc1582d32ce" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="search.php?s=46d3ff8a26c1ded49933ecc1582d32ce&amp;do=finduser&amp;userid=70892&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+		
+		<li class="right">
+			<a href="http://forums.relicnews.com/list.php?author/70892-4E534B&amp;s=46d3ff8a26c1ded49933ecc1582d32ce" class="siteicon_article" rel="nofollow">
+				View Articles
+			</a>
+		</li>
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="4E534B is offline" border="0" />
+
+			
+			</div>
+			<span class="usertitle">
+				Senior Member
+			</span>
+
+			
+			
+			 
+			
+				<hr />
+				<dl class="userinfo_extra">
+					<dt>Join Date</dt> <dd>May 2006</dd>
+					
+					
+						
+					
+				</dl>
+				
+				
+				<div class="imlinks">
+					    
+				</div>
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow">
+				
+				
+				<h2 class="title icon">
+					VB File Format for Multi-Mesh HOD
+				</h2>
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_1627991">
+						<blockquote class="postcontent restore ">
+							*BIIIIG BUMP!!!*<br />
+ <br />
+<div class="bbcode_container">
+	<div class="bbcode_description">Code:</div>
+	<pre class="bbcode_code"style="height:372px;">Public Type HW2_VersionForm
+ID As String * 4
+formLength As Long
+versionID As String * 4
+version As Long
+End Type
+Public Type HW2_NAMEForm
+ID As String * 4
+formLength As Long
+nameID As String * 4
+type As String
+End Type
+Public Type HW2_STATForm_Parameter
+ID As String * 8
+layerNum As Long
+lenParameter As Long
+parameter As String
+End Type
+Public Type HW2_STATForm
+formID As String * 4
+formLength As Long
+ID As String * 4
+version As String * 4
+matNameLength As Long
+matName As String
+shaderNameLength As Long
+shaderName As String
+numLayers As Long
+parameters() As HW2_STATForm_Parameter
+End Type
+Public Type HW2_DDSFile
+imageStream() As Double
+End Type
+Public Type HW2_LMIPForm
+ID As String * 4
+formLength As Long
+fileNameLength As Long
+fileName As String
+fileType As String * 4
+noMips As Long
+width As Long
+height As Long
+data() As HW2_DDSFile
+End Type
+Public Type HW2_MULT_Vertex
+translateX As Single
+translateY As Single
+translateZ As Single
+filler1 As Single
+vertNormalX As Single
+vertNormalY As Single
+vertNormalZ As Single
+filler2 As Single
+textureU As Single
+textureV As Single
+End Type
+Public Type HW2_MULT_Face
+typeOfFaceList As Long
+numFacesInThisList As Long
+vertex() As Integer
+End Type
+Public Type HW2_MULT_FaceData
+faceList() As HW2_MULT_Face
+End Type
+Public Type HW2_BMSHForm_Group
+materialIndex As Long
+dwordPerVertex As Long
+numVertices As Long
+vertData() As HW2_MULT_Vertex
+numFaceListsOrStrips As Integer
+faceData As HW2_MULT_FaceData
+End Type
+Public Type HW2_BMSHForm
+ID As String * 4
+formLength As Long
+ID2 As String * 4
+version As Long
+meshLOD As Long
+numMeshes As Long
+mesh() As HW2_BMSHForm_Group
+End Type
+Public Type HW2_MULTForm
+ID As String
+formLength As Long
+ID2 As String * 4
+version As Long
+nameLength As Long
+name As String
+parentNameLength As Long
+parentName As String
+numBMSHForms As Long
+BMSHForms() As HW2_BMSHForm
+End Type
+Public Type HW2_HVMDForm
+ID As String * 4
+formLength As Long
+ID2 As String * 4
+STATForms() As HW2_STATForm
+LMIPForms() As HW2_LMIPForm
+MULTForms() As HW2_MULTForm
+End Type
+Public Type HW2_HIERJoint
+lenName As Long
+name As String
+ 
+lenParentName As Long
+parentName As String
+ 
+translateX As Single
+translateY As Single
+translateZ As Single
+ 
+rotateX As Single
+rotateY As Single
+rotateZ As Single
+ 
+scaleX As Single
+scaleY As Single
+scaleZ As Single
+ 
+axisX As Single
+axisY As Single
+axisZ As Single
+ 
+degOfFreedomX As Byte
+degOfFreedomY As Byte
+degOfFreedomZ As Byte
+End Type
+Public Type HW2_HIERForm
+ID As String * 4
+formLength As Long
+numJoints As Long
+joints() As HW2_HIERJoint
+End Type
+Public Type HW2_3DVector
+X As Single
+Y As Single
+Z As Single
+End Type
+Public Type HW2_ETSHForm
+ID As String * 4
+formLength As Long
+ 
+lenName As Long
+name As String
+ 
+lenParentName As Long
+parentName As String
+ 
+numVerts As Long
+vertData() As HW2_3DVector
+End Type
+Public Type HW2_GLOWForm
+ID As String * 4
+formLength As Long
+glowID As String * 4
+ 
+nrmlID As String * 4
+nrmlFormLength As Long
+ 
+infoID As String * 4
+version As Long
+ 
+lenName As Long
+name As String
+ 
+lenParentName As Long
+parentName As String
+ 
+meshLOD As Long
+mesh As HW2_BMSHForm
+End Type
+Public Type HW2_BURNForm
+ID As String * 4
+formLength As Long
+ 
+lenName As Long
+name As String
+ 
+lenParentName As Long
+parentName As String
+ 
+numVerts As Long
+numNURBS As Long
+ 
+vertData() As HW2_3DVector
+End Type
+Public Type HW2_NavLight
+lenName As Long
+name As String
+ 
+section As Long
+size As Single
+phase As Single
+frequency As Single
+ 
+lenStyle As Long
+style As String
+ 
+colourR As Single
+colourG As Single
+colourB As Single
+colourA As Single
+ 
+distance As Single
+isVisible As Byte
+castLightOnHES As Byte
+End Type
+Public Type HW2_NAVLForm
+ID As String * 4
+formLength As Long
+navlID As String * 4
+version As Long
+numNavlights As Long
+navlights() As HW2_NavLight
+End Type
+Public Type HW2_DockPathFrame
+translateX As Single
+translateY As Single
+translateZ As Single
+ 
+rotateX As Single
+rotateY As Single
+rotateZ As Single
+ 
+useRotation As Long
+pointTolerance As Single
+dropFocus As Long
+maxSpeed As Single
+checkRotation As Long
+forceCloseBehavior As Long
+playerIsInControl As Long
+queueOrigin As Long
+useClipPlane As Long
+clearReservation As Long
+End Type
+Public Type HW2_DockPath
+lenName As Long
+name As String
+ 
+lenParentName As Long
+parentName As String
+ 
+numGlobalProperties As Long
+numLocalProperties As Long
+ 
+isExit As Long
+isLatch As Long
+tolerance As Single
+ 
+lenDockFamilies As Long
+dockFamilies As String
+ 
+useAnim As Long
+ 
+lenLinkedPaths As Long
+linkedPaths As String
+ 
+numFrames As Long
+frames() As HW2_DockPathFrame
+End Type
+Public Type HW2_DOCKForm
+ID As String * 4
+formLength As Long
+numPaths As Long
+dockPaths() As HW2_DockPath
+End Type
+Public Type HW2_MRKRKeyFrame
+time As Double
+value As Double
+ 
+inTangentX As Single
+inTangentY As Single
+outTangentX As Single
+outTangentY As Single
+End Type
+Public Type HW2_ANIMForm
+nrmlID_KEYF As String * 4
+formLength_NRML_KEYF As Long
+ 
+animID As String * 4
+animVersion As Long
+ 
+lenCurveName As Long
+curveName As String
+ 
+numKeyFrames As Long
+ 
+keyFrames() As HW2_MRKRKeyFrame
+ 
+preInfinity As Long
+postInfinity As Long
+End Type
+Public Type HW2_MRKRForm
+ID As String * 4
+formLength As Long
+mrkrID As String * 4
+ 
+nrmlID As String * 4
+formLength_nrml As Long
+ 
+headID As String * 4
+version As Long
+ 
+lenName As Long
+name As String
+ 
+lenParentName As Long
+parentName As String
+ 
+startKeyFrameTime As Single
+endKeyFrameTime As Single
+ 
+translateX As Double
+translateY As Double
+translateZ As Double
+ 
+rotateX As Double
+rotateY As Double
+rotateZ As Double
+ 
+formID As String * 4
+formLength_KEYF As Long
+keyfID As String * 4
+anim() As HW2_ANIMForm
+End Type
+Public Type HW2_BNDVForm
+ID As String * 4
+formLength As Long
+ 
+lenName As Long
+name As String
+ 
+lenParentName As Long
+parentName As String
+ 
+numVertices As Long
+vertData() As HW2_3DVector
+sideInformation As Long
+End Type
+Public Type HW2_BBOXForm
+ID As String * 4
+versionOrFormLength As Long
+ 
+minX As Single
+minY As Single
+minZ As Single
+ 
+maxX As Single
+maxY As Single
+maxZ As Single
+End Type
+Public Type HW2_BSPHForm
+ID As String * 4
+versionOrFormLength As Long
+ 
+centerX As Single
+centerY As Single
+centerZ As Single
+ 
+radius As Single
+End Type
+Public Type HW2_Face_List
+vertex() As Long
+End Type
+Public Type HW2_TRISForm
+ID As String * 4
+versionOrFormLength As Long
+numVerts As Long
+vertData() As HW2_3DVector
+ 
+numFaces As Long
+faceData() As Integer
+End Type
+Public Type HW2_COLDForm
+ID As String * 4
+formLength As Long
+ID2 As String * 4
+ 
+lenParentName As Long
+parentName As String
+ 
+bbox As HW2_BBOXForm
+bsph As HW2_BSPHForm
+tris As HW2_TRISForm
+End Type
+Public Type HW2_DESCForm
+ID As String * 4
+version As Long
+ 
+lenName As Long
+name As String
+ 
+lenParentName As Long
+parentName As String
+ 
+lod As Long
+End Type
+Public Type HW2_VNRMForm
+ID As String * 4
+version As Long
+numNormals As Long
+normalData() As HW2_3DVector
+numFaceIndices As Long
+faceData() As Integer
+End Type
+Public Type HW2_SSUB_Division
+numTriangles As Long
+faces() As Integer
+End Type
+Public Type HW2_SSUBForm
+ID As String * 4
+version As Long
+ 
+numDivsX As Long
+numDivsY As Long
+numDivsZ As Long
+ 
+subD() As HW2_SSUB_Division
+End Type
+Public Type HW2_BSRMForm
+ID As String * 4
+formLength As Long
+bsrmID As String * 4
+ 
+nrmlDESCID As String * 4
+nrmlDESCFormLength As Long
+desc As HW2_DESCForm
+ 
+nrmlBBOXID As String * 4
+nrmlBBOXFormLength As Long
+bbox As HW2_BBOXForm
+ 
+nrmlBSPHID As String * 4
+nrmlBSPHFormLength As Long
+bsph As HW2_BSPHForm
+ 
+nrmlTRISID As String * 4
+nrmlTRISFormLength As Long
+tris As HW2_TRISForm
+ 
+nrmlVNRMID As String * 4
+nrmlVNRMFormLength As Long
+vnrm As HW2_VNRMForm
+ 
+nrmlSSUBID As String * 4
+nrmlSSUBFormLength As Long
+ssub As HW2_SSUBForm
+End Type
+Public Type HW2_DTRMForm
+ID As String * 4
+formLength As Long
+ID2 As String * 4
+ 
+hier As HW2_HIERForm
+ 
+etsh() As HW2_ETSHForm
+glow() As HW2_GLOWForm
+burn() As HW2_BURNForm
+ 
+navl As HW2_NAVLForm
+dock As HW2_DOCKForm
+ 
+mrkr() As HW2_MRKRForm
+ 
+bndv As HW2_BNDVForm
+ 
+cold() As HW2_COLDForm
+bsrm() As HW2_BSRMForm
+End Type
+Public Type HW2_WARNForm
+ID As String * 4
+formLength As Long
+ 
+lenContents As Long
+contents As String
+End Type
+Public Type HW2_ERRRForm
+ID As String * 4
+formLength As Long
+ 
+lenContents As Long
+contents As String
+End Type
+Public Type HW2_OWNRForm
+ID As String * 4
+formLength As Long
+ 
+lenContents As Long
+contents As String
+End Type
+Public Type HW2_INFOForm
+ID As String * 4
+formLength As Long
+ 
+infoID As String * 4
+ 
+warnings() As HW2_WARNForm
+errors() As HW2_ERRRForm
+owner As HW2_OWNRForm
+End Type
+Const HW2_MULTIM = &quot;Homeworld2 Multi Mesh File&quot;
+Const HW2_SIMPM = &quot;Homeworld2 Simple Mesh File&quot;
+Const HW2_WIREM = &quot;Homeworld2 Wireframe Mesh File&quot;
+'Const HW2_BASICM = &quot;Homeworld2 Basic File&quot;
+'Const HW2_PROGRESSIVEM = &quot;Homeworld2 Variable Mesh File&quot;
+Const HW2_VERSIONID = &quot;VERS&quot;
+Const HW2_BBOXID = &quot;BBOX&quot;
+Const HW2_BSPHID = &quot;BSPH&quot;
+Const HW2_TRISID = &quot;TRIS&quot;
+Const HW2_FORMID = &quot;FORM&quot;
+Const HW2_NAMEID = &quot;NAME&quot;
+Const HW2_STATID = &quot;STAT&quot;
+Const HW2_LMIPID = &quot;LMIP&quot;
+Const HW2_BMSHID = &quot;BMSH&quot;
+Const HW2_MULTID = &quot;MULT&quot;
+Const HW2_NRMLID = &quot;NRML&quot;
+Const HW2_DESCID = &quot;DESC&quot;
+Const HW2_VNRMID = &quot;VNRM&quot;
+Const HW2_SSUBID = &quot;SSUB&quot;
+Const HW2_DTRMID = &quot;DTRM&quot;
+Const HW2_HVMDID = &quot;HVMD&quot;
+Const HW2_HIERID = &quot;HIER&quot;
+Const HW2_ETSHID = &quot;ETSH&quot;
+Const HW2_GLOWID = &quot;GLOW&quot;
+Const HW2_MRKRID = &quot;MRKR&quot;
+Const HW2_INFOID = &quot;INFO&quot;
+Const HW2_BURNID = &quot;BURN&quot;
+Const HW2_COLDID = &quot;COLD&quot;
+Const HW2_NAVLID = &quot;NAVL&quot;
+Const HW2_DOCKID = &quot;DOCK&quot;
+Const HW2_KEYFID = &quot;KEYF&quot;
+Const HW2_BNDVID = &quot;BNDV&quot;
+Const HW2_ANIMID = &quot;ANIM&quot;
+Const HW2_BSRMID = &quot;BSRM&quot;
+Const HW2_WARNID = &quot;WARN&quot;
+Const HW2_ERRRID = &quot;ERRR&quot;
+Const HW2_OWNRID = &quot;OWNR&quot;
+Const HW2_GOBGID = &quot;GOBG&quot;
+'Const HW2_GOBSID = &quot;GOBS&quot;
+'Const HW2_GOBDID = &quot;GOBD&quot;
+'Const HW2_HARDID = &quot;HARD&quot;
+'Const HW2_GOBDID = &quot;DAMG&quot;
+Const HW2_MULTIMESH_BMSH_DWORDSPERVTX As Long = 27
+Const HW2_MULTIMESH_BMSH_VERSION As Long = 1400
+Const HW2_MRKR_HEAD_VERSION As Long = 1
+Const HW2_NAVL_VERSION As Long = 3
+Const HW2_DOCK_GLOBAL_PROPERTIES As Long = 6
+Const HW2_DOCK_LOCAL_PROPERTIES As Long = 10
+Const HW2_MULTIMESH_MULT_VERSION As Long = HW2_MULTIMESH_BMSH_VERSION
+Const HW2_MULTIMESH_GOBG_VERSION As Long = 1000
+Const HW2_MULTIMESH_GLOW_VERSION As Long = 1000
+Const HW2_BBOX_VERSION As Long = 1000
+Const HW2_BSPH_VERSION As Long = 1000
+Const HW2_TRIS_VERSION As Long = 1000
+Const HW2_DESC_VERSION As Long = 1000
+Const HW2_VNRM_VERSION As Long = 1000
+Const HW2_SSUB_VERSION As Long = 1000
+Const HW2_FACESTRIP As Long = 518
+Const HW2_FACELIST As Long = 514</pre>
+</div>
+						</blockquote>
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_1627991" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+ 
+<li class="postbitlegacy postbitim postcontainer" id="post_1717071">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+		
+			<span class="postdate old">
+				
+					<span class="date">9th Sep 06&nbsp;<span class="time">7:52 AM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+			
+				<span><img src="images/badges_small/seniormember.png" alt="" border="" /></span>
+			
+				
+					<a name="post1717071" href="showthread.php?99226-HOD-File-Format-(Regardless-of-type)&amp;s=46d3ff8a26c1ded49933ecc1582d32ce&amp;p=1717071&amp;viewfull=1#post1717071" class="postcounter">#3</a><a id="postcount1717071" name="3"></a>
+				
+				
+				
+			</span>
+		
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			
+				<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?70892-4E534B&amp;s=46d3ff8a26c1ded49933ecc1582d32ce" title="4E534B is offline"><strong>4E534B</strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<a href="member.php?70892-4E534B&amp;s=46d3ff8a26c1ded49933ecc1582d32ce" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="search.php?s=46d3ff8a26c1ded49933ecc1582d32ce&amp;do=finduser&amp;userid=70892&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+		
+		<li class="right">
+			<a href="http://forums.relicnews.com/list.php?author/70892-4E534B&amp;s=46d3ff8a26c1ded49933ecc1582d32ce" class="siteicon_article" rel="nofollow">
+				View Articles
+			</a>
+		</li>
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="4E534B is offline" border="0" />
+
+			
+			</div>
+			<span class="usertitle">
+				Senior Member
+			</span>
+
+			
+			
+			 
+			
+				<hr />
+				<dl class="userinfo_extra">
+					<dt>Join Date</dt> <dd>May 2006</dd>
+					
+					
+						
+					
+				</dl>
+				
+				
+				<div class="imlinks">
+					    
+				</div>
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow">
+				
+				
+
+
+						
+						
+							
+						
+				<div class="content">
+					<div id="post_message_1717071">
+						<blockquote class="postcontent restore ">
+							*BIIIIIG BIIIIIG AND EVEN BIIIGER BUMP*<br />
+    The HOD format now gives a complete HOD format for HW2 HODs<br />
+   ( I <i>think</i> that LMTX is a chunk that's not used [ because I couln't find it <i>anywhere</i> ] <br />
+    GOBD, GOBS are archaic goblin formats, not used, and I don't think anything else is left )
+						</blockquote>
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_1717071" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+ 
+		</ol>
+                <div class="separator"></div>
+		<div class="postlistfoot">
+			
+		</div>
+
+	
+
+</div>
+
+<div id="below_postlist" class="noinlinemod below_postlist">
+	
+	<div id="pagination_bottom" class="pagination_bottom">
+	
+		<div class="clear"></div>
+<div class="navpopupmenu popupmenu nohovermenu" id="showthread_navpopup">
+	
+		<span class="shade">Quick Navigation</span>
+		<a href="showthread.php?99226-HOD-File-Format-(Regardless-of-type)&amp;s=46d3ff8a26c1ded49933ecc1582d32ce" class="popupctrl"><span class="ctrlcontainer">Archive Dump</span></a>
+		<a href="showthread.php?99226-HOD-File-Format-%28Regardless-of-type%29#top" class="textcontrol" onclick="document.location.hash='top';return false;">Top</a>
+	
+	<ul class="navpopupbody popupbody popuphover">
+		
+		<li class="optionlabel">Site Areas</li>
+		<li><a href="usercp.php?s=46d3ff8a26c1ded49933ecc1582d32ce">Settings</a></li>
+		<li><a href="private.php?s=46d3ff8a26c1ded49933ecc1582d32ce">Private Messages</a></li>
+		<li><a href="subscription.php?s=46d3ff8a26c1ded49933ecc1582d32ce">Subscriptions</a></li>
+		<li><a href="online.php?s=46d3ff8a26c1ded49933ecc1582d32ce">Who's Online</a></li>
+		<li><a href="search.php?s=46d3ff8a26c1ded49933ecc1582d32ce">Search Forums</a></li>
+		<li><a href="forum.php?s=46d3ff8a26c1ded49933ecc1582d32ce">Forums Home</a></li>
+		
+			<li class="optionlabel">Forums</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?1-RelicNews-Community&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">RelicNews Community</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="forumdisplay.php?24-Forum-Guidelines&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Forum Guidelines</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?42-Newcomers-Forum&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Newcomers Forum</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?29-General-Discussions&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">General Discussions</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?289-Tir-s-Music-Forum&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Tir's Music Forum</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?277-The-Gamer-s-Lounge&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">The Gamer's Lounge</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?10-The-Studio&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">The Studio</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?45-The-Workshop&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">The Workshop</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?150-Tutorials&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Tutorials</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?101-Warhammer-40-000-Tabletop-Discussion&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Warhammer 40,000 Tabletop Discussion</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?225-The-Black-Library&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">The Black Library</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?108-Backstory-amp-Fluff&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Backstory &amp; Fluff</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?110-Painting-amp-Modelling&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Painting &amp; Modelling</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?151-Tutorials&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Tutorials</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?109-Strategy-amp-Army-Lists&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Strategy &amp; Army Lists</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?107-Rules-Discussions&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Rules Discussions</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?169-Relic-Games&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Relic Games</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="forumdisplay.php?314-Company-of-Heroes-2&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Company of Heroes 2</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?315-Basic-Training&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Basic Training</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?317-Single-Player-Discussion&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Single Player Discussion</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?325-Mission-Walkthroughs&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Mission Walkthroughs</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?316-Multiplayer-Discussion&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Multiplayer Discussion</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?318-Balance-Discussion&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Balance Discussion</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?326-Battle-Archives&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Battle Archives</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?327-Theater-of-War&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Theater of War</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?337-Forum-Guidelines&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Forum Guidelines</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?321-Forum-Guidelines&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Forum Guidelines</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?329-The-Arsenal&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">The Arsenal</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?146-Company-of-Heroes&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Company of Heroes</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?242-Basic-Training&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Basic Training</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?335-Single-Player-Discussion&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Single Player Discussion</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?191-Mission-Walkthroughs&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Mission Walkthroughs</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?184-Multiplayer-Discussion&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Multiplayer Discussion</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?214-Balance-Discussion&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Balance Discussion</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?212-Replays&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Replays</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?208-CoH-OF-and-ToV-Technical-Assistance&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">CoH, OF and ToV Technical Assistance</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?190-The-Armoury&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">The Armoury</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?204-Forum-Guidelines&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Forum Guidelines</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?281-Warhammer-40-000-Space-Marine&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Warhammer 40,000: Space Marine</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?293-Single-Player-Discussion&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Single Player Discussion</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?294-Singleplayer-Walkthroughs&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Singleplayer Walkthroughs</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?295-Multiplayer-Strategy&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Multiplayer Strategy</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?299-Multiplayer-Balance-Discussion&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Multiplayer Balance Discussion</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?298-Space-Marine-Technical-Assistance&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Space Marine Technical Assistance</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?324-The-Forgeworld&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">The Forgeworld</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?322-Forum-Guidelines&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Forum Guidelines</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?238-Warhammer-40-000-Dawn-of-War-2&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Warhammer 40,000: Dawn of War 2</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?248-Basic-Training&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Basic Training</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?273-Singleplayer-Discussion&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Singleplayer Discussion</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?249-Singleplayer-Walkthroughs&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Singleplayer Walkthroughs</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?250-Multiplayer-Strategy&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Multiplayer Strategy</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?278-The-Last-Stand&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">The Last Stand</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?256-Dawn-of-War-2-Balance-Discussions&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Dawn of War 2 Balance Discussions</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?255-Battle-Archives-2!&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Battle Archives 2!</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?262-Dawn-of-War-2-Technical-Assistance&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Dawn of War 2 Technical Assistance</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?263-Heretek-Cabal&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Heretek Cabal</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?323-Forum-Guidelines&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Forum Guidelines</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?90-Warhammer-40-000-Dawn-of-War&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Warhammer 40,000: Dawn of War</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?119-Dawn-of-War-Strategy&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Dawn of War Strategy</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?134-Singleplayer-Walkthroughs&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Singleplayer Walkthroughs</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?139-Tactica-Imperialis&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Tactica Imperialis</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?130-Battle-Archives&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Battle Archives</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?131-Dawn-of-War-Technical-Help&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Dawn of War Technical Help</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?179-Adeptus-Modificatus&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Adeptus Modificatus</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?205-Forum-Guidelines&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Forum Guidelines</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?12-Homeworld-Series&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Homeworld Series</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?84-Homeworld-Series-War-Room&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Homeworld Series War Room</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?83-Homeworld-Series-Walkthrough-Forum&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Homeworld Series Walkthrough Forum</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?140-Homeworld-Series-Technical-Help&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Homeworld Series Technical Help</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?5-RelicNews-Technical-Help&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">RelicNews Technical Help</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?183-Company-of-Heroes-Technical-Assistance&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Company of Heroes Technical Assistance</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?196-Master-Troubleshooting-List&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Master Troubleshooting List</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?186-Bug-Forum&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Bug Forum</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?258-Dawn-of-War-2-Technical-Assistance&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Dawn of War 2: Technical Assistance</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?259-Bug-Forum&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Bug Forum</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?260-Master-Troubleshooting-List&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Master Troubleshooting List</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?297-Space-Marine-Technical-Assistance&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Space Marine Technical Assistance</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?125-Dawn-of-War-Technical-Assistance&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Dawn of War Technical Assistance</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?126-Master-Troubleshooting-List&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Master Troubleshooting List</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?135-Bug-Forum&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Bug Forum</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?14-Classic-Games-Technical-Assistance&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Classic Games Technical Assistance</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?35-Homeworld-Master-Troubleshooting-List&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Homeworld: Master Troubleshooting List</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?82-Homeworld-2-Master-Troubleshooting-List&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Homeworld 2: Master Troubleshooting List</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?291-Game-Mods&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Game Mods</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="forumdisplay.php?290-General-Modding&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">General Modding</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?47-Relic-Game-Mods&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Relic Game Mods</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?328-Company-of-Heroes-2-The-Arsenal&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Company of Heroes 2 - The Arsenal</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?334-Field-Storage&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Field Storage</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?330-CoH2-Maproom&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">CoH2 Maproom</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?331-CoH2-Modding-How-To-s-and-Tutorials&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">CoH2 Modding How-To's and Tutorials</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?332-CoH2-Mods-in-Progress&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">CoH2 Mods in Progress</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?333-CoH2-Completed-Mods&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">CoH2 Completed Mods</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?257-Dawn-of-War-2-Heretek-Cabal&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Dawn of War 2 - Heretek Cabal</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?269-DoW2-Maproom&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">DoW2 Maproom</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?268-DoW2-Modding-How-To-s-and-Tutorials&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">DoW2 Modding How-To's and Tutorials</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?270-DoW2-Mods-in-Progress&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">DoW2 Mods in Progress</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?271-DoW2-Completed-Mods&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">DoW2 Completed Mods</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?96-Dawn-of-War-Adeptus-Modificatus&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Dawn of War - Adeptus Modificatus</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?137-DoW-Maproom&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">DoW Maproom</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?231-DoW-Modding-Tutorials-and-How-Tos&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">DoW Modding Tutorials and How-Tos</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?158-DoW-Mods-in-progress&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">DoW Mods in progress</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?157-DoW-Completed-Mods-Discussion&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">DoW Completed Mods Discussion</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?296-Space-Marine-The-Forgeworld&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Space Marine - The Forgeworld</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?300-Mods-in-Progress&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Mods in Progress</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?302-Completed-Mods&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Completed Mods</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?301-Tutorials-and-How-Tos&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Tutorials and How-Tos</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?72-Homeworld-2-Tanis-Shipyards&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Homeworld 2 - Tanis Shipyards</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?85-Completed-Mods&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Completed Mods</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?87-Archive-Dump&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Archive Dump</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?88-Mods-in-progress&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Mods in progress</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?279-Tutorials-Guides-and-How-Tos&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Tutorials, Guides and How-Tos</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?189-Company-of-Heroes-The-Armoury&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Company of Heroes - The Armoury</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?195-Weapons-Range&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Weapons Range</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?211-The-Ammo-Box&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">The Ammo Box</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?209-How-To-s-and-Tutorials&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">How-To's and Tutorials</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?210-Company-of-Heroes-Modding-Wiki&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Company of Heroes Modding Wiki</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?194-Maps-Bunker&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Maps Bunker</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?16-Homeworld-Research-Station&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Homeworld - Research Station</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?43-Supply-Cache&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Supply Cache</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?40-Forum-Administration&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Forum Administration</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="forumdisplay.php?4-Forum-Issues&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Forum Issues</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?168-Karos-Graveyard&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Karos Graveyard</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?203-Forum-Guidelines&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Forum Guidelines</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?70-Relic-Archives&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Relic Archives</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?36-The-Vault&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">The Vault</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?37-Vault-Voting-Forum&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Vault Voting Forum</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?153-General-Relics&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">General Relics</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?30-The-Garden&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">The Garden</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?215-DERKA-DERKA-DERKA-FORUM&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">DERKA DERKA DERKA FORUM</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?31-The-Collective&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">The Collective</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?112-Reviews&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Reviews</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?149-The-Outfit&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">The Outfit</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?165-The-Armory&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">The Armory</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?6-Impossible-Creatures&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Impossible Creatures</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?8-Impossible-Creatures-Genetics-Lab&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Impossible Creatures - Genetics Lab</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?52-IC-Supply-Cache&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">IC Supply Cache</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?111-Designing-our-own-game&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Designing our own game</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?241-WW2-History-Forum&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">WW2 History Forum</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?175-Ancient-Forum-Issues&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Ancient Forum Issues</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?154-Homeworld-Relics&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Homeworld Relics</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?41-Homeworld-2-Ideas&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Homeworld 2 Ideas</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?78-Homeworld-2-Demo-Feedback-Forum&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Homeworld 2 Demo Feedback Forum</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?79-Demo-Bug-Forum&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Demo Bug Forum</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?155-Dawn-of-War-Relics&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Dawn of War Relics</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?138-Relic-Mapping-Contest-Forum&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Relic Mapping Contest Forum</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?230-Pre-1-2-Dark-Crusade-Balance&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Pre-1.2 Dark Crusade Balance</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?237-Soulstorm-Multiplayer-Balance-Issues&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Soulstorm Multiplayer Balance Issues</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?213-Dark-Crusade-Multiplayer-Balance-Issues&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Dark Crusade Multiplayer Balance Issues</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?147-Dawn-of-War-Winter-Assault-Multiplayer-Balance-Issues&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Dawn of War / Winter Assault Multiplayer Balance Issues</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?127-Dawn-of-War-Demo-Feedback&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Dawn of War Demo Feedback</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?129-Library-Archive&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Library Archive</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?94-Liber-Belli-Oriani-Dawn-of-War-Library&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Liber Belli Oriani - Dawn of War Library</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?235-Company-of-Heroes-Relics&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Company of Heroes Relics</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?239-OF-Balance-Playtest-Section&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">OF Balance Playtest Section</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?236-Team-Automatch-Beta-Forum&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Team Automatch Beta Forum</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?233-Opposing-Fronts-Beta&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Opposing Fronts Beta</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?265-Dawn-of-War-2-Relics&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Dawn of War 2 Relics</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?244-Dawn-of-War-2-Beta-Discussion&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Dawn of War 2: Beta Discussion</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?247-Dawn-of-War-2-Beta-Strategy&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Dawn of War 2: Beta Strategy</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?245-Dawn-of-War-2-Beta-Balance-Discussion&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Dawn of War 2: Beta Balance Discussion</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?246-Dawn-of-War-2-Beta-Bugs&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">Dawn of War 2: Beta Bugs</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?275-1-4-Beta-Balance-and-Strategy&amp;s=46d3ff8a26c1ded49933ecc1582d32ce">1.4 Beta Balance and Strategy</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+		
+	</ul>
+</div>
+<div class="clear"></div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- next / previous links -->
+<div class="navlinks">
+	
+	<strong>&laquo;</strong>
+	<a href="showthread.php?99226-HOD-File-Format-(Regardless-of-type)&amp;s=46d3ff8a26c1ded49933ecc1582d32ce&amp;goto=nextoldest" rel="nofollow">Previous Thread</a>
+	|
+	<a href="showthread.php?99226-HOD-File-Format-(Regardless-of-type)&amp;s=46d3ff8a26c1ded49933ecc1582d32ce&amp;goto=nextnewest" rel="nofollow">Next Thread</a>
+
+	<strong>&raquo;</strong>
+	
+</div>
+<!-- / next / previous links -->
+
+<div id="thread_info" class="thread_info block">
+	
+	<h4 class="threadinfohead blockhead">Thread Information</h4>
+	<div id="thread_onlineusers" class="thread_info_block blockbody formcontrols">
+		<div class="inner_block">
+			<h5>Users Browsing this Thread</h5>
+			<div>
+				<p>There are currently 1 users browsing this thread. <span class="shade">(0 members and 1 guests)</span></p>
+				<ol class="commalist">
+					&nbsp;
+				</ol>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
+	<div class="options_block_container">
+		
+		<div class="options_block">
+			<h4 class="collapse blockhead">
+				<a class="collapse" id="collapse_posting_rules" href="showthread.php?99226-HOD-File-Format-%28Regardless-of-type%29#top"><img src="images/buttons/collapse_40b.png" alt="" /></a>
+				Posting Permissions
+			</h4>
+			<div id="posting_rules" class="thread_info_block blockbody formcontrols floatcontainer">
+				
+<div id="forumrules" class="info_subblock">
+
+	<ul class="youcandoblock">
+		<li>You <strong>may not</strong> post new threads</li>
+		<li>You <strong>may not</strong> post replies</li>
+		<li>You <strong>may not</strong> post attachments</li>
+		<li>You <strong>may not</strong> edit your posts</li>
+		<li>&nbsp;</li>
+	</ul>
+	<div class="bbcodeblock">
+		<ul>
+			<li><a href="misc.php?s=46d3ff8a26c1ded49933ecc1582d32ce&amp;do=bbcode" target="_blank">BB code</a> is <strong>On</strong></li>
+			<li><a href="misc.php?s=46d3ff8a26c1ded49933ecc1582d32ce&amp;do=showsmilies" target="_blank">Smilies</a> are <strong>On</strong></li>
+			<li><a href="misc.php?s=46d3ff8a26c1ded49933ecc1582d32ce&amp;do=bbcode#imgcode" target="_blank">[IMG]</a> code is <strong>On</strong></li>
+			<li><a href="misc.php?s=46d3ff8a26c1ded49933ecc1582d32ce&amp;do=bbcode#videocode" target="_blank">[VIDEO]</a> code is <strong>On</strong></li>
+			<li>HTML code is <strong>Off</strong></li>
+		</ul>
+	</div>
+	<p class="rules_link"><a href="misc.php?s=46d3ff8a26c1ded49933ecc1582d32ce&amp;do=showrules" target="_blank">Forum Rules</a></p>
+
+</div>
+
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+<div style="clear: left">
+   
+  <div id="ad_global_above_footer"><table border="0" cellpadding="5px" cellspacing="0" align="center">
+<tr><td><div width="468px; margin:0 auto;">
+
+<!-- Beginning of Project Wonderful ad code: -->
+<!-- Ad box ID: 45328 -->
+<script type="text/javascript">
+<!--
+var pw_d=document;
+pw_d.projectwonderful_adbox_id = "45328";
+pw_d.projectwonderful_adbox_type = "6";
+pw_d.projectwonderful_foreground_color = "";
+pw_d.projectwonderful_background_color = "";
+//-->
+</script>
+<script type="text/javascript" src="http://www.projectwonderful.com/ad_display.js"></script>
+<noscript><map name="admap45328" id="admap45328"><area href="http://www.projectwonderful.com/out_nojs.php?r=0&amp;c=0&amp;id=45328&amp;type=6" shape="rect" coords="0,0,234,60" title="" alt="" target="_blank" /><area href="http://www.projectwonderful.com/out_nojs.php?r=0&amp;c=1&amp;id=45328&amp;type=6" shape="rect" coords="234,0,468,60" title="" alt="" target="_blank" /><area href="http://www.projectwonderful.com/out_nojs.php?r=0&amp;c=2&amp;id=45328&amp;type=6" shape="rect" coords="468,0,702,60" title="" alt="" target="_blank" /><area href="http://www.projectwonderful.com/out_nojs.php?r=0&amp;c=3&amp;id=45328&amp;type=6" shape="rect" coords="702,0,936,60" title="" alt="" target="_blank" /></map>
+<table cellpadding="0" border="0" cellspacing="0" width="936" bgcolor="#D9D9D9"><tr><td><img src="http://www.projectwonderful.com/nojs.php?id=45328&amp;type=6" width="936" height="60" usemap="#admap45328" border="0" alt="" /></td></tr><tr><td bgcolor="#D9D9D9" colspan="4"><center><a style="font-size:10px;color:#000066;text-decoration:none;line-height:1.2;font-weight:bold;font-family:Tahoma, verdana,arial,helvetica,sans-serif;text-transform: none;letter-spacing:normal;text-shadow:none;white-space:normal;word-spacing:normal;" href="http://www.projectwonderful.com/advertisehere.php?id=45328&amp;type=6" target="_blank">Ads by Project Wonderful!  Your ad here, right now: $0</a></center></td></tr></table>
+</noscript>
+<!-- End of Project Wonderful ad code. -->
+</div></td></tr></table></div>
+</div>
+
+<div id="footer" class="floatcontainer footer">
+
+	<form action="forum.php" method="get" id="footer_select" class="footer_select">
+
+		
+			<select name="styleid" onchange="switch_id(this, 'style')">
+				<optgroup label="Quick Style Chooser"><option class="hidden"></option></optgroup>
+				
+					
+					<optgroup label="&nbsp;Standard Styles">
+									
+					
+	<option value="79" class="" >-- The Guidestone</option>
+
+	<option value="70" class="" selected="selected">-- RelicNews Blue</option>
+
+	<option value="71" class="" >-- RelicNews Classic</option>
+
+	<option value="75" class="" >-- RelicNews Light</option>
+
+					
+					</optgroup>
+										
+				
+				
+					
+					<optgroup label="&nbsp;Mobile Styles">
+					
+					
+	<option value="76" class="" >-- RelicNews Mobile</option>
+
+					
+					</optgroup>
+										
+				
+			</select>	
+		
+		
+		
+	</form>
+
+	<ul id="footer_links" class="footer_links">
+		<li><a href="mailto:admins@relicnews.com" rel="nofollow" accesskey="9">Contact Us</a></li>
+		<li><a href="http://www.relicnews.com/">Home</a></li>
+		
+		
+		<li><a href="archive/index.php?s=46d3ff8a26c1ded49933ecc1582d32ce">Archive</a></li>
+		
+		
+		
+		<li><a href="showthread.php?99226-HOD-File-Format-%28Regardless-of-type%29#top" onclick="document.location.hash='top'; return false;">Top</a></li>
+	</ul>
+	
+	
+	
+	
+	<script type="text/javascript">
+	<!--
+		// Main vBulletin Javascript Initialization
+		vBulletin_init();
+	//-->
+	</script>
+        
+</div>
+</div> <!-- closing div for body_wrapper -->
+
+<div class="below_body">
+<div id="footer_time" class="shade footer_time">All times are GMT -7. The time now is <span class="time">8:12 AM</span>.</div>
+
+<div id="footer_copyright" class="shade footer_copyright">
+	<!-- Do not remove this copyright notice -->
+	Powered by <a href="https://www.vbulletin.com" id="vbulletinlink">vBulletin&reg;</a> Version 4.2.1 <br />Copyright &copy; 2014 vBulletin Solutions, Inc. All rights reserved. <div>Image resizer by <a href="http://www.sevenskins.com/" title="vBulletin Skins - vBulletin Services - vBulletin Graphics" target="_blank">SevenSkins</a></div>
+	<!-- Do not remove this copyright notice -->	
+</div>
+<div id="footer_morecopyright" class="shade footer_morecopyright">
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	
+	
+</div>
+ 
+
+</div>
+</body>
+</html> 
