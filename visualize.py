@@ -1,5 +1,6 @@
 from __future__ import division, print_function 
 from OpenGL.GL import *
+from OpenGL.GL import shaders
 from OpenGL.GLUT import *
 from OpenGL.GLU import *
 from parse_bg import parse_bg, PRIM_TRIANGLE_STRIP, PRIM_TRIANGLES
@@ -23,7 +24,8 @@ def draw():
     glLoadIdentity()
     glRotate((time.time()-starttime)*30.0, 0.0, 1.0, 0.0)
 
-    glColor3f(0.0, 0.0, 1.0)
+    shaders.glUseProgram(background_shader)
+
     for numverts,vertsize,vertdata,facelists in bgdata:
         glVertexPointer(4, GL_FLOAT, vertsize, vertdata[0:])
         glEnableClientState(GL_VERTEX_ARRAY)
@@ -33,6 +35,8 @@ def draw():
             glDrawElements(gl_types[typ], count, GL_UNSIGNED_SHORT, facedata)
         glDisableClientState(GL_VERTEX_ARRAY)
         glDisableClientState(GL_COLOR_ARRAY)
+
+    shaders.glUseProgram(0)
 
     glutSwapBuffers()
 
@@ -48,5 +52,23 @@ glutInitWindowPosition(0, 0)
 window = glutCreateWindow("homeworld2 background")
 glutDisplayFunc(draw)
 glutIdleFunc(draw)
+
+VERTEX_SHADER = shaders.compileShader("""
+#version 120
+void main()
+{
+    gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+    gl_FrontColor = gl_Color.abgr;
+}
+""", GL_VERTEX_SHADER)
+
+FRAGMENT_SHADER = shaders.compileShader("""
+#version 120
+void main()
+{
+    gl_FragColor = gl_Color;
+}""", GL_FRAGMENT_SHADER)
+background_shader = shaders.compileProgram(VERTEX_SHADER,FRAGMENT_SHADER)
+
 glutMainLoop()
 
