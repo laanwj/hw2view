@@ -15,7 +15,14 @@ gl_types = {
 }
 
 starttime = time.time()
+
+def reshape(w, h):
+    global width, height
+    width = w
+    height = h
+
 def draw():
+    glViewport(0, 0, width, height)
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
     glMatrixMode(GL_PROJECTION)
     glLoadIdentity()
@@ -40,6 +47,9 @@ def draw():
 
     glutSwapBuffers()
 
+def idle():
+    glutPostRedisplay()
+
 # fetch data
 filename='background/m03/m03.hod'
 bgdata = parse_bg(filename)
@@ -51,7 +61,8 @@ glutInitWindowSize(width, height)
 glutInitWindowPosition(0, 0)
 window = glutCreateWindow("homeworld2 background")
 glutDisplayFunc(draw)
-glutIdleFunc(draw)
+glutReshapeFunc(reshape)
+glutIdleFunc(idle)
 
 VERTEX_SHADER = shaders.compileShader("""
 #version 120
