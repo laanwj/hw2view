@@ -5,6 +5,7 @@ from OpenGL.GLUT import *
 from OpenGL.GLU import *
 from parse_bg import parse_bg, PRIM_TRIANGLE_STRIP, PRIM_TRIANGLES
 import time
+import ctypes
 
 window = 0
 width, height = 500, 400
@@ -32,17 +33,19 @@ def draw():
     glRotate((time.time()-starttime)*30.0, 0.0, 1.0, 0.0)
 
     shaders.glUseProgram(background_shader)
-
-    for numverts,vertsize,vertdata,facelists in bgdata:
-        glVertexAttribPointer(vertex_loc, 4, GL_FLOAT, False, vertsize, vertdata[0:])
-        glEnableVertexAttribArray(vertex_loc)
-        glVertexAttribPointer(color_loc, 4, GL_BYTE, True, vertsize, vertdata[16:])
-        glEnableVertexAttribArray(color_loc)
-        for typ, count, facedata in facelists:
-            glDrawElements(gl_types[typ], count, GL_UNSIGNED_SHORT, facedata)
-        glDisableVertexAttribArray(vertex_loc)
-        glDisableVertexAttribArray(color_loc)
-
+    glBindBuffer(GL_ARRAY_BUFFER, vbo)
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo)
+    glEnableVertexAttribArray(vertex_loc)
+    glEnableVertexAttribArray(color_loc)
+    for numverts,vertsize,vertdata_offset,facelists in nbgdata:
+        glVertexAttribPointer(vertex_loc, 4, GL_FLOAT, False, vertsize, ctypes.c_void_p(vertdata_offset))
+        glVertexAttribPointer(color_loc, 4, GL_BYTE, True, vertsize, ctypes.c_void_p(vertdata_offset+16))
+        for typ, count, facedata_offset in facelists:
+            glDrawElements(gl_types[typ], count, GL_UNSIGNED_SHORT, ctypes.c_void_p(facedata_offset))
+    glDisableVertexAttribArray(vertex_loc)
+    glDisableVertexAttribArray(color_loc)
+    glBindBuffer(GL_ARRAY_BUFFER, 0)
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0)
     shaders.glUseProgram(0)
 
     glutSwapBuffers()
@@ -84,6 +87,43 @@ void main()
 background_shader = shaders.compileProgram(VERTEX_SHADER,FRAGMENT_SHADER)
 vertex_loc = glGetAttribLocation(background_shader, "inVertex")
 color_loc = glGetAttribLocation(background_shader, "inColor")
+
+# Build vertex and index buffers and new bgdata structure
+# that has pointers into the vertex and index buffers instead of
+# data
+allvertdata = []
+allfacedata = []
+vertdata_ptr = 0
+facedata_ptr = 0
+nbgdata = []
+for numverts,vertsize,vertdata,facelists in bgdata:
+    vertdata_offset = vertdata_ptr
+    allvertdata.append(vertdata)
+    vertdata_ptr += len(vertdata)
+    nfacelists = []
+    for typ, count, facedata in facelists:
+        facedata_offset = facedata_ptr
+        allfacedata.append(facedata)
+        facedata_ptr += len(facedata)
+        nfacelists.append((typ, count, facedata_offset))
+    nbgdata.append((numverts, vertsize, vertdata_offset, nfacelists))
+
+allvertdata = ''.join(allvertdata)
+allfacedata = ''.join(allfacedata)
+
+print(len(allvertdata), len(allfacedata))
+
+vbo = glGenBuffers(1)
+glBindBuffer(GL_ARRAY_BUFFER, vbo)
+glBufferData(GL_ARRAY_BUFFER, len(allvertdata), allvertdata, GL_STATIC_DRAW)
+glBindBuffer(GL_ARRAY_BUFFER, 0)
+
+ibo = glGenBuffers(1)
+glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo)
+glBufferData(GL_ELEMENT_ARRAY_BUFFER, len(allfacedata), allfacedata, GL_STATIC_DRAW)
+glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0)
+
+print(vbo, ibo)
 
 glutMainLoop()
 

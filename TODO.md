@@ -5,6 +5,3 @@
 
 Also: https://code.google.com/p/pyglesv2/
 
-- Use vertex/index buffer object
-  Current implementation is wasteful
-
