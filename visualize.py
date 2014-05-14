@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from __future__ import division, print_function 
 from OpenGL.GL import *
 from OpenGL.GL import shaders
@@ -53,77 +54,88 @@ def draw():
 def idle():
     glutPostRedisplay()
 
-# fetch data
-filename='background/m15.hod'
-bgdata = parse_bg(filename)
+def create_shaders():
+    global background_shader, vertex_loc, color_loc
 
-# initialization
-glutInit()
-glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_ALPHA | GLUT_DEPTH)
-glutInitWindowSize(width, height)
-glutInitWindowPosition(0, 0)
-window = glutCreateWindow("homeworld2 background")
-glutDisplayFunc(draw)
-glutReshapeFunc(reshape)
-glutIdleFunc(idle)
+    VERTEX_SHADER = shaders.compileShader("""
+    #version 120
+    attribute vec4 inVertex;
+    attribute vec4 inColor;
+    void main()
+    {
+        gl_Position = gl_ModelViewProjectionMatrix * inVertex;
+        gl_FrontColor = inColor.abgr;
+    }
+    """, GL_VERTEX_SHADER)
 
-VERTEX_SHADER = shaders.compileShader("""
-#version 120
-attribute vec4 inVertex;
-attribute vec4 inColor;
-void main()
-{
-    gl_Position = gl_ModelViewProjectionMatrix * inVertex;
-    gl_FrontColor = inColor.abgr;
-}
-""", GL_VERTEX_SHADER)
+    FRAGMENT_SHADER = shaders.compileShader("""
+    #version 120
+    void main()
+    {
+        gl_FragColor = gl_Color;
+    }""", GL_FRAGMENT_SHADER)
+    background_shader = shaders.compileProgram(VERTEX_SHADER,FRAGMENT_SHADER)
+    vertex_loc = glGetAttribLocation(background_shader, "inVertex")
+    color_loc = glGetAttribLocation(background_shader, "inColor")
 
-FRAGMENT_SHADER = shaders.compileShader("""
-#version 120
-void main()
-{
-    gl_FragColor = gl_Color;
-}""", GL_FRAGMENT_SHADER)
-background_shader = shaders.compileProgram(VERTEX_SHADER,FRAGMENT_SHADER)
-vertex_loc = glGetAttribLocation(background_shader, "inVertex")
-color_loc = glGetAttribLocation(background_shader, "inColor")
+def create_vbos(bgdata):
+    global ibo,vbo,nbgdata
+    # Build vertex and index buffers and new bgdata structure
+    # that has pointers into the vertex and index buffers instead of
+    # data
+    allvertdata = []
+    allfacedata = []
+    vertdata_ptr = 0
+    facedata_ptr = 0
+    nbgdata = []
+    for numverts,vertsize,vertdata,facelists in bgdata:
+        vertdata_offset = vertdata_ptr
+        allvertdata.append(vertdata)
+        vertdata_ptr += len(vertdata)
+        nfacelists = []
+        for typ, count, facedata in facelists:
+            facedata_offset = facedata_ptr
+            allfacedata.append(facedata)
+            facedata_ptr += len(facedata)
+            nfacelists.append((typ, count, facedata_offset))
+        nbgdata.append((numverts, vertsize, vertdata_offset, nfacelists))
 
-# Build vertex and index buffers and new bgdata structure
-# that has pointers into the vertex and index buffers instead of
-# data
-allvertdata = []
-allfacedata = []
-vertdata_ptr = 0
-facedata_ptr = 0
-nbgdata = []
-for numverts,vertsize,vertdata,facelists in bgdata:
-    vertdata_offset = vertdata_ptr
-    allvertdata.append(vertdata)
-    vertdata_ptr += len(vertdata)
-    nfacelists = []
-    for typ, count, facedata in facelists:
-        facedata_offset = facedata_ptr
-        allfacedata.append(facedata)
-        facedata_ptr += len(facedata)
-        nfacelists.append((typ, count, facedata_offset))
-    nbgdata.append((numverts, vertsize, vertdata_offset, nfacelists))
+    allvertdata = ''.join(allvertdata)
+    allfacedata = ''.join(allfacedata)
 
-allvertdata = ''.join(allvertdata)
-allfacedata = ''.join(allfacedata)
+    print(len(allvertdata), len(allfacedata))
 
-print(len(allvertdata), len(allfacedata))
+    vbo = glGenBuffers(1)
+    glBindBuffer(GL_ARRAY_BUFFER, vbo)
+    glBufferData(GL_ARRAY_BUFFER, len(allvertdata), allvertdata, GL_STATIC_DRAW)
+    glBindBuffer(GL_ARRAY_BUFFER, 0)
 
-vbo = glGenBuffers(1)
-glBindBuffer(GL_ARRAY_BUFFER, vbo)
-glBufferData(GL_ARRAY_BUFFER, len(allvertdata), allvertdata, GL_STATIC_DRAW)
-glBindBuffer(GL_ARRAY_BUFFER, 0)
+    ibo = glGenBuffers(1)
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo)
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, len(allfacedata), allfacedata, GL_STATIC_DRAW)
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0)
 
-ibo = glGenBuffers(1)
-glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo)
-glBufferData(GL_ELEMENT_ARRAY_BUFFER, len(allfacedata), allfacedata, GL_STATIC_DRAW)
-glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0)
+if __name__ == '__main__':
+    import sys
+    try:
+        filename = sys.argv[1]
+    except IndexError:
+        print("Usage: %s <filename.hod>" % sys.argv[0])
+        exit(1)
+    # fetch data
+    bgdata = parse_bg(filename)
 
-print(vbo, ibo)
+    # initialization
+    glutInit()
+    glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_ALPHA | GLUT_DEPTH)
+    glutInitWindowSize(width, height)
+    glutInitWindowPosition(0, 0)
+    window = glutCreateWindow("homeworld2 background")
+    glutDisplayFunc(draw)
+    glutReshapeFunc(reshape)
+    glutIdleFunc(idle)
 
-glutMainLoop()
+    create_shaders()
+    create_vbos(bgdata)
+    glutMainLoop()
 
