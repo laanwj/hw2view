@@ -51,7 +51,7 @@ def idle():
     glutPostRedisplay()
 
 # fetch data
-filename='background/m01.hod'
+filename='background/m15.hod'
 bgdata = parse_bg(filename)
 
 # initialization
