@@ -41,18 +41,16 @@ def parse_BMSH(data):
     version, = struct.unpack('>I', data[0:4])
     #print('---------------------------------')
     #print('Version', version)
-    lod,num,mat,vertmask,numverts = struct.unpack('<IIIII', data[4:24])
+    lod,num,mat,vertsize,numverts = struct.unpack('<IIIII', data[4:24])
     #print('LOD', lod)
     #print('num', num)
     #print('mat', mat)
     #print('vertmask', vertmask)
     #print('numverts', numverts)
     ofs = 24
-    vertices = []
-    for x in range(0, numverts):
-        d = struct.unpack('<ffffBBBB', data[ofs:ofs+4*5])
-        ofs += 4 * 5
-        vertices.append(d)
+    vertsize *= 4
+    vertdata = data[ofs:ofs+vertsize*numverts]
+    ofs += vertsize*numverts
     numfacelists, = struct.unpack('<H', data[ofs:ofs+2])
     #print('numfacelists', numfacelists)
     ofs += 2
@@ -60,19 +58,15 @@ def parse_BMSH(data):
     for x in range(0, numfacelists):
         listtype,listcount = struct.unpack('<II', data[ofs:ofs+8])
         ofs += 8
-        flist = []
         if listtype == PRIM_TRIANGLES:
             assert((listcount % 3)==0)
         #elif listtype == PRIM_TRIANGLE_STRIP:
         #    assert(((listcount-1) % 2)==0)
-        for y in range(0, listcount):
-            d, = struct.unpack('<H', data[ofs:ofs+2])
-            flist.append(d)
-            ofs += 2
-        #print(flist)
-        facelists.append((listtype, flist))
+        fdata = data[ofs:ofs+2*listcount]
+        ofs += 2*listcount
+        facelists.append((listtype, listcount, fdata))
     #print('---------------------------------')
-    return (vertices, facelists)
+    return (numverts, vertsize, vertdata, facelists)
 
 class BackgroundParser(object):
     def __init__(self):

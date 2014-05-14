@@ -13,14 +13,6 @@ gl_types = {
     PRIM_TRIANGLE_STRIP: GL_TRIANGLE_STRIP
 }
 
-def draw_rect(x, y, width, height, z):
-    glBegin(GL_QUADS)
-    glVertex3f(x, y, z)
-    glVertex3f(x + width, y, z)
-    glVertex3f(x + width, y + height, z)
-    glVertex3f(x, y + height, z)
-    glEnd()
-
 starttime = time.time()
 def draw():
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
@@ -32,15 +24,15 @@ def draw():
     glRotate((time.time()-starttime)*30.0, 0.0, 1.0, 0.0)
 
     glColor3f(0.0, 0.0, 1.0)
-    #draw_rect(-10.0, -10.0, 20.0, 20.0, -50.0)
-    for vertices,facelists in bgdata:
-        for typ, faces in facelists:
-            glBegin(gl_types[typ])
-            for face in faces:
-                glColor3f(vertices[face][7]/255.0, vertices[face][6]/255.0, vertices[face][5]/255.0)
-                glVertex3f(vertices[face][0], vertices[face][1], vertices[face][2])
-            glEnd()
-        #break
+    for numverts,vertsize,vertdata,facelists in bgdata:
+        glVertexPointer(4, GL_FLOAT, vertsize, vertdata[0:])
+        glEnableClientState(GL_VERTEX_ARRAY)
+        glColorPointer(4, GL_BYTE, vertsize, vertdata[16:])
+        glEnableClientState(GL_COLOR_ARRAY)
+        for typ, count, facedata in facelists:
+            glDrawElements(gl_types[typ], count, GL_UNSIGNED_SHORT, facedata)
+        glDisableClientState(GL_VERTEX_ARRAY)
+        glDisableClientState(GL_COLOR_ARRAY)
 
     glutSwapBuffers()
 
