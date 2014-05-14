@@ -34,14 +34,14 @@ def draw():
     shaders.glUseProgram(background_shader)
 
     for numverts,vertsize,vertdata,facelists in bgdata:
-        glVertexPointer(4, GL_FLOAT, vertsize, vertdata[0:])
-        glEnableClientState(GL_VERTEX_ARRAY)
-        glColorPointer(4, GL_BYTE, vertsize, vertdata[16:])
-        glEnableClientState(GL_COLOR_ARRAY)
+        glVertexAttribPointer(vertex_loc, 4, GL_FLOAT, False, vertsize, vertdata[0:])
+        glEnableVertexAttribArray(vertex_loc)
+        glVertexAttribPointer(color_loc, 4, GL_BYTE, True, vertsize, vertdata[16:])
+        glEnableVertexAttribArray(color_loc)
         for typ, count, facedata in facelists:
             glDrawElements(gl_types[typ], count, GL_UNSIGNED_SHORT, facedata)
-        glDisableClientState(GL_VERTEX_ARRAY)
-        glDisableClientState(GL_COLOR_ARRAY)
+        glDisableVertexAttribArray(vertex_loc)
+        glDisableVertexAttribArray(color_loc)
 
     shaders.glUseProgram(0)
 
@@ -66,10 +66,12 @@ glutIdleFunc(idle)
 
 VERTEX_SHADER = shaders.compileShader("""
 #version 120
+attribute vec4 inVertex;
+attribute vec4 inColor;
 void main()
 {
-    gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
-    gl_FrontColor = gl_Color.abgr;
+    gl_Position = gl_ModelViewProjectionMatrix * inVertex;
+    gl_FrontColor = inColor.abgr;
 }
 """, GL_VERTEX_SHADER)
 
@@ -80,6 +82,8 @@ void main()
     gl_FragColor = gl_Color;
 }""", GL_FRAGMENT_SHADER)
 background_shader = shaders.compileProgram(VERTEX_SHADER,FRAGMENT_SHADER)
+vertex_loc = glGetAttribLocation(background_shader, "inVertex")
+color_loc = glGetAttribLocation(background_shader, "inColor")
 
 glutMainLoop()
 
