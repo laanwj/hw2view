@@ -1,0 +1,3973 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en" id="vbulletin_html">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta id="e_vb_meta_bburl" name="vb_meta_bburl" content="http://forums.relicnews.com" />
+<base href="http://forums.relicnews.com/" /><!--[if IE]></base><![endif]-->
+<meta name="generator" content="vBulletin 4.2.1" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+
+	<link rel="Shortcut Icon" href="favicon.ico" type="image/x-icon" />
+
+
+
+
+
+
+
+
+	
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.9.0/build/yuiloader-dom-event/yuiloader-dom-event.js"></script>
+	
+
+<script type="text/javascript">
+<!--
+	if (typeof YAHOO === 'undefined') // Load ALL YUI Local
+	{
+		document.write('<script type="text/javascript" src="clientscript/yui/yuiloader-dom-event/yuiloader-dom-event.js?v=421"><\/script>');
+		document.write('<script type="text/javascript" src="clientscript/yui/connection/connection-min.js?v=421"><\/script>');
+		var yuipath = 'clientscript/yui';
+		var yuicombopath = '';
+		var remoteyui = false;
+	}
+	else	// Load Rest of YUI remotely (where possible)
+	{
+		var yuipath = 'http://ajax.googleapis.com/ajax/libs/yui/2.9.0/build';
+		var yuicombopath = '';
+		var remoteyui = true;
+		if (!yuicombopath)
+		{
+			document.write('<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.9.0/build/connection/connection-min.js?v=421"><\/script>');
+		}
+	}
+	var SESSIONURL = "s=79ea5864a712b5e125b17f5ca9116024&";
+	var SECURITYTOKEN = "guest";
+	var IMGDIR_MISC = "images/misc";
+	var IMGDIR_BUTTON = "images/buttons";
+	var vb_disable_ajax = parseInt("0", 10);
+	var SIMPLEVERSION = "421";
+	var BBURL = "http://forums.relicnews.com";
+	var LOGGEDIN = 0 > 0 ? true : false;
+	var THIS_SCRIPT = "showthread";
+	var RELPATH = "showthread.php?87631-big-file-format-described-in-detail-%28analysis-complete%29&amp;p=1400154";
+	var PATHS = {
+		forum : "",
+		cms   : "",
+		blog  : ""
+	};
+	var AJAXBASEURL = "http://forums.relicnews.com/";
+// -->
+</script>
+<script type="text/javascript" src="http://forums.relicnews.com/clientscript/vbulletin-core.js?v=421"></script>
+
+
+
+	<link rel="alternate" type="application/rss+xml" title="Relicnews Forums RSS Feed" href="http://forums.relicnews.com/external.php?type=RSS2" />
+	
+		<link rel="alternate" type="application/rss+xml" title="Relicnews Forums - Homeworld 2 - Tanis Shipyards - RSS Feed" href="http://forums.relicnews.com/external.php?type=RSS2&amp;forumids=72" />
+	
+
+
+
+	<link rel="stylesheet" type="text/css" href="css.php?styleid=70&amp;langid=1&amp;d=1380931558&amp;td=ltr&amp;sheet=bbcode.css,editor.css,popupmenu.css,reset-fonts.css,vbulletin.css,vbulletin-chrome.css,vbulletin-formcontrols.css," />
+
+	<!--[if lt IE 8]>
+	<link rel="stylesheet" type="text/css" href="css.php?styleid=70&amp;langid=1&amp;d=1380931558&amp;td=ltr&amp;sheet=popupmenu-ie.css,vbulletin-ie.css,vbulletin-chrome-ie.css,vbulletin-formcontrols-ie.css,editor-ie.css" />
+	<![endif]-->
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1409481-2']);
+  _gaq.push(['_setDomainName', 'relicnews.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script><script type="text/javascript" src="http://yui.yahooapis.com/combo?2.8.0r4/build/selector/selector-min.js&amp;2.8.0r4/build/event-delegate/event-delegate-min.js&amp;2.8.0r4/build/animation/animation-min.js"></script>
+<script type="text/javascript" src="http://forums.relicnews.com/clientscript/vsqspoiler.js"></script>
+<link rel="stylesheet" type="text/css" href="css.php?styleid=70&amp;langid=1&amp;d=1380931558&amp;td=ltr&amp;sheet=vsq_spoiler.css" /> 
+	
+	<meta name="description" content="To all the Homeworld 2 community, 
+ 
+Administrator Moe has cleared my posting of this (and similar information) on the forum.  What follows is a detailed description of the .big file format.  All fields have been identified and analyzed, so the description should be sufficient to create archives. 
+ 
+All indexes, offsets, and counts are little-endian and require 
+conversion for the Mac PowerPC architecture, but are ok as-is on the 
+Intel platform.  Items that are numeric and described as 4 bytes" />
+
+	<title> .big file format described in detail (analysis complete)</title>
+	<link rel="canonical" href="showthread.php?87631-big-file-format-described-in-detail-(analysis-complete)&s=79ea5864a712b5e125b17f5ca9116024" />
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+		<link rel="stylesheet" type="text/css" href="css.php?styleid=70&amp;langid=1&amp;d=1380931558&amp;td=ltr&amp;sheet=toolsmenu.css,postlist.css,showthread.css,postbit.css,options.css,attachment.css,poll.css,lightbox.css" />
+	
+	<!--[if lt IE 8]><link rel="stylesheet" type="text/css" href="css.php?styleid=70&amp;langid=1&amp;d=1380931558&amp;td=ltr&amp;sheet=toolsmenu-ie.css,postlist-ie.css,showthread-ie.css,postbit-ie.css,poll-ie.css" /><![endif]-->
+<link rel="stylesheet" type="text/css" href="css.php?styleid=70&amp;langid=1&amp;d=1380931558&amp;td=ltr&amp;sheet=additional.css" />
+<script type="text/javascript" src="http://forums.relicnews.com/clientscript/ncode_imageresizer.js"></script>
+
+<script type="text/javascript">
+<!--
+NcodeImageResizer.MODE = 'newwindow';
+NcodeImageResizer.MAXWIDTH = '640';
+NcodeImageResizer.MAXHEIGHT = '0';
+NcodeImageResizer.BBURL = 'http://forums.relicnews.com';
+
+vbphrase['ncode_imageresizer_warning_small'] = 'Click this bar to view the full image.';
+vbphrase['ncode_imageresizer_warning_filesize'] = 'Click this bar to view the original image of %1$sx%2$spx and %3$sKB.';
+vbphrase['ncode_imageresizer_warning_no_filesize'] = 'Click this bar to view the original image of %1$sx%2$spx.';
+vbphrase['ncode_imageresizer_warning_fullsize'] = 'Click this bar to view the small image.';
+// -->
+</script>
+
+
+    <style type="text/css">
+    table.ncode_imageresizer_warning {background: #FFFACD; color: #000000; cursor: pointer; border: 1px solid #EADB9D; margin-bottom: 3px; margin-top: 10px;}
+    table.ncode_imageresizer_warning td {font-size: 11px; font-family: Verdana, Arial, Helvetica, sans-serif; vertical-align: middle; text-decoration: none; border-width: 0px;}
+    table.ncode_imageresizer_warning td.td1 {padding: 4px 0px 4px 4px;}
+    table.ncode_imageresizer_warning td.td2 {padding: 4px;}
+    table.ncode_imageresizer_warning td.td1 img {margin: 0px;}
+    </style>
+ 
+</head>
+
+<body onload="if (document.body.scrollIntoView &amp;&amp; fetch_object('currentPost') &amp;&amp; (window.location.href.indexOf('#') == -1 || window.location.href.indexOf('#post') &gt; -1)) { fetch_object('currentPost').scrollIntoView(true); }">
+
+<div class="above_body">
+<div id="header" class="floatcontainer doc_header">
+	<div><a name="top" href="forum.php?s=79ea5864a712b5e125b17f5ca9116024" class="logo-image"><img src="images/rn_logo.gif" alt="Relicnews Forums - Powered by vBulletin" /></a></div>
+	<div id="toplinks" class="toplinks">
+		
+			<ul class="nouser">
+			
+				<li><a href="register.php?s=79ea5864a712b5e125b17f5ca9116024" rel="nofollow">Register</a></li>
+			
+				<li><a rel="help" href="faq.php?s=79ea5864a712b5e125b17f5ca9116024">Help</a></li>
+				<li>
+			<script type="text/javascript" src="clientscript/vbulletin_md5.js?v=421"></script>
+			<form id="navbar_loginform" action="login.php?s=79ea5864a712b5e125b17f5ca9116024&amp;do=login" method="post" onsubmit="md5hash(vb_login_password, vb_login_md5password, vb_login_md5password_utf, 0)">
+				<fieldset id="logindetails" class="logindetails">
+					<div>
+						<div>
+					<input type="text" class="textbox default-value" name="vb_login_username" id="navbar_username" size="10" accesskey="u" tabindex="101" value="User Name" />
+					<input type="password" class="textbox" tabindex="102" name="vb_login_password" id="navbar_password" size="10" />
+					<input type="text" class="textbox default-value" tabindex="102" name="vb_login_password_hint" id="navbar_password_hint" size="10" value="Password" style="display:none;" />&nbsp;<input type="checkbox" name="cookieuser" value="1" id="cb_cookieuser_navbar" class="cb_cookieuser_navbar" accesskey="c" tabindex="103" checked="checked" />
+					<input type="submit" class="loginbutton" tabindex="104" value="Log in" title="Enter your username and password in the boxes provided to login, or click the 'register' button to create a profile for yourself." accesskey="s" />
+						</div>
+					</div>
+				</fieldset>
+				
+
+				<input type="hidden" name="s" value="79ea5864a712b5e125b17f5ca9116024" />
+				<input type="hidden" name="securitytoken" value="guest" />
+				<input type="hidden" name="do" value="login" />
+				<input type="hidden" name="vb_login_md5password" />
+				<input type="hidden" name="vb_login_md5password_utf" />
+			</form>
+			<script type="text/javascript">
+			YAHOO.util.Dom.setStyle('navbar_password_hint', "display", "inline");
+			YAHOO.util.Dom.setStyle('navbar_password', "display", "none");
+			vB_XHTML_Ready.subscribe(function()
+			{
+			//
+				YAHOO.util.Event.on('navbar_username', "focus", navbar_username_focus);
+				YAHOO.util.Event.on('navbar_username', "blur", navbar_username_blur);
+				YAHOO.util.Event.on('navbar_password_hint', "focus", navbar_password_hint);
+				YAHOO.util.Event.on('navbar_password', "blur", navbar_password);
+			});
+			
+			function navbar_username_focus(e)
+			{
+			//
+				var textbox = YAHOO.util.Event.getTarget(e);
+				if (textbox.value == 'User Name')
+				{
+				//
+					textbox.value='';
+					textbox.style.color='#fff';
+				}
+			}
+
+			function navbar_username_blur(e)
+			{
+			//
+				var textbox = YAHOO.util.Event.getTarget(e);
+				if (textbox.value == '')
+				{
+				//
+					textbox.value='User Name';
+					textbox.style.color='#fff';
+				}
+			}
+			
+			function navbar_password_hint(e)
+			{
+			//
+				var textbox = YAHOO.util.Event.getTarget(e);
+				
+				YAHOO.util.Dom.setStyle('navbar_password_hint', "display", "none");
+				YAHOO.util.Dom.setStyle('navbar_password', "display", "inline");
+				YAHOO.util.Dom.get('navbar_password').focus();
+			}
+
+			function navbar_password(e)
+			{
+			//
+				var textbox = YAHOO.util.Event.getTarget(e);
+				
+				if (textbox.value == '')
+				{
+					YAHOO.util.Dom.setStyle('navbar_password_hint', "display", "inline");
+					YAHOO.util.Dom.setStyle('navbar_password', "display", "none");
+				}
+			}
+			</script>
+				</li>
+				
+			</ul>
+		
+	</div>
+	<div class="ad_global_header">
+		 
+		 
+	</div>
+	<hr />
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-19489941-1']);
+  _gaq.push(['_setDomainName', '.relicnews.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</div>
+<div id="navbar" class="navbar">
+
+	<ul id="navtabs" class="navtabs floatcontainer">
+		
+		
+			<li class="selected"><a class="navtab" href="forum.php?s=79ea5864a712b5e125b17f5ca9116024">Forum</a>
+				<ul class="floatcontainer">
+					
+					
+					
+					
+					
+					<li><a rel="help" href="faq.php?s=79ea5864a712b5e125b17f5ca9116024" accesskey="5">FAQ</a></li>
+					
+					<li><a href="calendar.php?s=79ea5864a712b5e125b17f5ca9116024">Calendar</a></li>
+					
+
+					
+					<li class="popupmenu">
+						<a href="javascript://" class="popupctrl" accesskey="6">Community</a>
+						<ul class="popupbody popuphover">
+							
+							
+							
+							
+							
+								<li><a href="memberlist.php?s=79ea5864a712b5e125b17f5ca9116024">Member List</a></li>
+							
+							
+						</ul>
+					</li>
+					
+					
+					<li class="popupmenu">
+						<a href="javascript://" class="popupctrl">Forum Actions</a>
+						<ul class="popupbody popuphover">
+							<li>
+								<a href="forumdisplay.php?s=79ea5864a712b5e125b17f5ca9116024&amp;do=markread&amp;markreadhash=guest">Mark Forums Read</a>
+							</li>
+                                                        
+						</ul>
+					</li>
+					<li class="popupmenu">
+						<a href="javascript://" class="popupctrl" accesskey="3">Quick Links</a>
+						<ul class="popupbody popuphover">
+							
+							
+							<li><a href="showgroups.php?s=79ea5864a712b5e125b17f5ca9116024" rel="nofollow">
+		
+			View Site Leaders
+		
+	</a></li>
+							
+							
+							
+							
+							
+							
+						</ul>
+					</li>
+					
+				</ul>
+
+			</li>
+		
+		
+		
+			<li><a class="navtab" href="search.php?s=79ea5864a712b5e125b17f5ca9116024&amp;do=getdaily&amp;contenttype=vBForum_Post" accesskey="2">What's New?</a></li>
+		
+		
+	</ul>
+
+	
+	<div id="globalsearch" class="globalsearch">
+		<form action="search.php?s=79ea5864a712b5e125b17f5ca9116024&amp;do=process" method="post" id="navbar_search" class="navbar_search">
+			
+			<input type="hidden" name="securitytoken" value="guest" />
+			<input type="hidden" name="do" value="process" />
+			<span class="textboxcontainer"><span><input type="text" placeholder="Search" name="query" class="textbox" tabindex="99"/></span></span>
+			<span class="buttoncontainer"><span><input type="image" class="searchbutton" src="images/buttons/search.png" name="submit" onclick="document.getElementById('navbar_search').submit;" tabindex="100"/></span></span>
+		</form>
+		
+	</div>
+	
+</div>
+</div><!-- closing div for above_body -->
+
+<div class="body_wrapper">
+
+<div id="breadcrumb" class="breadcrumb">
+	<ul class="floatcontainer">
+		<li class="navbithome"><a href="index.php?s=79ea5864a712b5e125b17f5ca9116024" accesskey="1"><img src="images/misc/navbit-home.png" alt="Home" /></a></li>
+
+		
+	<li class="navbit"><a href="forum.php?s=79ea5864a712b5e125b17f5ca9116024">Forum</a></li>
+
+	<li class="navbit"><a href="forumdisplay.php?291-Game-Mods&amp;s=79ea5864a712b5e125b17f5ca9116024">Game Mods</a></li>
+
+	<li class="navbit"><a href="forumdisplay.php?47-Relic-Game-Mods&amp;s=79ea5864a712b5e125b17f5ca9116024">Relic Game Mods</a></li>
+
+	<li class="navbit"><a href="forumdisplay.php?72-Homeworld-2-Tanis-Shipyards&amp;s=79ea5864a712b5e125b17f5ca9116024">Homeworld 2 - Tanis Shipyards</a></li>
+
+		
+	<li class="navbit lastnavbit"><span> .big file format described in detail (analysis complete)</span></li>
+
+	</ul>
+	<hr />
+</div>
+
+ 
+<div id="ad_global_below_navbar"><table border="0" width="100%" cellpadding="1" align="center" cellspacing="0">
+<tr>
+<td width="728" align=left>
+<!-- Beginning of Project Wonderful ad code: -->
+<!-- Ad box ID: 42750 -->
+<script type="text/javascript">
+<!--
+var pw_d=document;
+pw_d.projectwonderful_adbox_id = "42750";
+pw_d.projectwonderful_adbox_type = "5";
+pw_d.projectwonderful_foreground_color = "";
+pw_d.projectwonderful_background_color = "";
+//-->
+</script>
+<script type="text/javascript" src="http://www.projectwonderful.com/ad_display.js"></script>
+<noscript><map name="admap42750" id="admap42750"><area href="http://www.projectwonderful.com/out_nojs.php?r=0&amp;c=0&amp;id=42750&amp;type=5" shape="rect" coords="0,0,728,90" title="" alt="" target="_blank" /></map>
+<table cellpadding="0" border="0" cellspacing="0" width="728" bgcolor="#D9D9D9"><tr><td><img src="http://www.projectwonderful.com/nojs.php?id=42750&amp;type=5" width="728" height="90" usemap="#admap42750" border="0" alt="" /></td></tr><tr><td bgcolor="#D9D9D9" colspan="1"><center><a style="font-size:10px;color:#000066;text-decoration:none;line-height:1.2;font-weight:bold;font-family:Tahoma, verdana,arial,helvetica,sans-serif;text-transform: none;letter-spacing:normal;text-shadow:none;white-space:normal;word-spacing:normal;" href="http://www.projectwonderful.com/advertisehere.php?id=42750&amp;type=5" target="_blank">Ads by Project Wonderful!  Your ad here, right now: $0</a></center></td></tr></table>
+</noscript>
+<!-- End of Project Wonderful ad code. --></td>
+
+<td align=right>
+
+  <div align="left">
+  <!-- Beginning of Project Wonderful ad code: -->
+  <!-- Ad box ID: 43340 -->
+  <script type="text/javascript">
+<!--
+var pw_d=document;
+pw_d.projectwonderful_adbox_id = "43340";
+pw_d.projectwonderful_adbox_type = "2";
+pw_d.projectwonderful_foreground_color = "";
+pw_d.projectwonderful_background_color = "";
+//-->
+</script>
+  <script type="text/javascript" src="http://www.projectwonderful.com/ad_display.js"></script>
+  <noscript>
+  <map name="admap43340" id="admap43340">
+    <area href="http://www.projectwonderful.com/out_nojs.php?r=0&amp;c=0&amp;id=43340&amp;type=2" shape="rect" coords="0,0,117,30" title="" alt="" target="_blank" />
+    <area href="http://www.projectwonderful.com/out_nojs.php?r=0&amp;c=1&amp;id=43340&amp;type=2" shape="rect" coords="117,0,234,30" title="" alt="" target="_blank" />
+    <area href="http://www.projectwonderful.com/out_nojs.php?r=1&amp;c=0&amp;id=43340&amp;type=2" shape="rect" coords="0,30,117,60" title="" alt="" target="_blank" />
+    <area href="http://www.projectwonderful.com/out_nojs.php?r=1&amp;c=1&amp;id=43340&amp;type=2" shape="rect" coords="117,30,234,60" title="" alt="" target="_blank" />
+    <area href="http://www.projectwonderful.com/out_nojs.php?r=2&amp;c=0&amp;id=43340&amp;type=2" shape="rect" coords="0,60,117,90" title="" alt="" target="_blank" />
+    <area href="http://www.projectwonderful.com/out_nojs.php?r=2&amp;c=1&amp;id=43340&amp;type=2" shape="rect" coords="117,60,234,90" title="" alt="" target="_blank" />
+  </map>
+  <table cellpadding="0" border="0" cellspacing="0" width="234" bgcolor="">
+    <tr>
+      <td><img src="http://www.projectwonderful.com/nojs.php?id=43340&amp;type=2" width="234" height="90" usemap="#admap43340" border="0" alt="" /></td>
+    </tr>
+    <tr>
+      <td bgcolor="" colspan="2"><center>
+        <a style="font-size:10px;color:#000000;text-decoration:none;line-height:1.2;font-weight:bold;font-family:Tahoma, verdana,arial,helvetica,sans-serif;text-transform: none;letter-spacing:normal;text-shadow:none;white-space:normal;word-spacing:normal;" href="http://www.projectwonderful.com/advertisehere.php?id=43340&amp;type=2" target="_blank">Your ad here, right now: $0.02</a>
+      </center></td>
+    </tr>
+  </table>
+  </noscript>
+  </div>
+<!-- End of Project Wonderful ad code. -->
+
+</tr></td></table></div>
+
+
+	<form action="profile.php?do=dismissnotice" method="post" id="notices" class="notices">
+		<input type="hidden" name="do" value="dismissnotice" />
+		<input type="hidden" name="s" value="s=79ea5864a712b5e125b17f5ca9116024&amp;" />
+		<input type="hidden" name="securitytoken" value="guest" />
+		<input type="hidden" id="dismiss_notice_hidden" name="dismiss_noticeid" value="" />
+		<input type="hidden" name="url" value="" />
+		<ol>
+			<li class="restore" id="navbar_notice_1">
+	
+	If this is your first visit, be sure to
+		check out the <a href="faq.php?s=79ea5864a712b5e125b17f5ca9116024" target="_blank"><b>FAQ</b></a> by clicking the
+		link above. You may have to <a href="register.php?s=79ea5864a712b5e125b17f5ca9116024" target="_blank"><b>register</b></a>
+		before you can post: click the register link above to proceed. To start viewing messages,
+		select the forum that you want to visit from the selection below.
+</li>
+		</ol>
+	</form>
+ 
+
+
+
+	<div id="above_postlist" class="above_postlist">
+		
+
+		<div id="pagination_top" class="pagination_top">
+		
+			<div id="postpagestats_above" class="postpagestats">
+				Results 1 to 15 of 15
+			</div>
+		</div>
+	</div>
+<div id="pagetitle" class="pagetitle">
+	<h1><span class="forumtitle2"><a href="showthread.php?87631-big-file-format-described-in-detail-(analysis-complete)&s=79ea5864a712b5e125b17f5ca9116024" title="Reload this Page">.big file format described in detail (analysis complete)</a></span>
+		
+	</h1>
+</div>
+	<div id="thread_controls" class="thread_controls toolsmenu">
+		<div>
+		<ul id="postlist_popups" class="postlist_popups popupgroup">
+			
+			
+			<li class="popupmenu" id="threadtools">
+				<h6><a class="popupctrl" href="javascript://">Thread Tools</a></h6>
+				<ul class="popupbody popuphover">
+					<li><a href="printthread.php?s=79ea5864a712b5e125b17f5ca9116024&amp;t=87631&amp;pp=50&amp;page=1" accesskey="3" 
+						rel="nofollow">Show Printable Version</a></li>
+					<li><a href="sendmessage.php?s=79ea5864a712b5e125b17f5ca9116024&amp;do=sendtofriend&amp;t=87631"
+						rel="nofollow">Email this Page&hellip;</a></li>
+					<li>
+						
+							<a href="subscription.php?s=79ea5864a712b5e125b17f5ca9116024&amp;do=addsubscription&amp;t=87631" 
+								rel="nofollow">Subscribe to this Thread&hellip;</a>
+											
+					</li>
+					
+				</ul>
+			</li>
+
+			
+
+			
+
+			
+
+			
+
+			
+		</ul>
+		</div>
+	</div>
+
+<div id="postlist" class="postlist restrain">
+	
+
+	
+		<ol id="posts" class="posts" start="1">
+			
+<li class="postbitlegacy postbitim postcontainer" id="post_1400154">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+		
+			<span class="postdate old">
+				
+					<span class="date">28th Feb 06&nbsp;<span class="time">8:10 PM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+			
+				
+					<a name="post1400154" href="showthread.php?87631-big-file-format-described-in-detail-(analysis-complete)&amp;s=79ea5864a712b5e125b17f5ca9116024&amp;p=1400154&amp;viewfull=1#post1400154" class="postcounter">#1</a><a id="postcount1400154" name="1"></a>
+				
+				
+				
+			</span>
+		
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			
+				<span class="username guest">ThomasT</span>
+			
+			</div>
+			<span class="usertitle">
+				Guest
+			</span>
+
+			
+			
+			 
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow has_after_content">
+				
+				
+				<h2 class="title icon">
+					.big file format described in detail (analysis complete)
+				</h2>
+				
+
+
+						
+							
+							
+						
+						
+				<div class="content">
+					<div id="post_message_1400154">
+						<blockquote class="postcontent restore ">
+							To all the Homeworld 2 community,<br />
+<br />
+<b>Administrator Moe</b> has <a href="http://forums.relicnews.com/showthread.php?p=1400178#post1400178" target="_blank">cleared my posting</a> of this (and similar information) on the forum.  What follows is a detailed description of the .big file format.  All fields have been identified and analyzed, so the description should be sufficient to create archives.<br />
+<br />
+<div class="bbcode_container">
+	<div class="bbcode_description">Code:</div>
+	<pre class="bbcode_code"style="height:372px;">All indexes, offsets, and counts are little-endian and require
+conversion for the Mac PowerPC architecture, but are ok as-is on the
+Intel platform.  Items that are numeric and described as 4 bytes are of 
+type uint32_t.  Items that are numeric and described as 2 bytes are of
+type uint16_t.
+
+Overall format is:
+    Archive Header
+    Section Header describing the four sections immediately
+        following the Archive Header (TOC List,
+        Folder List, File Info List, and File Name List)
+    TOC (Table of Contents) List
+    Folder List
+    File Info List
+    File Name List
+    File Data for all the files (including the 264 byte header
+       preceeding the file data of each file)
+
+The format of each of the above is:
+    
+180 byte archive header
+	8 bytes of &quot;_ARCHIVE&quot;
+	4 bytes version
+	16 bytes for MD5 tool signature of archive (MD5 of tool security
+             key and full file data excluding the archive header)
+	128 bytes for 64 utf16 chars for archive name
+	16 bytes for MD5 signature of archive (MD5 of HW2 Root Security Key
+             and archive header data)
+	4 bytes section header size
+	4 bytes exact file data offset
+
+24 byte section header consisting of four 6 byte sections.
+Each 6 byte section has:
+	4 byte offset relative to archive header
+	2 byte count
+
+The four sections are:
+	TOC List (describes each TOC entry, that is, each folder hierarchy)
+	Folder List (describes the folder hierarchy for each TOC)
+	File Info List (describes each file)
+	File Name List (the list of file names, including folder names)
+
+TOC list entry (138 bytes)
+	64 character alias name
+	64 character name
+	2 byte first folder index
+	2 byte last folder index
+	2 byte first filename index
+	2 byte last filename index
+	2 byte start folder index for hierarchy
+
+Folder list entry (12 bytes)
+	4 bytes file name offset (relative to file name list offset)
+	2 bytes first subfolder index
+	2 bytes last subfolder index
+	2 bytes first filename index
+	2 bytes last filename index
+
+File info list entry (17 bytes)
+	4 bytes file name offset (relative to file name list offset)
+	1 byte flags (0x00 if uncompressed
+                      0x10 to decompress during read -- used for large files
+                      0x20 to decompress all at once -- used for small files, like .lua files)
+	4 bytes file data offset (relative to overall file data offset)
+	4 bytes compressed length
+	4 bytes decompressed length
+
+File header preceding file data for each file (264 bytes)
+	256 chars for file name
+        4 bytes file modification date
+        4 bytes CRC of uncompressed file data.
+
+Note that the file data offset in the file info list entry indicates the
+location of the file data.  In order to access the file header
+preceeding the file data you must subtract 264 from the offset.
+
+The HW2 Root Security Key is an ASCII string that is passed first to
+the MD5 algorithm followed by the archive header data to create the
+archive's 128 bit (16 byte) MD5 signature.  The MD5 algorithm used is
+standard.  The Root Security Key is embedded in the HW2 application
+and also in Relic's archive tool.
+
+The tool security key is an ASCII string that is passed first to the MD5
+algorithm followed by the full data in the archive excluding the archive
+header to create the archive's 128 bit (16 byte) MD5 tool signature.
+The MD5 algorithm is standard.  The tool security key is embedded in
+Relic's archive tool.
+
+The file modification date appears to be the number of seconds
+since UTC 00:00:00 January 1st, 1970.  This date is the Unix epoch,
+although it is unknown to the author of this document if that is also
+the Windows epoch.
+
+The CRC algorithm used to calculate the uncompressed file data CRC
+is the <a href="http://www.relicnews.com/files/rdn/filespecs/BIGaddendum.zip" target="_blank">exact same algorithm used for Homeworld</a>.  Apparently the algorithm
+and table are taken from the <a href="http://home.earthlink.net/~neilbawd/crc32.txt" target="_blank">32-Bit CRC International Standard</a>,
+which is based on a particular mathematical formula.  Thus there shouldn't
+be any concerns over copyright in this case.</pre>
+</div>
+						</blockquote>
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="after_content">
+				
+				<!-- edit note -->
+				<blockquote class="postcontent lastedited">
+<!--					<img src="images/buttons/edit_40b.png" class="inlineimg" alt="" /> -->
+					
+						Last edited by ThomasT; 16th May 06 at <span class="time">8:42 AM</span>.
+					
+					
+						<span class="reason">Reason:</span> Added link to BIGaddendum.zip
+					
+				</blockquote>
+				<!-- / edit note -->
+				
+                                       
+                                 
+				
+                                        
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_1400154" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+ 
+<li class="postbitlegacy postbitim postcontainer" id="post_1400292">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+		
+			<span class="postdate old">
+				
+					<span class="date">28th Feb 06&nbsp;<span class="time">10:15 PM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+			
+				<span><img src="images/badges_small/seniormember.png" alt="" border="" /></span>
+			
+				
+					<a name="post1400292" href="showthread.php?87631-big-file-format-described-in-detail-(analysis-complete)&amp;s=79ea5864a712b5e125b17f5ca9116024&amp;p=1400292&amp;viewfull=1#post1400292" class="postcounter">#2</a><a id="postcount1400292" name="2"></a>
+				
+				
+				
+			</span>
+		
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			
+				<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?88-Delphy&amp;s=79ea5864a712b5e125b17f5ca9116024" title="Delphy is offline"><strong>Delphy</strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<a href="member.php?88-Delphy&amp;s=79ea5864a712b5e125b17f5ca9116024" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="search.php?s=79ea5864a712b5e125b17f5ca9116024&amp;do=finduser&amp;userid=88&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+		
+		<li class="right">
+			<a href="http://forums.relicnews.com/list.php?author/88-Delphy&amp;s=79ea5864a712b5e125b17f5ca9116024" class="siteicon_article" rel="nofollow">
+				View Articles
+			</a>
+		</li>
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="Delphy is offline" border="0" />
+
+			
+			</div>
+			<span class="usertitle">
+				Ancient One
+			</span>
+
+			
+			
+			
+			<a class="postuseravatar" href="member.php?88-Delphy&amp;s=79ea5864a712b5e125b17f5ca9116024" title="Delphy is offline">
+				<img src="avatars/avatar88_9.gif" alt="Delphy's Avatar" title="Delphy's Avatar" />
+			</a>
+			 
+			
+				<hr />
+				<dl class="userinfo_extra">
+					<dt>Join Date</dt> <dd>Sep 1999</dd>
+					<dt>Location</dt> <dd>The Netherlands</dd>
+					
+						
+					
+				</dl>
+				
+				
+				<div class="imlinks">
+					    
+				</div>
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow">
+				
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_1400292">
+						<blockquote class="postcontent restore ">
+							My code isn't as clean as yours but I'll post up any changes tommorow when I've had some sleep.
+						</blockquote>
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_1400292" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+ 
+<li class="postbitlegacy postbitim postcontainer" id="post_1404881">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+		
+			<span class="postdate old">
+				
+					<span class="date">4th Mar 06&nbsp;<span class="time">2:11 AM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+			
+				
+					<a name="post1404881" href="showthread.php?87631-big-file-format-described-in-detail-(analysis-complete)&amp;s=79ea5864a712b5e125b17f5ca9116024&amp;p=1404881&amp;viewfull=1#post1404881" class="postcounter">#3</a><a id="postcount1404881" name="3"></a>
+				
+				
+				
+			</span>
+		
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			
+				<span class="username guest">ThomasT</span>
+			
+			</div>
+			<span class="usertitle">
+				Guest
+			</span>
+
+			
+			
+			 
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow has_after_content">
+				
+				
+				<h2 class="title icon">
+					Continuing with analysis
+				</h2>
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_1404881">
+						<blockquote class="postcontent restore ">
+							<b>Delphy</b>, you haven't responded in a few days, so I've continued my analysis.  My suspicion is that the original unknowns in my file spec have never been figured out by anyone.  The reason is because I found more information on the internet that indicates others also have marked the information as unknown.  Two links are <a href="http://www.relic.com/rdn/wiki/DOWFileFormats/SGA" target="_blank">http://www.relic.com/rdn/wiki/DOWFileFormats/SGA</a> and <a href="http://www.watto.org/extract/program/archives.txt" target="_blank">http://www.watto.org/extract/program/archives.txt</a>.<br />
+<br />
+Both of the above URLs describe the .sga file format used by Dawn of War.  That format is almost identical to the Homeworld 2 .big file format.  Both of the above referenced pages mark the same items as unknown as I did.  Furthermore, I found a thread someplace in the Relic forums (sorry, I lost the ref) discussing the .sga format.  The thread mentioned <b>Spooky's</b> description of the format, and in fact the Relic forum page referenced above contains apparently Spooky's understanding of the format.  Assuming the spec was his most up-to-date one (and no one has posted anything more recent), it is fair to assume that even <b>Spooky</b> didn't understand the missing information (or was unwilling to share it).<br />
+<br />
+Suffice it to say, I am continuing with my analysis.
+						</blockquote>
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="after_content">
+				
+				<!-- edit note -->
+				<blockquote class="postcontent lastedited">
+<!--					<img src="images/buttons/edit_40b.png" class="inlineimg" alt="" /> -->
+					
+						Last edited by ThomasT; 5th Mar 06 at <span class="time">1:08 PM</span>.
+					
+					
+				</blockquote>
+				<!-- / edit note -->
+				
+                                       
+                                 
+				
+                                        
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_1404881" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+ 
+<li class="postbitlegacy postbitim postcontainer" id="post_1406890">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+		
+			<span class="postdate old">
+				
+					<span class="date">5th Mar 06&nbsp;<span class="time">2:54 PM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+			
+				<span><img src="images/badges_small/seniormember.png" alt="" border="" /></span>
+			
+				
+					<a name="post1406890" href="showthread.php?87631-big-file-format-described-in-detail-(analysis-complete)&amp;s=79ea5864a712b5e125b17f5ca9116024&amp;p=1406890&amp;viewfull=1#post1406890" class="postcounter">#4</a><a id="postcount1406890" name="4"></a>
+				
+				
+				
+			</span>
+		
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			
+				<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?23727-Corsix&amp;s=79ea5864a712b5e125b17f5ca9116024" title="Corsix is offline"><strong>Corsix</strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<a href="member.php?23727-Corsix&amp;s=79ea5864a712b5e125b17f5ca9116024" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="search.php?s=79ea5864a712b5e125b17f5ca9116024&amp;do=finduser&amp;userid=23727&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		<li class="left">
+			<a href="http://www.corsix.org/" class="siteicon_homepage">
+				Visit Homepage
+			</a>
+		</li>
+		
+		
+		
+		<li class="right">
+			<a href="http://forums.relicnews.com/list.php?author/23727-Corsix&amp;s=79ea5864a712b5e125b17f5ca9116024" class="siteicon_article" rel="nofollow">
+				View Articles
+			</a>
+		</li>
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="Corsix is offline" border="0" />
+
+			
+			</div>
+			<span class="usertitle">
+				The 22nd Hyperspace Core
+			</span>
+
+			
+			
+			
+			<a class="postuseravatar" href="member.php?23727-Corsix&amp;s=79ea5864a712b5e125b17f5ca9116024" title="Corsix is offline">
+				<img src="avatars/avatar23727_12.gif" alt="Corsix's Avatar" title="Corsix's Avatar" />
+			</a>
+			 
+			
+				<hr />
+				<dl class="userinfo_extra">
+					<dt>Join Date</dt> <dd>Sep 2004</dd>
+					<dt>Location</dt> <dd>Oxford</dd>
+					
+						
+					
+				</dl>
+				
+				
+				<div class="imlinks">
+					    
+				</div>
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow has_after_content">
+				
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_1406890">
+						<blockquote class="postcontent restore ">
+							The formats on the SGA page are my VB code, which I have recently ported to C++. This is Spooky's VB code (hopefully he won't mind me posting it):<div class="bbcode_container">
+	<div class="bbcode_description">Code:</div>
+	<pre class="bbcode_code"style="height:372px;">Public Type tagArchiveHeader
+   sIdentifier As String * 8
+   lVersion As Long
+   dUnknown(0 To 3, 0 To 3) As Byte
+   sArchiveType As String * 128
+   dCRC(0 To 3, 0 To 3) As Byte
+   lDataHeaderSize As Long
+   lDataOffset As Long
+End Type
+
+Public Type tagRecordHeader
+   lTOCOffset As Long
+   nNumTOC As Integer
+   lDirectoyOffset As Long
+   nNumDirectories As Integer
+   lFileOffset As Long
+   nNumFiles As Integer
+   lItemsOffset As Long
+   nNumItems As Integer
+End Type
+
+Public Type tagTOCHeader
+   sTOCAlias As String
+   sTOCStartName As String
+   nTOCStartDir As Integer
+   nTOCEndDir As Integer
+   nTOCStartFile As Integer
+   nTOCEndFile As Integer
+   nTOCFolderOffset As Integer
+End Type
+
+Public Type tagDirectoryOffsets
+   lSubFolderOffset As Long
+   nFirstSubfolder As Integer
+   nNextSubFolder As Integer
+   nFirstFile As Integer
+   nNextFile As Integer
+   sDirectoryName As String
+End Type
+
+Public Type tagFileOffsets
+   lOffset As Long
+   dICFiller As Byte
+   lDoWFiller As Long
+   lPosition As Long
+   lCompressedSize As Long
+   lOriginalSize As Long
+   sFileName As String
+End Type
+
+Public Type tagArchive
+   ArchiveHeader As tagArchiveHeader
+   RecordHeader As tagRecordHeader
+   TOCHeader() As tagTOCHeader
+   DirectoryOffsets() As tagDirectoryOffsets
+   FileOffsets() As tagFileOffsets
+   DirectoryNames() As String
+   FileNames() As String
+End Type</pre>
+</div>He thinks its a 16 byte CRC in the header, but there are functions in DoW's filesystem.dll that relate to SGAs and MD5s so I suspected it was some kind of MD5. As for the unknowns, I don't know what they are, and if Spooky did then he didn't tell mewhen i asked.<br />
+<br />
+I would like to know what the unknowns are though so I can craft SGA archives.
+						</blockquote>
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="after_content">
+				
+                                       
+                                 
+				
+		        		<blockquote class="signature restore"><div class="signaturecontainer"><font size="1"><a href="http://www.corsix.org/" target="_blank">www.corsix.org</a></font></blockquote>
+				
+                                        
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_1406890" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+ 
+<li class="postbitlegacy postbitim postcontainer" id="post_1408993">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+		
+			<span class="postdate old">
+				
+					<span class="date">7th Mar 06&nbsp;<span class="time">5:09 AM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+			
+				<span><img src="images/badges_small/seniormember.png" alt="" border="" /></span>
+			
+				
+					<a name="post1408993" href="showthread.php?87631-big-file-format-described-in-detail-(analysis-complete)&amp;s=79ea5864a712b5e125b17f5ca9116024&amp;p=1408993&amp;viewfull=1#post1408993" class="postcounter">#5</a><a id="postcount1408993" name="5"></a>
+				
+				
+				
+			</span>
+		
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			
+				<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?88-Delphy&amp;s=79ea5864a712b5e125b17f5ca9116024" title="Delphy is offline"><strong>Delphy</strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<a href="member.php?88-Delphy&amp;s=79ea5864a712b5e125b17f5ca9116024" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="search.php?s=79ea5864a712b5e125b17f5ca9116024&amp;do=finduser&amp;userid=88&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+		
+		<li class="right">
+			<a href="http://forums.relicnews.com/list.php?author/88-Delphy&amp;s=79ea5864a712b5e125b17f5ca9116024" class="siteicon_article" rel="nofollow">
+				View Articles
+			</a>
+		</li>
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="Delphy is offline" border="0" />
+
+			
+			</div>
+			<span class="usertitle">
+				Ancient One
+			</span>
+
+			
+			
+			
+			<a class="postuseravatar" href="member.php?88-Delphy&amp;s=79ea5864a712b5e125b17f5ca9116024" title="Delphy is offline">
+				<img src="avatars/avatar88_9.gif" alt="Delphy's Avatar" title="Delphy's Avatar" />
+			</a>
+			 
+			
+				<hr />
+				<dl class="userinfo_extra">
+					<dt>Join Date</dt> <dd>Sep 1999</dd>
+					<dt>Location</dt> <dd>The Netherlands</dd>
+					
+						
+					
+				</dl>
+				
+				
+				<div class="imlinks">
+					    
+				</div>
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow">
+				
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_1408993">
+						<blockquote class="postcontent restore ">
+							I have it all as unknowns in my code, and yes, the DoW/IC SGA format is very similar to the HW2 &quot;.big&quot; format - it's basically the same with a couple of changes.
+						</blockquote>
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_1408993" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+ 
+<li class="postbitlegacy postbitim postcontainer" id="post_1409871">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+		
+			<span class="postdate old">
+				
+					<span class="date">7th Mar 06&nbsp;<span class="time">6:26 PM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+			
+				
+					<a name="post1409871" href="showthread.php?87631-big-file-format-described-in-detail-(analysis-complete)&amp;s=79ea5864a712b5e125b17f5ca9116024&amp;p=1409871&amp;viewfull=1#post1409871" class="postcounter">#6</a><a id="postcount1409871" name="6"></a>
+				
+				
+				
+			</span>
+		
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			
+				<span class="username guest">ThomasT</span>
+			
+			</div>
+			<span class="usertitle">
+				Guest
+			</span>
+
+			
+			
+			 
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow has_after_content">
+				
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_1409871">
+						<blockquote class="postcontent restore ">
+							<b>Corsix</b> and <b>Delphy</b>, thanks for your responses.  You've confirmed what I suspected.  I will continue analyzing things and keep you all informed.  Again, thanks for your support!<br />
+<br />
+Update:  I've updated the compression flags to include the 0x10 value, and to clarify what the 0x20 value means.  Also, I have figured out the CRC field in the file header.  Lastly, I've figured out what the other 16 bytes in the archive header mean.<br />
+<br />
+The last little bit I'm struggling to understand is the meaning of the 4 bytes just before the CRC.  The pattern of these 4 bytes is odd, more akin to flags or some kind of index.  Hopefully I'll have this figured out without too much trouble, because then the entire format will have been analyzed.
+						</blockquote>
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="after_content">
+				
+				<!-- edit note -->
+				<blockquote class="postcontent lastedited">
+<!--					<img src="images/buttons/edit_40b.png" class="inlineimg" alt="" /> -->
+					
+						Last edited by ThomasT; 8th Mar 06 at <span class="time">10:58 PM</span>.
+					
+					
+				</blockquote>
+				<!-- / edit note -->
+				
+                                       
+                                 
+				
+                                        
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_1409871" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+ 
+<li class="postbitlegacy postbitim postcontainer" id="post_1412351">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+		
+			<span class="postdate old">
+				
+					<span class="date">9th Mar 06&nbsp;<span class="time">11:51 AM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+			
+				<span><img src="images/badges_small/seniormember.png" alt="" border="" /></span>
+			
+				
+					<a name="post1412351" href="showthread.php?87631-big-file-format-described-in-detail-(analysis-complete)&amp;s=79ea5864a712b5e125b17f5ca9116024&amp;p=1412351&amp;viewfull=1#post1412351" class="postcounter">#7</a><a id="postcount1412351" name="7"></a>
+				
+				
+				
+			</span>
+		
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			
+				<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?23727-Corsix&amp;s=79ea5864a712b5e125b17f5ca9116024" title="Corsix is offline"><strong>Corsix</strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<a href="member.php?23727-Corsix&amp;s=79ea5864a712b5e125b17f5ca9116024" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="search.php?s=79ea5864a712b5e125b17f5ca9116024&amp;do=finduser&amp;userid=23727&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		<li class="left">
+			<a href="http://www.corsix.org/" class="siteicon_homepage">
+				Visit Homepage
+			</a>
+		</li>
+		
+		
+		
+		<li class="right">
+			<a href="http://forums.relicnews.com/list.php?author/23727-Corsix&amp;s=79ea5864a712b5e125b17f5ca9116024" class="siteicon_article" rel="nofollow">
+				View Articles
+			</a>
+		</li>
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="Corsix is offline" border="0" />
+
+			
+			</div>
+			<span class="usertitle">
+				The 22nd Hyperspace Core
+			</span>
+
+			
+			
+			
+			<a class="postuseravatar" href="member.php?23727-Corsix&amp;s=79ea5864a712b5e125b17f5ca9116024" title="Corsix is offline">
+				<img src="avatars/avatar23727_12.gif" alt="Corsix's Avatar" title="Corsix's Avatar" />
+			</a>
+			 
+			
+				<hr />
+				<dl class="userinfo_extra">
+					<dt>Join Date</dt> <dd>Sep 2004</dd>
+					<dt>Location</dt> <dd>Oxford</dd>
+					
+						
+					
+				</dl>
+				
+				
+				<div class="imlinks">
+					    
+				</div>
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow has_after_content">
+				
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_1412351">
+						<blockquote class="postcontent restore ">
+							As far as &quot;big&quot; and &quot;small&quot; files, Relic seem to draw the line at 4k:<br />
+The biggest file I found with the 0x20 flag was 4,080 bytes (16 bytes under 4k)<br />
+The smallest file I found with the 0x10 flag was 4,106 bytes (20 bytes over 4k)<br />
+As for the 0x00 flag, it doesn't &quot;get toggled&quot; at a specific value, so I assume it's used when zlib cannot do any compressing
+						</blockquote>
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="after_content">
+				
+                                       
+                                 
+				
+                                        
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_1412351" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+ 
+<li class="postbitlegacy postbitim postcontainer" id="post_1412465">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+		
+			<span class="postdate old">
+				
+					<span class="date">9th Mar 06&nbsp;<span class="time">1:06 PM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+			
+				
+					<a name="post1412465" href="showthread.php?87631-big-file-format-described-in-detail-(analysis-complete)&amp;s=79ea5864a712b5e125b17f5ca9116024&amp;p=1412465&amp;viewfull=1#post1412465" class="postcounter">#8</a><a id="postcount1412465" name="8"></a>
+				
+				
+				
+			</span>
+		
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			
+				<span class="username guest">ThomasT</span>
+			
+			</div>
+			<span class="usertitle">
+				Guest
+			</span>
+
+			
+			
+			 
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow has_after_content">
+				
+				
+				<h2 class="title icon">
+					Analysis Complete!
+				</h2>
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_1412465">
+						<blockquote class="postcontent restore ">
+							I don't quite know how to say this, except to just say it.  The analysis of the .big file format is now complete.  Thank God (truly)!  I think I received some divine help to complete this, sigh.<br />
+<br />
+The final part I didn't understand, namely the 4 bytes just after the file header's 256 byte array for the file name, represents the modification date for the file.  I believe it is the number of seconds since UTC 00:00:00 January 1st, 1970.  The numbers look about right, and also that is the epoch for Unix systems.  (I'm not sure if it is the same for Windows systems.)<br />
+<br />
+I kept staring at those numbers, trying to figure out the relationship between them and the files.<br />
+<img src="images/smilies/idea.gif" border="0" alt="" title="Idea" class="inlineimg" /><br />
+<br />
+Then it suddenly dawned on me that the numbers were very close together, with very little variance.  I also remembered reading somewhere that the original Homeworld had a modification date embedded in the format.<br />
+<br />
+Although the .big file format has changed from HW to HW2 to DoW, there has been a pattern of evolution evident in the format changes.  So, on a hunch I got on a Windows system and used ModPackager to build a test archive twice, updating the modification time of one file the second time (and refreshing files in ModPackager).  I then copied the two archives to a Unix system and did an od (octal dump) of the archives, and voila!  The bytes I didn't understand in the file header were the ones that were different!  I then wrote a quick C program to dump the current date out in seconds since the epoch, and the changed bytes in the archive were very very close to that value.<br />
+<br />
+Ok.  Now I need to take a little break while I plan the creation of the <a href="http://forums.relicnews.com/showthread.php?t=94340" target="_blank">Mac tool</a> for extracting/creating archives.<br />
+<img src="images/smilies/icon_couch.gif" border="0" alt="" title="Couch" class="inlineimg" />:snore:
+						</blockquote>
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="after_content">
+				
+				<!-- edit note -->
+				<blockquote class="postcontent lastedited">
+<!--					<img src="images/buttons/edit_40b.png" class="inlineimg" alt="" /> -->
+					
+						Last edited by ThomasT; 24th May 06 at <span class="time">8:56 AM</span>.
+					
+					
+						<span class="reason">Reason:</span> Added bigar thread reference
+					
+				</blockquote>
+				<!-- / edit note -->
+				
+                                       
+                                 
+				
+                                        
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_1412465" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+ 
+<li class="postbitlegacy postbitim postcontainer" id="post_1412492">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+		
+			<span class="postdate old">
+				
+					<span class="date">9th Mar 06&nbsp;<span class="time">1:17 PM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+			
+				<span><img src="images/badges_small/seniormember.png" alt="" border="" /></span>
+			
+				
+					<a name="post1412492" href="showthread.php?87631-big-file-format-described-in-detail-(analysis-complete)&amp;s=79ea5864a712b5e125b17f5ca9116024&amp;p=1412492&amp;viewfull=1#post1412492" class="postcounter">#9</a><a id="postcount1412492" name="9"></a>
+				
+				
+				
+			</span>
+		
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			
+				<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?23727-Corsix&amp;s=79ea5864a712b5e125b17f5ca9116024" title="Corsix is offline"><strong>Corsix</strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<a href="member.php?23727-Corsix&amp;s=79ea5864a712b5e125b17f5ca9116024" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="search.php?s=79ea5864a712b5e125b17f5ca9116024&amp;do=finduser&amp;userid=23727&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		<li class="left">
+			<a href="http://www.corsix.org/" class="siteicon_homepage">
+				Visit Homepage
+			</a>
+		</li>
+		
+		
+		
+		<li class="right">
+			<a href="http://forums.relicnews.com/list.php?author/23727-Corsix&amp;s=79ea5864a712b5e125b17f5ca9116024" class="siteicon_article" rel="nofollow">
+				View Articles
+			</a>
+		</li>
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="Corsix is offline" border="0" />
+
+			
+			</div>
+			<span class="usertitle">
+				The 22nd Hyperspace Core
+			</span>
+
+			
+			
+			
+			<a class="postuseravatar" href="member.php?23727-Corsix&amp;s=79ea5864a712b5e125b17f5ca9116024" title="Corsix is offline">
+				<img src="avatars/avatar23727_12.gif" alt="Corsix's Avatar" title="Corsix's Avatar" />
+			</a>
+			 
+			
+				<hr />
+				<dl class="userinfo_extra">
+					<dt>Join Date</dt> <dd>Sep 2004</dd>
+					<dt>Location</dt> <dd>Oxford</dd>
+					
+						
+					
+				</dl>
+				
+				
+				<div class="imlinks">
+					    
+				</div>
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow has_after_content">
+				
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_1412492">
+						<blockquote class="postcontent restore ">
+							I also understand the DoW SGA format in its entirety, so I'll update the DoW wiki and then integrate SGA creation into my <a href="http://dowmodstudio.gamemod.net/" target="_blank">current project</a>.<br />
+<br />
+PS. Shall we post the security keys?
+						</blockquote>
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="after_content">
+				
+                                       
+                                 
+				
+                                        
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_1412492" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+ 
+<li class="postbitlegacy postbitim postcontainer" id="post_1412496">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+		
+			<span class="postdate old">
+				
+					<span class="date">9th Mar 06&nbsp;<span class="time">1:20 PM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+			
+				
+					<a name="post1412496" href="showthread.php?87631-big-file-format-described-in-detail-(analysis-complete)&amp;s=79ea5864a712b5e125b17f5ca9116024&amp;p=1412496&amp;viewfull=1#post1412496" class="postcounter">#10</a><a id="postcount1412496" name="10"></a>
+				
+				
+				
+			</span>
+		
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			
+				<span class="username guest">ThomasT</span>
+			
+			</div>
+			<span class="usertitle">
+				Guest
+			</span>
+
+			
+			
+			 
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow">
+				
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_1412496">
+						<blockquote class="postcontent restore ">
+							<b>Corsix</b>, let's hold off <a href="http://forums.relicnews.com/showthread.php?t=87988" target="_blank">posting the security keys</a>  for the moment.  I still feel uncomfortable publishing that kind of information.  Also, anyone who knows their way around a debugger or can get the strings out of an executable will find the keys easily.
+						</blockquote>
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_1412496" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+ 
+<li class="postbitlegacy postbitim postcontainer" id="post_1449475">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+		
+			<span class="postdate old">
+				
+					<span class="date">5th Apr 06&nbsp;<span class="time">6:19 PM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+			
+				<span><img src="images/badges_small/seniormember.png" alt="" border="" /></span>
+			
+				
+					<a name="post1449475" href="showthread.php?87631-big-file-format-described-in-detail-(analysis-complete)&amp;s=79ea5864a712b5e125b17f5ca9116024&amp;p=1449475&amp;viewfull=1#post1449475" class="postcounter">#11</a><a id="postcount1449475" name="11"></a>
+				
+				
+				
+			</span>
+		
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			
+				<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?5143-Mikali&amp;s=79ea5864a712b5e125b17f5ca9116024" title="Mikali is offline"><strong>Mikali</strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<a href="member.php?5143-Mikali&amp;s=79ea5864a712b5e125b17f5ca9116024" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="search.php?s=79ea5864a712b5e125b17f5ca9116024&amp;do=finduser&amp;userid=5143&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		<li class="left">
+			<a href="http://isometricland.net" class="siteicon_homepage">
+				Visit Homepage
+			</a>
+		</li>
+		
+		
+		
+		<li class="right">
+			<a href="http://forums.relicnews.com/list.php?author/5143-Mikali&amp;s=79ea5864a712b5e125b17f5ca9116024" class="siteicon_article" rel="nofollow">
+				View Articles
+			</a>
+		</li>
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="Mikali is offline" border="0" />
+
+			
+			</div>
+			<span class="usertitle">
+				Lost in the code...
+			</span>
+
+			
+			
+			
+			<a class="postuseravatar" href="member.php?5143-Mikali&amp;s=79ea5864a712b5e125b17f5ca9116024" title="Mikali is offline">
+				<img src="avatars/avatar5143_7.gif" alt="Mikali's Avatar" title="Mikali's Avatar" />
+			</a>
+			 
+			
+				<hr />
+				<dl class="userinfo_extra">
+					<dt>Join Date</dt> <dd>Jun 2003</dd>
+					<dt>Location</dt> <dd>%HW2_ROOT%</dd>
+					
+						
+					
+				</dl>
+				
+				
+				<div class="imlinks">
+					    
+				</div>
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow has_after_content">
+				
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_1449475">
+						<blockquote class="postcontent restore ">
+							This thread should be moved to Archive Dump and stickied.
+						</blockquote>
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="after_content">
+				
+                                       
+                                 
+				
+		        		<blockquote class="signature restore"><div class="signaturecontainer"><font size="-2">Download my HW2 mods, maps &amp; tools. <a href="http://isometricland.net/homeworld/homeworld.php" target="_blank">link</a><br />
+Username|SF on Gamespy/Xfire/Hamachi/Gameranger</font></blockquote>
+				
+                                        
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_1449475" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+ 
+<li class="postbitlegacy postbitim postcontainer" id="post_1478306">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+		
+			<span class="postdate old">
+				
+					<span class="date">27th Apr 06&nbsp;<span class="time">8:22 AM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+			
+				
+					<a name="post1478306" href="showthread.php?87631-big-file-format-described-in-detail-(analysis-complete)&amp;s=79ea5864a712b5e125b17f5ca9116024&amp;p=1478306&amp;viewfull=1#post1478306" class="postcounter">#12</a><a id="postcount1478306" name="12"></a>
+				
+				
+				
+			</span>
+		
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			
+				<span class="username guest">ThomasT</span>
+			
+			</div>
+			<span class="usertitle">
+				Guest
+			</span>
+
+			
+			
+			 
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow has_after_content">
+				
+				
+				<h2 class="title icon">
+					BIG Archive Format Miscellaneous Notes
+				</h2>
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_1478306">
+						<blockquote class="postcontent restore ">
+							What follows are some miscellaneous notes I've accumulated while building the MacOS X archive tool.<br />
+<br />
+The Relic archive tool does not lay out file data in canonical order during archive updates.  Specifically, this makes it virtually impossible to extract/rearchive the stock Homeworld 2 hw2data archive and have the result be byte-for-byte identical.  This is because the stock hw2data archive appears to have been updated multiple times during construction.  This does not cause a problem with game execution, but it does make it impossible to absolutely verify that an extract/rearchive is completely correct.<br />
+<br />
+The BIG file format has several fixed character arrays.  Some investigation is necessary to see if these various arrays are null-terminated (ending with '\0') or not.  The specific fields are the archive name (64 UTF-16 characters), the 256 character file name array in the file header preceding each file data block, and the two 64 character arrays for the archive name and archive alias.  Understanding these limits is important when building 3rd party archive tools.  For now it is safest to assume that they all are null-terminated.  Note that these kinds of limits are the typical breeding ground for buffer overflow problems.<br />
+<br />
+The 256 character file name array in the file header appears to be completely useless and a large waste of space, in case anyone was wondering.   The format creators went to great lengths to reduce the amount of space used by the various file and folder pathnames, so it is odd that this per file 256 character file name array exists at all since it wastes so much space and does not affect anything else in the archive.  Perhaps it is used algorithmically by the HW2 engine in some way that an archive program does not.  If anyone has any ideas on this, let me know.<br />
+<br />
+[<b>Mikail</b>:  Who would move this thread to Archive Dump?  Would it be me, or someone else?  If it's me then someone will need to explain to me how to do that.  Also, if a thread is moved, does it interfere with any links from other threads to the moved thread?]
+						</blockquote>
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="after_content">
+				
+				<!-- edit note -->
+				<blockquote class="postcontent lastedited">
+<!--					<img src="images/buttons/edit_40b.png" class="inlineimg" alt="" /> -->
+					
+						Last edited by ThomasT; 27th Apr 06 at <span class="time">8:59 AM</span>.
+					
+					
+				</blockquote>
+				<!-- / edit note -->
+				
+                                       
+                                 
+				
+                                        
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_1478306" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+ 
+<li class="postbitlegacy postbitim postcontainer" id="post_1478531">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+		
+			<span class="postdate old">
+				
+					<span class="date">27th Apr 06&nbsp;<span class="time">10:52 AM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+			
+				<span><img src="images/badges_small/seniormember.png" alt="" border="" /></span>
+			
+				
+					<a name="post1478531" href="showthread.php?87631-big-file-format-described-in-detail-(analysis-complete)&amp;s=79ea5864a712b5e125b17f5ca9116024&amp;p=1478531&amp;viewfull=1#post1478531" class="postcounter">#13</a><a id="postcount1478531" name="13"></a>
+				
+				
+				
+			</span>
+		
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			
+				<div class="popupmenu memberaction">
+	<a class="username offline popupctrl" href="member.php?5143-Mikali&amp;s=79ea5864a712b5e125b17f5ca9116024" title="Mikali is offline"><strong>Mikali</strong></a>
+	<ul class="popupbody popuphover memberaction_body">
+		<li class="left">
+			<a href="member.php?5143-Mikali&amp;s=79ea5864a712b5e125b17f5ca9116024" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="search.php?s=79ea5864a712b5e125b17f5ca9116024&amp;do=finduser&amp;userid=5143&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		<li class="left">
+			<a href="http://isometricland.net" class="siteicon_homepage">
+				Visit Homepage
+			</a>
+		</li>
+		
+		
+		
+		<li class="right">
+			<a href="http://forums.relicnews.com/list.php?author/5143-Mikali&amp;s=79ea5864a712b5e125b17f5ca9116024" class="siteicon_article" rel="nofollow">
+				View Articles
+			</a>
+		</li>
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+				<img class="inlineimg onlinestatus" src="images/statusicon/user-offline.png" alt="Mikali is offline" border="0" />
+
+			
+			</div>
+			<span class="usertitle">
+				Lost in the code...
+			</span>
+
+			
+			
+			
+			<a class="postuseravatar" href="member.php?5143-Mikali&amp;s=79ea5864a712b5e125b17f5ca9116024" title="Mikali is offline">
+				<img src="avatars/avatar5143_7.gif" alt="Mikali's Avatar" title="Mikali's Avatar" />
+			</a>
+			 
+			
+				<hr />
+				<dl class="userinfo_extra">
+					<dt>Join Date</dt> <dd>Jun 2003</dd>
+					<dt>Location</dt> <dd>%HW2_ROOT%</dd>
+					
+						
+					
+				</dl>
+				
+				
+				<div class="imlinks">
+					    
+				</div>
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow has_after_content">
+				
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_1478531">
+						<blockquote class="postcontent restore ">
+							One of the moderators would...<br />
+Looking again at the forum description, I guess this is the right place for this thread.
+						</blockquote>
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="after_content">
+				
+                                       
+                                 
+				
+                                        
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_1478531" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+ 
+<li class="postbitlegacy postbitim postcontainer" id="post_1500348">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+		
+			<span class="postdate old">
+				
+					<span class="date">12th May 06&nbsp;<span class="time">4:32 PM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+			
+				
+					<a name="post1500348" href="showthread.php?87631-big-file-format-described-in-detail-(analysis-complete)&amp;s=79ea5864a712b5e125b17f5ca9116024&amp;p=1500348&amp;viewfull=1#post1500348" class="postcounter">#14</a><a id="postcount1500348" name="14"></a>
+				
+				
+				
+			</span>
+		
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			
+				<span class="username guest">sanityflare</span>
+			
+			</div>
+			<span class="usertitle">
+				Guest
+			</span>
+
+			
+			
+			 
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow">
+				
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_1500348">
+						<blockquote class="postcontent restore ">
+							this may be of use to you guys. I dont remember where I got this as its been on my hd for years but may help.<br />
+<br />
+<div class="bbcode_container">
+	<div class="bbcode_description">Code:</div>
+	<pre class="bbcode_code"style="height:372px;">.BIG file specification addendum
+By B1FF (lmoloney@relic.com)
+
+The article listed on RelicNews is pretty complete WRT the .BIG file format.  It was really neat to download the program for viewing and extracting the contents of a bigfile.  We will probably release our bigfile creation program but you will note that our version of the ‘extract’ command was never finished.  Oh the pains of finalling!  
+
+The only thing that was not pick up on was the CRC’s of the bigfile.  The CRC is an 8-byte CRC actually made up of 2 standard 32-bit CRC’s.  Included is some sample code to create these CRC’s.  I think I originally copied this code from Graphics Gem’s several games ago.  It’s pretty standard.  Make note of this algorithm.  It is also used in the .CRC format.
+
+udword CRCTable[] =
+{
+     0x00000000,0x77073096,0xEE0E612C,0x990951BA,
+     0x076DC419,0x706AF48F,0xE963A535,0x9E6495A3,
+     0x0EDB8832,0x79DCB8A4,0xE0D5E91E,0x97D2D988,
+     0x09B64C2B,0x7EB17CBD,0xE7B82D07,0x90BF1D91,
+     0x1DB71064,0x6AB020F2,0xF3B97148,0x84BE41DE,
+     0x1ADAD47D,0x6DDDE4EB,0xF4D4B551,0x83D385C7,
+     0x136C9856,0x646BA8C0,0xFD62F97A,0x8A65C9EC,
+     0x14015C4F,0x63066CD9,0xFA0F3D63,0x8D080DF5,
+     0x3B6E20C8,0x4C69105E,0xD56041E4,0xA2677172,
+     0x3C03E4D1,0x4B04D447,0xD20D85FD,0xA50AB56B,
+     0x35B5A8FA,0x42B2986C,0xDBBBC9D6,0xACBCF940,
+     0x32D86CE3,0x45DF5C75,0xDCD60DCF,0xABD13D59,
+     0x26D930AC,0x51DE003A,0xC8D75180,0xBFD06116,
+     0x21B4F4B5,0x56B3C423,0xCFBA9599,0xB8BDA50F,
+     0x2802B89E,0x5F058808,0xC60CD9B2,0xB10BE924,
+     0x2F6F7C87,0x58684C11,0xC1611DAB,0xB6662D3D,
+
+     0x76DC4190,0x01DB7106,0x98D220BC,0xEFD5102A,
+     0x71B18589,0x06B6B51F,0x9FBFE4A5,0xE8B8D433,
+     0x7807C9A2,0x0F00F934,0x9609A88E,0xE10E9818,
+     0x7F6A0DBB,0x086D3D2D,0x91646C97,0xE6635C01,
+     0x6B6B51F4,0x1C6C6162,0x856530D8,0xF262004E,
+     0x6C0695ED,0x1B01A57B,0x8208F4C1,0xF50FC457,
+     0x65B0D9C6,0x12B7E950,0x8BBEB8EA,0xFCB9887C,
+     0x62DD1DDF,0x15DA2D49,0x8CD37CF3,0xFBD44C65,
+     0x4DB26158,0x3AB551CE,0xA3BC0074,0xD4BB30E2,
+     0x4ADFA541,0x3DD895D7,0xA4D1C46D,0xD3D6F4FB,
+     0x4369E96A,0x346ED9FC,0xAD678846,0xDA60B8D0,
+     0x44042D73,0x33031DE5,0xAA0A4C5F,0xDD0D7CC9,
+     0x5005713C,0x270241AA,0xBE0B1010,0xC90C2086,
+     0x5768B525,0x206F85B3,0xB966D409,0xCE61E49F,
+     0x5EDEF90E,0x29D9C998,0xB0D09822,0xC7D7A8B4,
+     0x59B33D17,0x2EB40D81,0xB7BD5C3B,0xC0BA6CAD,
+
+     0xEDB88320,0x9ABFB3B6,0x03B6E20C,0x74B1D29A,
+     0xEAD54739,0x9DD277AF,0x04DB2615,0x73DC1683,
+     0xE3630B12,0x94643B84,0x0D6D6A3E,0x7A6A5AA8,
+     0xE40ECF0B,0x9309FF9D,0x0A00AE27,0x7D079EB1,
+     0xF00F9344,0x8708A3D2,0x1E01F268,0x6906C2FE,
+     0xF762575D,0x806567CB,0x196C3671,0x6E6B06E7,
+     0xFED41B76,0x89D32BE0,0x10DA7A5A,0x67DD4ACC,
+     0xF9B9DF6F,0x8EBEEFF9,0x17B7BE43,0x60B08ED5,
+     0xD6D6A3E8,0xA1D1937E,0x38D8C2C4,0x4FDFF252,
+     0xD1BB67F1,0xA6BC5767,0x3FB506DD,0x48B2364B,
+     0xD80D2BDA,0xAF0A1B4C,0x36034AF6,0x41047A60,
+     0xDF60EFC3,0xA867DF55,0x316E8EEF,0x4669BE79,
+     0xCB61B38C,0xBC66831A,0x256FD2A0,0x5268E236,
+     0xCC0C7795,0xBB0B4703,0x220216B9,0x5505262F,
+     0xC5BA3BBE,0xB2BD0B28,0x2BB45A92,0x5CB36A04,
+     0xC2D7FFA7,0xB5D0CF31,0x2CD99E8B,0x5BDEAE1D,
+
+     0x9B64C2B0,0xEC63F226,0x756AA39C,0x026D930A,
+     0x9C0906A9,0xEB0E363F,0x72076785,0x05005713,
+     0x95BF4A82,0xE2B87A14,0x7BB12BAE,0x0CB61B38,
+     0x92D28E9B,0xE5D5BE0D,0x7CDCEFB7,0x0BDBDF21,
+     0x86D3D2D4,0xF1D4E242,0x68DDB3F8,0x1FDA836E,
+     0x81BE16CD,0xF6B9265B,0x6FB077E1,0x18B74777,
+     0x88085AE6,0xFF0F6A70,0x66063BCA,0x11010B5C,
+     0x8F659EFF,0xF862AE69,0x616BFFD3,0x166CCF45,
+     0xA00AE278,0xD70DD2EE,0x4E048354,0x3903B3C2,
+     0xA7672661,0xD06016F7,0x4969474D,0x3E6E77DB,
+     0xAED16A4A,0xD9D65ADC,0x40DF0B66,0x37D83BF0,
+     0xA9BCAE53,0xDEBB9EC5,0x47B2CF7F,0x30B5FFE9,
+     0xBDBDF21C,0xCABAC28A,0x53B39330,0x24B4A3A6,
+     0xBAD03605,0xCDD70693,0x54DE5729,0x23D967BF,
+     0xB3667A2E,0xC4614AB8,0x5D681B02,0x2A6F2B94,
+     0xB40BBE37,0xC30C8EA1,0x5A05DF1B,0x2D02EF8D,
+};
+
+/*=============================================================================
+    Functions:
+=============================================================================*/
+/*-----------------------------------------------------------------------------
+    Name        : crc32Compute
+    Description : Compute a 32-bit CRC
+    Inputs      :
+    Outputs     :
+    Return      :
+----------------------------------------------------------------------------*/
+crc32 crc32Compute(ubyte *packet, udword length)
+{
+   udword index, tableIndex;
+   crc32  crc;
+
+   crc = 0xffffffff;
+   for (index = 0; index &lt; length; index++)
+   {
+      tableIndex = (crc ^ *(packet++)) &amp; 0x000000FF;
+      crc = ((crc &gt;&gt; 8) &amp; 0x00FFFFFF) ^ CRCTable[tableIndex];
+   }
+   return(~crc);
+}
+
+The first CRC is the first half of the file name and the second CRC is the second half of the CRC.  Why do such a silly scheme?  It makes it easy to sort the TOC by CRC and do a binary search for a filename.  This makes for faster lookups.  All file requests in our file layer are resolved from the text name to an 8-byte CRC.
+
+As for some unknown data members, the header_unknown member you refer to is always 1.  A bit redundant?  Yes.  The toc_unknown[1..3] can be ignored.  They’re padding that is cleared to something by the compiler.</pre>
+</div>
+						</blockquote>
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_1500348" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+ 
+<li class="postbitlegacy postbitim postcontainer" id="post_1505028">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+		
+			<span class="postdate old">
+				
+					<span class="date">16th May 06&nbsp;<span class="time">8:47 AM</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+			
+				
+					<a name="post1505028" href="showthread.php?87631-big-file-format-described-in-detail-(analysis-complete)&amp;s=79ea5864a712b5e125b17f5ca9116024&amp;p=1505028&amp;viewfull=1#post1505028" class="postcounter">#15</a><a id="postcount1505028" name="15"></a>
+				
+				
+				
+			</span>
+		
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			
+				<span class="username guest">ThomasT</span>
+			
+			</div>
+			<span class="usertitle">
+				Guest
+			</span>
+
+			
+			
+			 
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow">
+				
+				
+				<h2 class="title icon">
+					BIG file CRC code in Bigaddendum.zip
+				</h2>
+				
+
+
+						
+						
+							
+						
+				<div class="content">
+					<div id="post_message_1505028">
+						<blockquote class="postcontent restore ">
+							Thanks, <b>SnakeChiken</b>, for the information.  I have found where this information is from.  It is in <a href="http://www.relicnews.com/files/rdn/filespecs/BIGaddendum.zip" target="_blank">BIGaddendum.zip</a>.
+						</blockquote>
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_1505028" src="images/misc/progress.gif" alt="" />
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr />
+</li>
+ 
+		</ol>
+                <div class="separator"></div>
+		<div class="postlistfoot">
+			
+		</div>
+
+	
+
+</div>
+
+<div id="below_postlist" class="noinlinemod below_postlist">
+	
+	<div id="pagination_bottom" class="pagination_bottom">
+	
+		<div class="clear"></div>
+<div class="navpopupmenu popupmenu nohovermenu" id="showthread_navpopup">
+	
+		<span class="shade">Quick Navigation</span>
+		<a href="showthread.php?87631-big-file-format-described-in-detail-(analysis-complete)&amp;s=79ea5864a712b5e125b17f5ca9116024" class="popupctrl"><span class="ctrlcontainer">Homeworld 2 - Tanis Shipyards</span></a>
+		<a href="showthread.php?87631-big-file-format-described-in-detail-%28analysis-complete%29&amp;p=1400154#top" class="textcontrol" onclick="document.location.hash='top';return false;">Top</a>
+	
+	<ul class="navpopupbody popupbody popuphover">
+		
+		<li class="optionlabel">Site Areas</li>
+		<li><a href="usercp.php?s=79ea5864a712b5e125b17f5ca9116024">Settings</a></li>
+		<li><a href="private.php?s=79ea5864a712b5e125b17f5ca9116024">Private Messages</a></li>
+		<li><a href="subscription.php?s=79ea5864a712b5e125b17f5ca9116024">Subscriptions</a></li>
+		<li><a href="online.php?s=79ea5864a712b5e125b17f5ca9116024">Who's Online</a></li>
+		<li><a href="search.php?s=79ea5864a712b5e125b17f5ca9116024">Search Forums</a></li>
+		<li><a href="forum.php?s=79ea5864a712b5e125b17f5ca9116024">Forums Home</a></li>
+		
+			<li class="optionlabel">Forums</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?1-RelicNews-Community&amp;s=79ea5864a712b5e125b17f5ca9116024">RelicNews Community</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="forumdisplay.php?24-Forum-Guidelines&amp;s=79ea5864a712b5e125b17f5ca9116024">Forum Guidelines</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?42-Newcomers-Forum&amp;s=79ea5864a712b5e125b17f5ca9116024">Newcomers Forum</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?29-General-Discussions&amp;s=79ea5864a712b5e125b17f5ca9116024">General Discussions</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?289-Tir-s-Music-Forum&amp;s=79ea5864a712b5e125b17f5ca9116024">Tir's Music Forum</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?277-The-Gamer-s-Lounge&amp;s=79ea5864a712b5e125b17f5ca9116024">The Gamer's Lounge</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?10-The-Studio&amp;s=79ea5864a712b5e125b17f5ca9116024">The Studio</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?45-The-Workshop&amp;s=79ea5864a712b5e125b17f5ca9116024">The Workshop</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?150-Tutorials&amp;s=79ea5864a712b5e125b17f5ca9116024">Tutorials</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?101-Warhammer-40-000-Tabletop-Discussion&amp;s=79ea5864a712b5e125b17f5ca9116024">Warhammer 40,000 Tabletop Discussion</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?225-The-Black-Library&amp;s=79ea5864a712b5e125b17f5ca9116024">The Black Library</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?108-Backstory-amp-Fluff&amp;s=79ea5864a712b5e125b17f5ca9116024">Backstory &amp; Fluff</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?110-Painting-amp-Modelling&amp;s=79ea5864a712b5e125b17f5ca9116024">Painting &amp; Modelling</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?151-Tutorials&amp;s=79ea5864a712b5e125b17f5ca9116024">Tutorials</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?109-Strategy-amp-Army-Lists&amp;s=79ea5864a712b5e125b17f5ca9116024">Strategy &amp; Army Lists</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?107-Rules-Discussions&amp;s=79ea5864a712b5e125b17f5ca9116024">Rules Discussions</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?169-Relic-Games&amp;s=79ea5864a712b5e125b17f5ca9116024">Relic Games</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="forumdisplay.php?314-Company-of-Heroes-2&amp;s=79ea5864a712b5e125b17f5ca9116024">Company of Heroes 2</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?315-Basic-Training&amp;s=79ea5864a712b5e125b17f5ca9116024">Basic Training</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?317-Single-Player-Discussion&amp;s=79ea5864a712b5e125b17f5ca9116024">Single Player Discussion</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?325-Mission-Walkthroughs&amp;s=79ea5864a712b5e125b17f5ca9116024">Mission Walkthroughs</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?316-Multiplayer-Discussion&amp;s=79ea5864a712b5e125b17f5ca9116024">Multiplayer Discussion</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?318-Balance-Discussion&amp;s=79ea5864a712b5e125b17f5ca9116024">Balance Discussion</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?326-Battle-Archives&amp;s=79ea5864a712b5e125b17f5ca9116024">Battle Archives</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?327-Theater-of-War&amp;s=79ea5864a712b5e125b17f5ca9116024">Theater of War</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?337-Forum-Guidelines&amp;s=79ea5864a712b5e125b17f5ca9116024">Forum Guidelines</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?321-Forum-Guidelines&amp;s=79ea5864a712b5e125b17f5ca9116024">Forum Guidelines</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?329-The-Arsenal&amp;s=79ea5864a712b5e125b17f5ca9116024">The Arsenal</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?146-Company-of-Heroes&amp;s=79ea5864a712b5e125b17f5ca9116024">Company of Heroes</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?242-Basic-Training&amp;s=79ea5864a712b5e125b17f5ca9116024">Basic Training</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?335-Single-Player-Discussion&amp;s=79ea5864a712b5e125b17f5ca9116024">Single Player Discussion</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?191-Mission-Walkthroughs&amp;s=79ea5864a712b5e125b17f5ca9116024">Mission Walkthroughs</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?184-Multiplayer-Discussion&amp;s=79ea5864a712b5e125b17f5ca9116024">Multiplayer Discussion</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?214-Balance-Discussion&amp;s=79ea5864a712b5e125b17f5ca9116024">Balance Discussion</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?212-Replays&amp;s=79ea5864a712b5e125b17f5ca9116024">Replays</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?208-CoH-OF-and-ToV-Technical-Assistance&amp;s=79ea5864a712b5e125b17f5ca9116024">CoH, OF and ToV Technical Assistance</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?190-The-Armoury&amp;s=79ea5864a712b5e125b17f5ca9116024">The Armoury</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?204-Forum-Guidelines&amp;s=79ea5864a712b5e125b17f5ca9116024">Forum Guidelines</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?281-Warhammer-40-000-Space-Marine&amp;s=79ea5864a712b5e125b17f5ca9116024">Warhammer 40,000: Space Marine</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?293-Single-Player-Discussion&amp;s=79ea5864a712b5e125b17f5ca9116024">Single Player Discussion</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?294-Singleplayer-Walkthroughs&amp;s=79ea5864a712b5e125b17f5ca9116024">Singleplayer Walkthroughs</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?295-Multiplayer-Strategy&amp;s=79ea5864a712b5e125b17f5ca9116024">Multiplayer Strategy</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?299-Multiplayer-Balance-Discussion&amp;s=79ea5864a712b5e125b17f5ca9116024">Multiplayer Balance Discussion</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?298-Space-Marine-Technical-Assistance&amp;s=79ea5864a712b5e125b17f5ca9116024">Space Marine Technical Assistance</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?324-The-Forgeworld&amp;s=79ea5864a712b5e125b17f5ca9116024">The Forgeworld</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?322-Forum-Guidelines&amp;s=79ea5864a712b5e125b17f5ca9116024">Forum Guidelines</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?238-Warhammer-40-000-Dawn-of-War-2&amp;s=79ea5864a712b5e125b17f5ca9116024">Warhammer 40,000: Dawn of War 2</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?248-Basic-Training&amp;s=79ea5864a712b5e125b17f5ca9116024">Basic Training</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?273-Singleplayer-Discussion&amp;s=79ea5864a712b5e125b17f5ca9116024">Singleplayer Discussion</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?249-Singleplayer-Walkthroughs&amp;s=79ea5864a712b5e125b17f5ca9116024">Singleplayer Walkthroughs</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?250-Multiplayer-Strategy&amp;s=79ea5864a712b5e125b17f5ca9116024">Multiplayer Strategy</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?278-The-Last-Stand&amp;s=79ea5864a712b5e125b17f5ca9116024">The Last Stand</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?256-Dawn-of-War-2-Balance-Discussions&amp;s=79ea5864a712b5e125b17f5ca9116024">Dawn of War 2 Balance Discussions</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?255-Battle-Archives-2!&amp;s=79ea5864a712b5e125b17f5ca9116024">Battle Archives 2!</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?262-Dawn-of-War-2-Technical-Assistance&amp;s=79ea5864a712b5e125b17f5ca9116024">Dawn of War 2 Technical Assistance</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?263-Heretek-Cabal&amp;s=79ea5864a712b5e125b17f5ca9116024">Heretek Cabal</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?323-Forum-Guidelines&amp;s=79ea5864a712b5e125b17f5ca9116024">Forum Guidelines</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?90-Warhammer-40-000-Dawn-of-War&amp;s=79ea5864a712b5e125b17f5ca9116024">Warhammer 40,000: Dawn of War</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?119-Dawn-of-War-Strategy&amp;s=79ea5864a712b5e125b17f5ca9116024">Dawn of War Strategy</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?134-Singleplayer-Walkthroughs&amp;s=79ea5864a712b5e125b17f5ca9116024">Singleplayer Walkthroughs</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?139-Tactica-Imperialis&amp;s=79ea5864a712b5e125b17f5ca9116024">Tactica Imperialis</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?130-Battle-Archives&amp;s=79ea5864a712b5e125b17f5ca9116024">Battle Archives</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?131-Dawn-of-War-Technical-Help&amp;s=79ea5864a712b5e125b17f5ca9116024">Dawn of War Technical Help</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?179-Adeptus-Modificatus&amp;s=79ea5864a712b5e125b17f5ca9116024">Adeptus Modificatus</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?205-Forum-Guidelines&amp;s=79ea5864a712b5e125b17f5ca9116024">Forum Guidelines</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?12-Homeworld-Series&amp;s=79ea5864a712b5e125b17f5ca9116024">Homeworld Series</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?84-Homeworld-Series-War-Room&amp;s=79ea5864a712b5e125b17f5ca9116024">Homeworld Series War Room</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?83-Homeworld-Series-Walkthrough-Forum&amp;s=79ea5864a712b5e125b17f5ca9116024">Homeworld Series Walkthrough Forum</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?140-Homeworld-Series-Technical-Help&amp;s=79ea5864a712b5e125b17f5ca9116024">Homeworld Series Technical Help</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?5-RelicNews-Technical-Help&amp;s=79ea5864a712b5e125b17f5ca9116024">RelicNews Technical Help</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?183-Company-of-Heroes-Technical-Assistance&amp;s=79ea5864a712b5e125b17f5ca9116024">Company of Heroes Technical Assistance</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?196-Master-Troubleshooting-List&amp;s=79ea5864a712b5e125b17f5ca9116024">Master Troubleshooting List</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?186-Bug-Forum&amp;s=79ea5864a712b5e125b17f5ca9116024">Bug Forum</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?258-Dawn-of-War-2-Technical-Assistance&amp;s=79ea5864a712b5e125b17f5ca9116024">Dawn of War 2: Technical Assistance</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?259-Bug-Forum&amp;s=79ea5864a712b5e125b17f5ca9116024">Bug Forum</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?260-Master-Troubleshooting-List&amp;s=79ea5864a712b5e125b17f5ca9116024">Master Troubleshooting List</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?297-Space-Marine-Technical-Assistance&amp;s=79ea5864a712b5e125b17f5ca9116024">Space Marine Technical Assistance</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?125-Dawn-of-War-Technical-Assistance&amp;s=79ea5864a712b5e125b17f5ca9116024">Dawn of War Technical Assistance</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?126-Master-Troubleshooting-List&amp;s=79ea5864a712b5e125b17f5ca9116024">Master Troubleshooting List</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?135-Bug-Forum&amp;s=79ea5864a712b5e125b17f5ca9116024">Bug Forum</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?14-Classic-Games-Technical-Assistance&amp;s=79ea5864a712b5e125b17f5ca9116024">Classic Games Technical Assistance</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?35-Homeworld-Master-Troubleshooting-List&amp;s=79ea5864a712b5e125b17f5ca9116024">Homeworld: Master Troubleshooting List</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?82-Homeworld-2-Master-Troubleshooting-List&amp;s=79ea5864a712b5e125b17f5ca9116024">Homeworld 2: Master Troubleshooting List</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?291-Game-Mods&amp;s=79ea5864a712b5e125b17f5ca9116024">Game Mods</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="forumdisplay.php?290-General-Modding&amp;s=79ea5864a712b5e125b17f5ca9116024">General Modding</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?47-Relic-Game-Mods&amp;s=79ea5864a712b5e125b17f5ca9116024">Relic Game Mods</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?328-Company-of-Heroes-2-The-Arsenal&amp;s=79ea5864a712b5e125b17f5ca9116024">Company of Heroes 2 - The Arsenal</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?334-Field-Storage&amp;s=79ea5864a712b5e125b17f5ca9116024">Field Storage</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?330-CoH2-Maproom&amp;s=79ea5864a712b5e125b17f5ca9116024">CoH2 Maproom</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?331-CoH2-Modding-How-To-s-and-Tutorials&amp;s=79ea5864a712b5e125b17f5ca9116024">CoH2 Modding How-To's and Tutorials</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?332-CoH2-Mods-in-Progress&amp;s=79ea5864a712b5e125b17f5ca9116024">CoH2 Mods in Progress</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?333-CoH2-Completed-Mods&amp;s=79ea5864a712b5e125b17f5ca9116024">CoH2 Completed Mods</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?257-Dawn-of-War-2-Heretek-Cabal&amp;s=79ea5864a712b5e125b17f5ca9116024">Dawn of War 2 - Heretek Cabal</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?269-DoW2-Maproom&amp;s=79ea5864a712b5e125b17f5ca9116024">DoW2 Maproom</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?268-DoW2-Modding-How-To-s-and-Tutorials&amp;s=79ea5864a712b5e125b17f5ca9116024">DoW2 Modding How-To's and Tutorials</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?270-DoW2-Mods-in-Progress&amp;s=79ea5864a712b5e125b17f5ca9116024">DoW2 Mods in Progress</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?271-DoW2-Completed-Mods&amp;s=79ea5864a712b5e125b17f5ca9116024">DoW2 Completed Mods</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?96-Dawn-of-War-Adeptus-Modificatus&amp;s=79ea5864a712b5e125b17f5ca9116024">Dawn of War - Adeptus Modificatus</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?137-DoW-Maproom&amp;s=79ea5864a712b5e125b17f5ca9116024">DoW Maproom</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?231-DoW-Modding-Tutorials-and-How-Tos&amp;s=79ea5864a712b5e125b17f5ca9116024">DoW Modding Tutorials and How-Tos</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?158-DoW-Mods-in-progress&amp;s=79ea5864a712b5e125b17f5ca9116024">DoW Mods in progress</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?157-DoW-Completed-Mods-Discussion&amp;s=79ea5864a712b5e125b17f5ca9116024">DoW Completed Mods Discussion</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?296-Space-Marine-The-Forgeworld&amp;s=79ea5864a712b5e125b17f5ca9116024">Space Marine - The Forgeworld</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?300-Mods-in-Progress&amp;s=79ea5864a712b5e125b17f5ca9116024">Mods in Progress</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?302-Completed-Mods&amp;s=79ea5864a712b5e125b17f5ca9116024">Completed Mods</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?301-Tutorials-and-How-Tos&amp;s=79ea5864a712b5e125b17f5ca9116024">Tutorials and How-Tos</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?72-Homeworld-2-Tanis-Shipyards&amp;s=79ea5864a712b5e125b17f5ca9116024">Homeworld 2 - Tanis Shipyards</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?85-Completed-Mods&amp;s=79ea5864a712b5e125b17f5ca9116024">Completed Mods</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?87-Archive-Dump&amp;s=79ea5864a712b5e125b17f5ca9116024">Archive Dump</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?88-Mods-in-progress&amp;s=79ea5864a712b5e125b17f5ca9116024">Mods in progress</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?279-Tutorials-Guides-and-How-Tos&amp;s=79ea5864a712b5e125b17f5ca9116024">Tutorials, Guides and How-Tos</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?189-Company-of-Heroes-The-Armoury&amp;s=79ea5864a712b5e125b17f5ca9116024">Company of Heroes - The Armoury</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?195-Weapons-Range&amp;s=79ea5864a712b5e125b17f5ca9116024">Weapons Range</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?211-The-Ammo-Box&amp;s=79ea5864a712b5e125b17f5ca9116024">The Ammo Box</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?209-How-To-s-and-Tutorials&amp;s=79ea5864a712b5e125b17f5ca9116024">How-To's and Tutorials</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?210-Company-of-Heroes-Modding-Wiki&amp;s=79ea5864a712b5e125b17f5ca9116024">Company of Heroes Modding Wiki</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?194-Maps-Bunker&amp;s=79ea5864a712b5e125b17f5ca9116024">Maps Bunker</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?16-Homeworld-Research-Station&amp;s=79ea5864a712b5e125b17f5ca9116024">Homeworld - Research Station</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?43-Supply-Cache&amp;s=79ea5864a712b5e125b17f5ca9116024">Supply Cache</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?40-Forum-Administration&amp;s=79ea5864a712b5e125b17f5ca9116024">Forum Administration</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="forumdisplay.php?4-Forum-Issues&amp;s=79ea5864a712b5e125b17f5ca9116024">Forum Issues</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?168-Karos-Graveyard&amp;s=79ea5864a712b5e125b17f5ca9116024">Karos Graveyard</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?203-Forum-Guidelines&amp;s=79ea5864a712b5e125b17f5ca9116024">Forum Guidelines</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?70-Relic-Archives&amp;s=79ea5864a712b5e125b17f5ca9116024">Relic Archives</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="forumdisplay.php?36-The-Vault&amp;s=79ea5864a712b5e125b17f5ca9116024">The Vault</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?37-Vault-Voting-Forum&amp;s=79ea5864a712b5e125b17f5ca9116024">Vault Voting Forum</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?153-General-Relics&amp;s=79ea5864a712b5e125b17f5ca9116024">General Relics</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?30-The-Garden&amp;s=79ea5864a712b5e125b17f5ca9116024">The Garden</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?215-DERKA-DERKA-DERKA-FORUM&amp;s=79ea5864a712b5e125b17f5ca9116024">DERKA DERKA DERKA FORUM</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?31-The-Collective&amp;s=79ea5864a712b5e125b17f5ca9116024">The Collective</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?112-Reviews&amp;s=79ea5864a712b5e125b17f5ca9116024">Reviews</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?149-The-Outfit&amp;s=79ea5864a712b5e125b17f5ca9116024">The Outfit</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?165-The-Armory&amp;s=79ea5864a712b5e125b17f5ca9116024">The Armory</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?6-Impossible-Creatures&amp;s=79ea5864a712b5e125b17f5ca9116024">Impossible Creatures</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?8-Impossible-Creatures-Genetics-Lab&amp;s=79ea5864a712b5e125b17f5ca9116024">Impossible Creatures - Genetics Lab</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?52-IC-Supply-Cache&amp;s=79ea5864a712b5e125b17f5ca9116024">IC Supply Cache</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?111-Designing-our-own-game&amp;s=79ea5864a712b5e125b17f5ca9116024">Designing our own game</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?241-WW2-History-Forum&amp;s=79ea5864a712b5e125b17f5ca9116024">WW2 History Forum</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?175-Ancient-Forum-Issues&amp;s=79ea5864a712b5e125b17f5ca9116024">Ancient Forum Issues</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?154-Homeworld-Relics&amp;s=79ea5864a712b5e125b17f5ca9116024">Homeworld Relics</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?41-Homeworld-2-Ideas&amp;s=79ea5864a712b5e125b17f5ca9116024">Homeworld 2 Ideas</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?78-Homeworld-2-Demo-Feedback-Forum&amp;s=79ea5864a712b5e125b17f5ca9116024">Homeworld 2 Demo Feedback Forum</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?79-Demo-Bug-Forum&amp;s=79ea5864a712b5e125b17f5ca9116024">Demo Bug Forum</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?155-Dawn-of-War-Relics&amp;s=79ea5864a712b5e125b17f5ca9116024">Dawn of War Relics</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?138-Relic-Mapping-Contest-Forum&amp;s=79ea5864a712b5e125b17f5ca9116024">Relic Mapping Contest Forum</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?230-Pre-1-2-Dark-Crusade-Balance&amp;s=79ea5864a712b5e125b17f5ca9116024">Pre-1.2 Dark Crusade Balance</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?237-Soulstorm-Multiplayer-Balance-Issues&amp;s=79ea5864a712b5e125b17f5ca9116024">Soulstorm Multiplayer Balance Issues</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?213-Dark-Crusade-Multiplayer-Balance-Issues&amp;s=79ea5864a712b5e125b17f5ca9116024">Dark Crusade Multiplayer Balance Issues</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?147-Dawn-of-War-Winter-Assault-Multiplayer-Balance-Issues&amp;s=79ea5864a712b5e125b17f5ca9116024">Dawn of War / Winter Assault Multiplayer Balance Issues</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?127-Dawn-of-War-Demo-Feedback&amp;s=79ea5864a712b5e125b17f5ca9116024">Dawn of War Demo Feedback</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?129-Library-Archive&amp;s=79ea5864a712b5e125b17f5ca9116024">Library Archive</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?94-Liber-Belli-Oriani-Dawn-of-War-Library&amp;s=79ea5864a712b5e125b17f5ca9116024">Liber Belli Oriani - Dawn of War Library</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?235-Company-of-Heroes-Relics&amp;s=79ea5864a712b5e125b17f5ca9116024">Company of Heroes Relics</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?239-OF-Balance-Playtest-Section&amp;s=79ea5864a712b5e125b17f5ca9116024">OF Balance Playtest Section</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?236-Team-Automatch-Beta-Forum&amp;s=79ea5864a712b5e125b17f5ca9116024">Team Automatch Beta Forum</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?233-Opposing-Fronts-Beta&amp;s=79ea5864a712b5e125b17f5ca9116024">Opposing Fronts Beta</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?265-Dawn-of-War-2-Relics&amp;s=79ea5864a712b5e125b17f5ca9116024">Dawn of War 2 Relics</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="forumdisplay.php?244-Dawn-of-War-2-Beta-Discussion&amp;s=79ea5864a712b5e125b17f5ca9116024">Dawn of War 2: Beta Discussion</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="forumdisplay.php?247-Dawn-of-War-2-Beta-Strategy&amp;s=79ea5864a712b5e125b17f5ca9116024">Dawn of War 2: Beta Strategy</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?245-Dawn-of-War-2-Beta-Balance-Discussion&amp;s=79ea5864a712b5e125b17f5ca9116024">Dawn of War 2: Beta Balance Discussion</a></li>
+			
+		
+			
+				<li><a href="forumdisplay.php?246-Dawn-of-War-2-Beta-Bugs&amp;s=79ea5864a712b5e125b17f5ca9116024">Dawn of War 2: Beta Bugs</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="forumdisplay.php?275-1-4-Beta-Balance-and-Strategy&amp;s=79ea5864a712b5e125b17f5ca9116024">1.4 Beta Balance and Strategy</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+		
+	</ul>
+</div>
+<div class="clear"></div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- next / previous links -->
+<div class="navlinks">
+	
+	<strong>&laquo;</strong>
+	<a href="showthread.php?87631-big-file-format-described-in-detail-(analysis-complete)&amp;s=79ea5864a712b5e125b17f5ca9116024&amp;goto=nextoldest" rel="nofollow">Previous Thread</a>
+	|
+	<a href="showthread.php?87631-big-file-format-described-in-detail-(analysis-complete)&amp;s=79ea5864a712b5e125b17f5ca9116024&amp;goto=nextnewest" rel="nofollow">Next Thread</a>
+
+	<strong>&raquo;</strong>
+	
+</div>
+<!-- / next / previous links -->
+
+<div id="thread_info" class="thread_info block">
+	
+	<h4 class="threadinfohead blockhead">Thread Information</h4>
+	<div id="thread_onlineusers" class="thread_info_block blockbody formcontrols">
+		<div class="inner_block">
+			<h5>Users Browsing this Thread</h5>
+			<div>
+				<p>There are currently 1 users browsing this thread. <span class="shade">(0 members and 1 guests)</span></p>
+				<ol class="commalist">
+					&nbsp;
+				</ol>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
+	<div class="options_block_container">
+		
+		<div class="options_block">
+			<h4 class="collapse blockhead">
+				<a class="collapse" id="collapse_posting_rules" href="showthread.php?87631-big-file-format-described-in-detail-%28analysis-complete%29&amp;p=1400154#top"><img src="images/buttons/collapse_40b.png" alt="" /></a>
+				Posting Permissions
+			</h4>
+			<div id="posting_rules" class="thread_info_block blockbody formcontrols floatcontainer">
+				
+<div id="forumrules" class="info_subblock">
+
+	<ul class="youcandoblock">
+		<li>You <strong>may not</strong> post new threads</li>
+		<li>You <strong>may not</strong> post replies</li>
+		<li>You <strong>may not</strong> post attachments</li>
+		<li>You <strong>may not</strong> edit your posts</li>
+		<li>&nbsp;</li>
+	</ul>
+	<div class="bbcodeblock">
+		<ul>
+			<li><a href="misc.php?s=79ea5864a712b5e125b17f5ca9116024&amp;do=bbcode" target="_blank">BB code</a> is <strong>On</strong></li>
+			<li><a href="misc.php?s=79ea5864a712b5e125b17f5ca9116024&amp;do=showsmilies" target="_blank">Smilies</a> are <strong>On</strong></li>
+			<li><a href="misc.php?s=79ea5864a712b5e125b17f5ca9116024&amp;do=bbcode#imgcode" target="_blank">[IMG]</a> code is <strong>On</strong></li>
+			<li><a href="misc.php?s=79ea5864a712b5e125b17f5ca9116024&amp;do=bbcode#videocode" target="_blank">[VIDEO]</a> code is <strong>On</strong></li>
+			<li>HTML code is <strong>Off</strong></li>
+		</ul>
+	</div>
+	<p class="rules_link"><a href="misc.php?s=79ea5864a712b5e125b17f5ca9116024&amp;do=showrules" target="_blank">Forum Rules</a></p>
+
+</div>
+
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+<div style="clear: left">
+   
+  <div id="ad_global_above_footer"><table border="0" cellpadding="5px" cellspacing="0" align="center">
+<tr><td><div width="468px; margin:0 auto;">
+
+<!-- Beginning of Project Wonderful ad code: -->
+<!-- Ad box ID: 45328 -->
+<script type="text/javascript">
+<!--
+var pw_d=document;
+pw_d.projectwonderful_adbox_id = "45328";
+pw_d.projectwonderful_adbox_type = "6";
+pw_d.projectwonderful_foreground_color = "";
+pw_d.projectwonderful_background_color = "";
+//-->
+</script>
+<script type="text/javascript" src="http://www.projectwonderful.com/ad_display.js"></script>
+<noscript><map name="admap45328" id="admap45328"><area href="http://www.projectwonderful.com/out_nojs.php?r=0&amp;c=0&amp;id=45328&amp;type=6" shape="rect" coords="0,0,234,60" title="" alt="" target="_blank" /><area href="http://www.projectwonderful.com/out_nojs.php?r=0&amp;c=1&amp;id=45328&amp;type=6" shape="rect" coords="234,0,468,60" title="" alt="" target="_blank" /><area href="http://www.projectwonderful.com/out_nojs.php?r=0&amp;c=2&amp;id=45328&amp;type=6" shape="rect" coords="468,0,702,60" title="" alt="" target="_blank" /><area href="http://www.projectwonderful.com/out_nojs.php?r=0&amp;c=3&amp;id=45328&amp;type=6" shape="rect" coords="702,0,936,60" title="" alt="" target="_blank" /></map>
+<table cellpadding="0" border="0" cellspacing="0" width="936" bgcolor="#D9D9D9"><tr><td><img src="http://www.projectwonderful.com/nojs.php?id=45328&amp;type=6" width="936" height="60" usemap="#admap45328" border="0" alt="" /></td></tr><tr><td bgcolor="#D9D9D9" colspan="4"><center><a style="font-size:10px;color:#000066;text-decoration:none;line-height:1.2;font-weight:bold;font-family:Tahoma, verdana,arial,helvetica,sans-serif;text-transform: none;letter-spacing:normal;text-shadow:none;white-space:normal;word-spacing:normal;" href="http://www.projectwonderful.com/advertisehere.php?id=45328&amp;type=6" target="_blank">Ads by Project Wonderful!  Your ad here, right now: $0</a></center></td></tr></table>
+</noscript>
+<!-- End of Project Wonderful ad code. -->
+</div></td></tr></table></div>
+</div>
+
+<div id="footer" class="floatcontainer footer">
+
+	<form action="forum.php" method="get" id="footer_select" class="footer_select">
+
+		
+			<select name="styleid" onchange="switch_id(this, 'style')">
+				<optgroup label="Quick Style Chooser"><option class="hidden"></option></optgroup>
+				
+					
+					<optgroup label="&nbsp;Standard Styles">
+									
+					
+	<option value="79" class="" >-- The Guidestone</option>
+
+	<option value="70" class="" selected="selected">-- RelicNews Blue</option>
+
+	<option value="71" class="" >-- RelicNews Classic</option>
+
+	<option value="75" class="" >-- RelicNews Light</option>
+
+					
+					</optgroup>
+										
+				
+				
+					
+					<optgroup label="&nbsp;Mobile Styles">
+					
+					
+	<option value="76" class="" >-- RelicNews Mobile</option>
+
+					
+					</optgroup>
+										
+				
+			</select>	
+		
+		
+		
+	</form>
+
+	<ul id="footer_links" class="footer_links">
+		<li><a href="mailto:admins@relicnews.com" rel="nofollow" accesskey="9">Contact Us</a></li>
+		<li><a href="http://www.relicnews.com/">Home</a></li>
+		
+		
+		<li><a href="archive/index.php?s=79ea5864a712b5e125b17f5ca9116024">Archive</a></li>
+		
+		
+		
+		<li><a href="showthread.php?87631-big-file-format-described-in-detail-%28analysis-complete%29&amp;p=1400154#top" onclick="document.location.hash='top'; return false;">Top</a></li>
+	</ul>
+	
+	
+	
+	
+	<script type="text/javascript">
+	<!--
+		// Main vBulletin Javascript Initialization
+		vBulletin_init();
+	//-->
+	</script>
+        
+</div>
+</div> <!-- closing div for body_wrapper -->
+
+<div class="below_body">
+<div id="footer_time" class="shade footer_time">All times are GMT -7. The time now is <span class="time">8:15 PM</span>.</div>
+
+<div id="footer_copyright" class="shade footer_copyright">
+	<!-- Do not remove this copyright notice -->
+	Powered by <a href="https://www.vbulletin.com" id="vbulletinlink">vBulletin&reg;</a> Version 4.2.1 <br />Copyright &copy; 2014 vBulletin Solutions, Inc. All rights reserved. <div>Image resizer by <a href="http://www.sevenskins.com/" title="vBulletin Skins - vBulletin Services - vBulletin Graphics" target="_blank">SevenSkins</a></div>
+	<!-- Do not remove this copyright notice -->	
+</div>
+<div id="footer_morecopyright" class="shade footer_morecopyright">
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	<img src="http://forums.relicnews.com/cron.php?s=79ea5864a712b5e125b17f5ca9116024&amp;rand=1400123724" alt="" width="1" height="1" border="0" />
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	
+	
+</div>
+ 
+
+</div>
+</body>
+</html> 

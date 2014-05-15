@@ -5,6 +5,8 @@
 
 Also: https://code.google.com/p/pyglesv2/
 
+- Can we extract directly from the Homeworld2.big file?
+
 - Set/unset automatic rotation
   Implement trackball rotation
   Set automatic rotation peed
