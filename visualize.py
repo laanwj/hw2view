@@ -10,13 +10,14 @@ import ctypes
 
 window = 0
 width, height = 500, 400
+wireframe_mode = False
+rotation_speed = 1.0
+starttime = time.time()
 
 gl_types = {
     PRIM_TRIANGLES: GL_TRIANGLES,
     PRIM_TRIANGLE_STRIP: GL_TRIANGLE_STRIP
 }
-
-starttime = time.time()
 
 def reshape(w, h):
     global width, height
@@ -26,13 +27,20 @@ def reshape(w, h):
 def draw():
     glViewport(0, 0, width, height)
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+
+    # set up matrices
     glMatrixMode(GL_PROJECTION)
     glLoadIdentity()
     gluPerspective(45.0, width/height, 1.0, 100.0)
     glMatrixMode(GL_MODELVIEW)
     glLoadIdentity()
-    glRotate((time.time()-starttime)*30.0, 0.0, 1.0, 0.0)
+    glRotate((time.time()-starttime)*rotation_speed, 0.1, 1.0, 0.0)
 
+    # rendering time
+    if wireframe_mode:
+        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE)
+    else:
+        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
     shaders.glUseProgram(background_shader)
     glBindBuffer(GL_ARRAY_BUFFER, vbo)
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo)
@@ -53,6 +61,14 @@ def draw():
 
 def idle():
     glutPostRedisplay()
+
+def keypress(key, x, y):
+    '''
+    Keyboard: w for wireframe mode
+    '''
+    global wireframe_mode
+    if key == 'w':
+        wireframe_mode = not wireframe_mode
 
 def create_shaders():
     global background_shader, vertex_loc, color_loc
@@ -103,8 +119,6 @@ def create_vbos(bgdata):
     allvertdata = ''.join(allvertdata)
     allfacedata = ''.join(allfacedata)
 
-    print(len(allvertdata), len(allfacedata))
-
     vbo = glGenBuffers(1)
     glBindBuffer(GL_ARRAY_BUFFER, vbo)
     glBufferData(GL_ARRAY_BUFFER, len(allvertdata), allvertdata, GL_STATIC_DRAW)
@@ -134,6 +148,7 @@ if __name__ == '__main__':
     glutDisplayFunc(draw)
     glutReshapeFunc(reshape)
     glutIdleFunc(idle)
+    glutKeyboardFunc(keypress)
 
     create_shaders()
     create_vbos(bgdata)

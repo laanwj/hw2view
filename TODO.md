@@ -5,3 +5,9 @@
 
 Also: https://code.google.com/p/pyglesv2/
 
+- Set/unset automatic rotation
+  Implement trackball rotation
+  Set automatic rotation peed
+
+- Switch to next background automatically?
+
