@@ -60,8 +60,8 @@ def parse_BMSH(data):
         ofs += 8
         if listtype == PRIM_TRIANGLES:
             assert((listcount % 3)==0)
-        #elif listtype == PRIM_TRIANGLE_STRIP:
-        #    assert(((listcount-1) % 2)==0)
+        elif listtype == PRIM_TRIANGLE_STRIP:
+            assert(listcount >= 3) # at least one full triangle
         fdata = data[ofs:ofs+2*listcount]
         ofs += 2*listcount
         facelists.append((listtype, listcount, fdata))
