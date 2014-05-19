@@ -1,6 +1,7 @@
 #!/usr/bin/python
 from __future__ import division, print_function 
 from OpenGL.GL import *
+from OpenGL.GL.NV.primitive_restart import *
 from OpenGL.GL import shaders
 from OpenGL.GLUT import *
 from OpenGL.GLU import *
@@ -13,6 +14,14 @@ width, height = 500, 400
 wireframe_mode = False
 rotation_speed = 1.0
 starttime = time.time()
+
+# Options for primitive restart
+PRIMITIVE_RESTART_NONE = 0
+PRIMITIVE_RESTART_CORE = 1
+PRIMITIVE_RESTART_NV = 2
+
+# Primitive restart type supported (filled in in probe_extensions)
+primitive_restart_mode = PRIMITIVE_RESTART_NONE
 
 gl_types = {
     PRIM_TRIANGLES: GL_TRIANGLES,
@@ -42,8 +51,14 @@ def draw():
         glPolygonMode(GL_FRONT_AND_BACK, GL_LINE)
     else:
         glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
-    glEnable(GL_PRIMITIVE_RESTART)
-    glPrimitiveRestartIndex(PRIMITIVE_RESTART_INDEX)
+
+    if primitive_restart_mode == PRIMITIVE_RESTART_CORE:
+        glEnable(GL_PRIMITIVE_RESTART)
+        glPrimitiveRestartIndex(PRIMITIVE_RESTART_INDEX)
+    elif primitive_restart_mode == PRIMITIVE_RESTART_NV:
+        glEnableClientState(GL_PRIMITIVE_RESTART_NV)
+        glPrimitiveRestartIndexNV(PRIMITIVE_RESTART_INDEX)
+
     shaders.glUseProgram(background_shader)
     glBindBuffer(GL_ARRAY_BUFFER, vbo)
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo)
@@ -60,7 +75,10 @@ def draw():
     glBindBuffer(GL_ARRAY_BUFFER, 0)
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0)
     shaders.glUseProgram(0)
-    glDisable(GL_PRIMITIVE_RESTART)
+    if primitive_restart_mode == PRIMITIVE_RESTART_CORE:
+        glDisable(GL_PRIMITIVE_RESTART)
+    elif primitive_restart_mode == PRIMITIVE_RESTART_NV:
+        glDisableClientState(GL_PRIMITIVE_RESTART_NV)
 
     glutSwapBuffers()
 
@@ -146,8 +164,15 @@ def concatenate_primitives(bgdata):
         for typ, count, facedata in facelists:
             assert(len(facedata) == 2*count)
             if typ == PRIM_TRIANGLE_STRIP:
+                if triangle_strip:
+                    if primitive_restart_mode == PRIMITIVE_RESTART_NONE:
+                        # create two degenerate triangles in between
+                        triangle_strip.append(
+                                triangle_strip[-1][-2:] +
+                                facedata[:2])
+                    else:
+                        triangle_strip.append(PRIMITIVE_RESTART)
                 triangle_strip.append(facedata)
-                triangle_strip.append(PRIMITIVE_RESTART)
             elif typ == PRIM_TRIANGLES:
                 triangles.append(facedata)
             else:
@@ -164,6 +189,16 @@ def concatenate_primitives(bgdata):
         bgdata_new.append((numverts,vertsize,vertdata,facelists_new))
 
     return bgdata_new
+
+def probe_extensions():
+    global primitive_restart_mode
+    primitive_restart_mode = PRIMITIVE_RESTART_NONE
+    if glPrimitiveRestartIndex:
+        primitive_restart_mode = PRIMITIVE_RESTART_CORE
+    elif glPrimitiveRestartNV:
+        primitive_restart_mode = PRIMITIVE_RESTART_NV
+    else:
+        print("Warning: Primitive restart not supported, falling back to slow path")
 
 if __name__ == '__main__':
     import sys
@@ -185,7 +220,7 @@ if __name__ == '__main__':
     glutReshapeFunc(reshape)
     glutIdleFunc(idle)
     glutKeyboardFunc(keypress)
-
+    probe_extensions()
     create_shaders()
     bgdata = concatenate_primitives(bgdata)
     create_vbos(bgdata)
