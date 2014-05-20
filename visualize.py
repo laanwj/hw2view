@@ -5,6 +5,7 @@ from OpenGL.GL.NV.primitive_restart import *
 from OpenGL.GL import shaders
 from OpenGL.GLUT import *
 from OpenGL.GLU import *
+from OpenGL.extensions import alternate
 from parse_bg import parse_bg, PRIM_TRIANGLE_STRIP, PRIM_TRIANGLES
 import time
 import ctypes
@@ -28,6 +29,18 @@ gl_types = {
     PRIM_TRIANGLE_STRIP: GL_TRIANGLE_STRIP
 }
 PRIMITIVE_RESTART_INDEX = 65535
+
+# extension alternates for GL <2.0
+from OpenGL.GL.ARB.vertex_shader import *
+from OpenGL.GL.ARB.vertex_buffer_object import *
+from OpenGL.GL.ARB.vertex_program import *
+glGetAttribLocation = alternate('glGetAttribLocation', glGetAttribLocation, glGetAttribLocationARB)
+glEnableVertexAttribArray = alternate('glEnableVertexAttribArray', glEnableVertexAttribArray, glEnableVertexAttribArrayARB)
+glDisableVertexAttribArray = alternate('glDisableVertexAttribArray', glDisableVertexAttribArray, glDisableVertexAttribArrayARB)
+glVertexAttribPointer = alternate('glVertexAttribPointer', glVertexAttribPointer, glVertexAttribPointerARB)
+glGenBuffers = alternate('glGenBuffers', glGenBuffers, glGenBuffersARB)
+glBindBuffer = alternate('glBindBuffer', glBindBuffer, glBindBufferARB)
+glBufferData = alternate('glBufferData', glBufferData, glBufferDataARB)
 
 def reshape(w, h):
     global width, height
