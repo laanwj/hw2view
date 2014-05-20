@@ -18,3 +18,8 @@ Also: https://code.google.com/p/pyglesv2/
 
   - There are 16 'submeshes', could determine which ones are visible using bounding boxes
     This may or may not save 
+
+- Make FoV configurable
+  I don't know what FoV the original homeworld 2 had
+  45 degrees vertical FoV may be too narrow whereas 90 seems to be too wide
+
