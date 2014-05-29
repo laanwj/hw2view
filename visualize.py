@@ -7,6 +7,7 @@ from OpenGL.GLUT import *
 from OpenGL.GLU import *
 from OpenGL.extensions import alternate
 from parse_bg import parse_bg, PRIM_TRIANGLE_STRIP, PRIM_TRIANGLES
+from transformations import Arcball, quaternion_slerp
 import time
 import ctypes
 
@@ -15,6 +16,9 @@ width, height = 500, 400
 wireframe_mode = False
 rotation_speed = 1.0
 starttime = time.time()
+arcball = Arcball()
+arcball.active = False
+animate = None # autospin
 
 # Options for primitive restart
 PRIMITIVE_RESTART_NONE = 0
@@ -46,6 +50,7 @@ def reshape(w, h):
     global width, height
     width = w
     height = h
+    arcball.place([w/2, h/2], h/2)
 
 def draw():
     glViewport(0, 0, width, height)
@@ -56,8 +61,8 @@ def draw():
     glLoadIdentity()
     gluPerspective(45.0, width/height, 1.0, 100.0)
     glMatrixMode(GL_MODELVIEW)
-    glLoadIdentity()
-    glRotate((time.time()-starttime)*rotation_speed, 0.1, 1.0, 0.0)
+    #glLoadIdentity()
+    glLoadMatrixf(arcball.matrix().T)
 
     # rendering time
     if wireframe_mode:
@@ -96,6 +101,14 @@ def draw():
     glutSwapBuffers()
 
 def idle():
+    global starttime
+    nexttime = time.time()
+    deltatime = nexttime-starttime
+    starttime = nexttime
+    if animate is not None:
+        # Continue in auto-spin if arcball not active
+        animate[2] += deltatime * 20.0
+        arcball._qnow = quaternion_slerp(animate[0], animate[1], animate[2], False) 
     glutPostRedisplay()
 
 def keypress(key, x, y):
@@ -105,6 +118,20 @@ def keypress(key, x, y):
     global wireframe_mode
     if key == 'w':
         wireframe_mode = not wireframe_mode
+
+def mouse(button, state, x, y):
+    global animate
+    if button == 0:
+        arcball.active = (state == 0)
+        if arcball.active:
+            arcball.down([x,y])
+            animate = None
+        else:
+            animate = [arcball._qpre, arcball._qnow, 1.0]
+
+def motion(x, y):
+    if arcball.active:
+        arcball.drag([x,y])
 
 def create_shaders():
     global background_shader, vertex_loc, color_loc
@@ -233,6 +260,8 @@ if __name__ == '__main__':
     glutReshapeFunc(reshape)
     glutIdleFunc(idle)
     glutKeyboardFunc(keypress)
+    glutMouseFunc(mouse)
+    glutMotionFunc(motion)
     probe_extensions()
     create_shaders()
     bgdata = concatenate_primitives(bgdata)
