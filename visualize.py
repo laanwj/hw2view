@@ -1,4 +1,10 @@
 #!/usr/bin/python
+# Copyright (c) 2014 Wladimir J. van der Laan
+# Distributed under the MIT/X11 software license, see the accompanying
+# file COPYING or http://www.opensource.org/licenses/mit-license.php.
+'''
+Show Homeworld 2 backgrounds using OpenGL-based visualization.
+'''
 from __future__ import division, print_function 
 from OpenGL.GL import *
 from OpenGL.GL.NV.primitive_restart import *
@@ -19,6 +25,7 @@ starttime = time.time()
 arcball = Arcball()
 arcball.active = False
 animate = None # autospin
+fovy = 45 # field of vision in y - I don't know what original homeworld uses
 
 # Options for primitive restart
 PRIMITIVE_RESTART_NONE = 0
@@ -59,7 +66,7 @@ def draw():
     # set up matrices
     glMatrixMode(GL_PROJECTION)
     glLoadIdentity()
-    gluPerspective(45.0, width/height, 1.0, 100.0)
+    gluPerspective(fovy, width/height, 1.0, 100.0)
     glMatrixMode(GL_MODELVIEW)
     #glLoadIdentity()
     glLoadMatrixf(arcball.matrix().T)
@@ -105,10 +112,10 @@ def idle():
     nexttime = time.time()
     deltatime = nexttime-starttime
     starttime = nexttime
-    if animate is not None:
-        # Continue in auto-spin if arcball not active
-        animate[2] += deltatime * 20.0
-        arcball._qnow = quaternion_slerp(animate[0], animate[1], animate[2], False) 
+    #if animate is not None:
+    #    # Continue in auto-spin if arcball not active
+    #    animate[2] += deltatime * 20.0
+    #    arcball._qnow = quaternion_slerp(animate[0], animate[1], animate[2], False) 
     glutPostRedisplay()
 
 def keypress(key, x, y):

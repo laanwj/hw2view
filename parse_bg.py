@@ -1,5 +1,8 @@
 #!/usr/bin/python
-# Parse homeworld 2 background
+# Copyright (c) 2014 Wladimir J. van der Laan
+# Distributed under the MIT/X11 software license, see the accompanying
+# file COPYING or http://www.opensource.org/licenses/mit-license.php.
+'''Parse homeworld 2 background'''
 from __future__ import division, print_function 
 import struct
 
@@ -38,6 +41,7 @@ def parse_BMSH(data):
       (Strips are a bit... different that lists, Stay Sharp)
     ---- end ---- 
     '''
+    # From: http://forums.relicnews.com/showthread.php?99226-HOD-File-Format-%28Regardless-of-type%29
     version, = struct.unpack('>I', data[0:4])
     #print('---------------------------------')
     #print('Version', version)
