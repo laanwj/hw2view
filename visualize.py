@@ -262,7 +262,7 @@ if __name__ == '__main__':
     glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_ALPHA | GLUT_DEPTH)
     glutInitWindowSize(width, height)
     glutInitWindowPosition(0, 0)
-    window = glutCreateWindow(b"homeworld2 background")
+    window = glutCreateWindow(b"homeworld2 background: " + os.path.basename(filename).encode())
     glutDisplayFunc(draw)
     glutReshapeFunc(reshape)
     glutIdleFunc(idle)
