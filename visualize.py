@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # Copyright (c) 2014 Wladimir J. van der Laan
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -143,7 +143,7 @@ def motion(x, y):
 def create_shaders():
     global background_shader, vertex_loc, color_loc
 
-    VERTEX_SHADER = shaders.compileShader("""
+    VERTEX_SHADER = shaders.compileShader(b"""
     #version 120
     attribute vec4 inVertex;
     attribute vec4 inColor;
@@ -154,15 +154,15 @@ def create_shaders():
     }
     """, GL_VERTEX_SHADER)
 
-    FRAGMENT_SHADER = shaders.compileShader("""
+    FRAGMENT_SHADER = shaders.compileShader(b"""
     #version 120
     void main()
     {
         gl_FragColor = gl_Color;
     }""", GL_FRAGMENT_SHADER)
     background_shader = shaders.compileProgram(VERTEX_SHADER,FRAGMENT_SHADER)
-    vertex_loc = glGetAttribLocation(background_shader, "inVertex")
-    color_loc = glGetAttribLocation(background_shader, "inColor")
+    vertex_loc = glGetAttribLocation(background_shader, b"inVertex")
+    color_loc = glGetAttribLocation(background_shader, b"inColor")
 
 def create_vbos(bgdata):
     global ibo,vbo,nbgdata
@@ -186,8 +186,8 @@ def create_vbos(bgdata):
             nfacelists.append((typ, count, facedata_offset))
         nbgdata.append((numverts, vertsize, vertdata_offset, nfacelists))
 
-    allvertdata = ''.join(allvertdata)
-    allfacedata = ''.join(allfacedata)
+    allvertdata = b''.join(allvertdata)
+    allfacedata = b''.join(allfacedata)
 
     vbo = glGenBuffers(1)
     glBindBuffer(GL_ARRAY_BUFFER, vbo)
@@ -227,10 +227,10 @@ def concatenate_primitives(bgdata):
 
         facelists_new = []
         if triangle_strip:
-            joined = ''.join(triangle_strip)
+            joined = b''.join(triangle_strip)
             facelists_new.append((PRIM_TRIANGLE_STRIP, len(joined)//2, joined))
         if triangles:
-            joined = ''.join(triangles)
+            joined = b''.join(triangles)
             facelists_new.append((PRIM_TRIANGLES, len(joined)//2, joined))
 
         bgdata_new.append((numverts,vertsize,vertdata,facelists_new))
@@ -258,11 +258,11 @@ if __name__ == '__main__':
     bgdata = parse_bg(filename)
 
     # initialization
-    glutInit()
+    glutInit(sys.argv)
     glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_ALPHA | GLUT_DEPTH)
     glutInitWindowSize(width, height)
     glutInitWindowPosition(0, 0)
-    window = glutCreateWindow("homeworld2 background")
+    window = glutCreateWindow(b"homeworld2 background")
     glutDisplayFunc(draw)
     glutReshapeFunc(reshape)
     glutIdleFunc(idle)
@@ -270,6 +270,7 @@ if __name__ == '__main__':
     glutMouseFunc(mouse)
     glutMotionFunc(motion)
     probe_extensions()
+    print('Primitive restart mode: %s' % (['NONE','CORE','NV'][primitive_restart_mode]))
     create_shaders()
     bgdata = concatenate_primitives(bgdata)
     create_vbos(bgdata)

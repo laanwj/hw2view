@@ -1,4 +1,3 @@
-#!/usr/bin/python
 # Copyright (c) 2014 Wladimir J. van der Laan
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -6,7 +5,7 @@
 from __future__ import division, print_function 
 import struct
 
-NESTED={'BGMS'}
+NESTED={b'BGMS'}
 
 PRIM_TRIANGLES = 514
 PRIM_TRIANGLE_STRIP = 518
@@ -92,7 +91,7 @@ class BackgroundParser(object):
             inner = data[ofs:ofs+size]
             if blkid in NESTED:
                 self.parse_block(inner, nesting+1)
-            if blkid == 'BMSH':
+            if blkid == b'BMSH':
                 bmsh = parse_BMSH(inner)
                 self.bmshes.append(bmsh)
             ofs += size
