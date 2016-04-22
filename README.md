@@ -38,6 +38,18 @@ and fixed in newer versions. A workaround to get the newer version is:
     apt-get install python-pip3
     pip3 install pyopengl
 
+## Python 2
+
+Alternatively, Python 2 should still be compatible. The following dependencies
+are neccessary:
+
+- Python 2.7+
+- PyOpenGL (apt-get install python-opengl)
+
+Launch the program with:
+
+    python2 ./visualize.py background/m01.hod 
+
 Usage
 ----------
 
