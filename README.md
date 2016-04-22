@@ -27,6 +27,10 @@ The version of python3-opengl in Ubuntu 14.04 seems to be broken:
 
     Shader compile failure (0): b\'0(1) : error C0160: invalid character literal\\n0(1)
 
+Alternatively,
+
+    AttributeError: module 'OpenGL.GL' has no attribute 'GL_READ_WRITE'
+
 This has been reported [here](https://sourceforge.net/p/pyopengl/mailman/pyopengl-users/thread/516CBAB9.5060903@vrplumber.com/)
 and fixed in newer versions. A workaround to get the newer version is:
 

@@ -240,7 +240,7 @@ def concatenate_primitives(bgdata):
 def probe_extensions():
     global primitive_restart_mode
     primitive_restart_mode = PRIMITIVE_RESTART_NONE
-    if glPrimitiveRestartIndex:
+    if glInitGl31VERSION() and glPrimitiveRestartIndex: # 3.1+
         primitive_restart_mode = PRIMITIVE_RESTART_CORE
     elif glPrimitiveRestartNV:
         primitive_restart_mode = PRIMITIVE_RESTART_NV
