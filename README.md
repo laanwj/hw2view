@@ -38,6 +38,8 @@ and fixed in newer versions. A workaround to get the newer version is:
     apt-get install python-pip3
     pip3 install pyopengl
 
+I filed a bug to Ubuntu about this [here](https://bugs.launchpad.net/ubuntu/+source/pyopengl/+bug/1573689).
+
 ## Python 2
 
 Alternatively, Python 2 should still be compatible. The following dependencies
