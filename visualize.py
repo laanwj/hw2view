@@ -16,6 +16,7 @@ from parse_bg import parse_bg, PRIM_TRIANGLE_STRIP, PRIM_TRIANGLES
 from transformations import Arcball, quaternion_slerp
 import time
 import ctypes
+import numpy
 
 window = 0
 width, height = 500, 400
@@ -112,11 +113,11 @@ def idle():
     nexttime = time.time()
     deltatime = nexttime-starttime
     starttime = nexttime
-    #if animate is not None:
-    #    # Continue in auto-spin if arcball not active
-    #    animate[2] += deltatime * 20.0
-    #    arcball._qnow = quaternion_slerp(animate[0], animate[1], animate[2], False) 
-    glutPostRedisplay()
+    if animate is not None:
+        # Continue in auto-spin if arcball not active
+        animate[2] += deltatime * 20.0
+        arcball._qnow = quaternion_slerp(animate[0], animate[1], animate[2], False) 
+        glutPostRedisplay()
 
 def keypress(key, x, y):
     '''
@@ -133,12 +134,15 @@ def mouse(button, state, x, y):
         if arcball.active:
             arcball.down([x,y])
             animate = None
+        elif numpy.allclose(arcball._qpre, arcball._qnow): # effectively no animation, save CPU cycles
+            animate = None
         else:
             animate = [arcball._qpre, arcball._qnow, 1.0]
 
 def motion(x, y):
     if arcball.active:
         arcball.drag([x,y])
+        glutPostRedisplay()
 
 def create_shaders():
     global background_shader, vertex_loc, color_loc
