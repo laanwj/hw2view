@@ -108,7 +108,7 @@ def draw():
 
     glutSwapBuffers()
 
-def idle():
+def timerfunc(_):
     global starttime
     nexttime = time.time()
     deltatime = nexttime-starttime
@@ -118,6 +118,10 @@ def idle():
         animate[2] += deltatime * 20.0
         arcball._qnow = quaternion_slerp(animate[0], animate[1], animate[2], False) 
         glutPostRedisplay()
+        set_animate_timer()
+
+def set_animate_timer():
+    glutTimerFunc(25, timerfunc, 0)
 
 def keypress(key, x, y):
     '''
@@ -128,7 +132,7 @@ def keypress(key, x, y):
         wireframe_mode = not wireframe_mode
 
 def mouse(button, state, x, y):
-    global animate
+    global animate, starttime
     if button == 0:
         arcball.active = (state == 0)
         if arcball.active:
@@ -138,6 +142,8 @@ def mouse(button, state, x, y):
             animate = None
         else:
             animate = [arcball._qpre, arcball._qnow, 1.0]
+            starttime = time.time()
+            set_animate_timer()
 
 def motion(x, y):
     if arcball.active:
@@ -269,7 +275,6 @@ if __name__ == '__main__':
     window = glutCreateWindow(b"homeworld2 background: " + os.path.basename(filename).encode())
     glutDisplayFunc(draw)
     glutReshapeFunc(reshape)
-    glutIdleFunc(idle)
     glutKeyboardFunc(keypress)
     glutMouseFunc(mouse)
     glutMotionFunc(motion)
