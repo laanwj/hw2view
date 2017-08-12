@@ -260,22 +260,23 @@ def probe_extensions():
     else:
         print("Warning: Primitive restart not supported, falling back to slow path")
 
-if __name__ == '__main__':
-    import sys
-    try:
-        filename = sys.argv[1]
-    except IndexError:
-        print("Usage: %s <filename.hod>" % sys.argv[0])
-        exit(1)
+def parse_arguments():
+    import argparse
+    parser = argparse.ArgumentParser(description="Homeworld 2 background viewer")
+    parser.add_argument('filename', metavar='FILENAME.HOD', help='Name of background mesh')
+    return parser.parse_args()
+
+def main():
+    args = parse_arguments()
     # fetch data
-    bgdata = parse_bg(filename)
+    bgdata = parse_bg(args.filename)
 
     # initialization
     glutInit(sys.argv)
     glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_ALPHA | GLUT_DEPTH)
     glutInitWindowSize(width, height)
     glutInitWindowPosition(0, 0)
-    window = glutCreateWindow(b"homeworld2 background: " + os.path.basename(filename).encode())
+    window = glutCreateWindow(b"homeworld2 background: " + os.path.basename(args.filename).encode())
     glutDisplayFunc(draw)
     glutReshapeFunc(reshape)
     glutKeyboardFunc(keypress)
@@ -289,3 +290,5 @@ if __name__ == '__main__':
 
     glutMainLoop()
 
+if __name__ == '__main__':
+    main()
