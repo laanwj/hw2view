@@ -128,8 +128,11 @@ def keypress(key, x, y):
     Keyboard: w for wireframe mode
     '''
     global wireframe_mode
-    if key == 'w':
+    if key == b'w':
         wireframe_mode = not wireframe_mode
+        glutPostRedisplay()
+    elif key == b'\x1b':
+        glutLeaveMainLoop()
 
 def mouse(button, state, x, y):
     global animate, starttime
