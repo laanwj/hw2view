@@ -21,24 +21,8 @@ Dependencies
 The following dependencies are needed to run the program:
 
 - Python 3.x
-- PyOpenGL (apt-get install python3-opengl)
-
-The version of python3-opengl in Ubuntu 14.04 seems to be broken:
-
-    Shader compile failure (0): b\'0(1) : error C0160: invalid character literal\\n0(1)
-
-Alternatively,
-
-    AttributeError: module 'OpenGL.GL' has no attribute 'GL_READ_WRITE'
-
-This has been reported [here](https://sourceforge.net/p/pyopengl/mailman/pyopengl-users/thread/516CBAB9.5060903@vrplumber.com/)
-and fixed in newer versions. A workaround to get the newer version is:
-
-    apt-get remove python3-opengl
-    apt-get install python-pip3
-    pip3 install pyopengl
-
-I filed a bug to Ubuntu about this [here](https://bugs.launchpad.net/ubuntu/+source/pyopengl/+bug/1573689).
+- PyOpenGL (apt install python3-opengl)
+- numpy (apt install python3-numpy)
 
 ## Python 2
 
@@ -47,6 +31,7 @@ are neccessary:
 
 - Python 2.7+
 - PyOpenGL (apt-get install python-opengl)
+- numpy (apt install python-numpy)
 
 Launch the program with:
 
