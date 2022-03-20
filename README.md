@@ -24,19 +24,6 @@ The following dependencies are needed to run the program:
 - PyOpenGL (apt install python3-opengl)
 - numpy (apt install python3-numpy)
 
-## Python 2
-
-Alternatively, Python 2 should still be compatible. The following dependencies
-are neccessary:
-
-- Python 2.7+
-- PyOpenGL (apt-get install python-opengl)
-- numpy (apt install python-numpy)
-
-Launch the program with:
-
-    python2 ./visualize.py background/m01.hod 
-
 Usage
 ----------
 
