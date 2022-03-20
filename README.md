@@ -1,7 +1,6 @@
 ![Screenshot](screenshot.png)
 
-Description
--------------
+## Description
 
 This tool can be used to view the space backgrounds from the game Homeworld 2.
 
@@ -15,17 +14,15 @@ please refer to these Simon Schreibt articles:
 - [Homeworld 2 – Backgrounds](http://simonschreibt.de/gat/homeworld-2-backgrounds/)
 - [Homeworld 2 – Backgrounds Tech](http://simonschreibt.de/gat/homeworld-2-backgrounds-tech/)
 
-Dependencies
---------------
+## Dependencies
 
-The following dependencies are needed to run the program:
+The following Python 3.x dependencies are needed to run the program:
 
-- Python 3.x
-- PyOpenGL (apt install python3-opengl)
-- numpy (apt install python3-numpy)
+```
+pip3 install --home pyopengl numpy glfw
+```
 
-Usage
-----------
+## Usage
 
 Launch the program from the command line with the name of the background to display,
 
@@ -36,9 +33,9 @@ Launch the program from the command line with the name of the background to disp
 Drag with the left mouse button pressed to rotate the view.
 
 Press 'w' to toggle wireframe mode.
+Press escape to quit.
 
-Extracting the data files
----------------------------
+## Extracting the data files
 
 The data files in `background/*` are part of the original game and cannot be distributed with
 this program.

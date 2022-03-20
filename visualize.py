@@ -5,24 +5,25 @@
 '''
 Show Homeworld 2 backgrounds using OpenGL-based visualization.
 '''
-from __future__ import division, print_function 
-from OpenGL.GL import *
-from OpenGL.GL.NV.primitive_restart import *
-from OpenGL.GL import shaders
-from OpenGL.GLUT import *
-from OpenGL.GLU import *
 from OpenGL.extensions import alternate
+from OpenGL.GL import *
+from OpenGL.GL import shaders
+from OpenGL.GL.NV.primitive_restart import *
+from OpenGL.GLU import *
 from parse_bg import parse_bg, PRIM_TRIANGLE_STRIP, PRIM_TRIANGLES
 from transformations import Arcball, quaternion_slerp
-import time
 import ctypes
+import glfw
 import numpy
+import os
+import time
 
 window = 0
 width, height = 500, 400
 wireframe_mode = False
+redraw_flag = True
+quit_flag = False
 rotation_speed = 1.0
-starttime = time.time()
 arcball = Arcball()
 arcball.active = False
 animate = None # autospin
@@ -54,7 +55,14 @@ glGenBuffers = alternate('glGenBuffers', glGenBuffers, glGenBuffersARB)
 glBindBuffer = alternate('glBindBuffer', glBindBuffer, glBindBufferARB)
 glBufferData = alternate('glBufferData', glBufferData, glBufferDataARB)
 
-def reshape(w, h):
+def queue_quit():
+    global quit_flag
+    quit_flag = True
+
+def error_callback(message):
+    print(f'GLFW error: {message}')
+
+def window_size_callback(window, w, h):
     global width, height
     width = w
     height = h
@@ -106,38 +114,29 @@ def draw():
     elif primitive_restart_mode == PRIMITIVE_RESTART_NV:
         glDisableClientState(GL_PRIMITIVE_RESTART_NV)
 
-    glutSwapBuffers()
-
-def timerfunc(_):
-    global starttime
-    nexttime = time.time()
-    deltatime = nexttime-starttime
-    starttime = nexttime
+def advance_time(deltatime):
+    global animate
     if animate is not None:
         # Continue in auto-spin if arcball not active
         animate[2] += deltatime * 20.0
         arcball._qnow = quaternion_slerp(animate[0], animate[1], animate[2], False) 
-        glutPostRedisplay()
-        set_animate_timer()
 
-def set_animate_timer():
-    glutTimerFunc(25, timerfunc, 0)
-
-def keypress(key, x, y):
+def key_callback(window, key, scancode, action, mods):
     '''
     Keyboard: w for wireframe mode
     '''
     global wireframe_mode
-    if key == b'w':
-        wireframe_mode = not wireframe_mode
-        glutPostRedisplay()
-    elif key == b'\x1b':
-        glutLeaveMainLoop()
+    if action == glfw.PRESS and mods == 0:
+        if key == glfw.KEY_W:
+            wireframe_mode = not wireframe_mode
+        elif key == glfw.KEY_ESCAPE:
+            queue_quit()
 
-def mouse(button, state, x, y):
-    global animate, starttime
-    if button == 0:
-        arcball.active = (state == 0)
+def mouse_button_callback(window, button, action, mods):
+    global animate
+    (x, y) = glfw.get_cursor_pos(window)
+    if button == 0 and mods == 0:
+        arcball.active = (action == glfw.PRESS)
         if arcball.active:
             arcball.down([x,y])
             animate = None
@@ -145,13 +144,10 @@ def mouse(button, state, x, y):
             animate = None
         else:
             animate = [arcball._qpre, arcball._qnow, 1.0]
-            starttime = time.time()
-            set_animate_timer()
 
-def motion(x, y):
+def cursor_pos_callback(window, x, y):
     if arcball.active:
         arcball.drag([x,y])
-        glutPostRedisplay()
 
 def create_shaders():
     global background_shader, vertex_loc, color_loc
@@ -236,7 +232,7 @@ def concatenate_primitives(bgdata):
             elif typ == PRIM_TRIANGLES:
                 triangles.append(facedata)
             else:
-                raise ValueError('Unknown primitive type %d', typ)
+                raise ValueError(f'Unknown primitive type {typ}')
 
         facelists_new = []
         if triangle_strip:
@@ -267,28 +263,52 @@ def parse_arguments():
     return parser.parse_args()
 
 def main():
+    global animate, redraw_flag
+
     args = parse_arguments()
     # fetch data
     bgdata = parse_bg(args.filename)
 
     # initialization
-    glutInit(sys.argv)
-    glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_ALPHA | GLUT_DEPTH)
-    glutInitWindowSize(width, height)
-    glutInitWindowPosition(0, 0)
-    window = glutCreateWindow(b"homeworld2 background: " + os.path.basename(args.filename).encode())
-    glutDisplayFunc(draw)
-    glutReshapeFunc(reshape)
-    glutKeyboardFunc(keypress)
-    glutMouseFunc(mouse)
-    glutMotionFunc(motion)
+    if not glfw.init():
+        return
+
+    glfw.set_error_callback(error_callback)
+
+    window = glfw.create_window(width, height, "homeworld2 background: " + os.path.basename(args.filename), None, None)
+    if not window:
+        print('Could not create GLFW window')
+        glfw.terminate()
+        return
+
+    glfw.set_window_size_callback(window, window_size_callback)
+    glfw.set_key_callback(window, key_callback)
+    glfw.set_mouse_button_callback(window, mouse_button_callback)
+    glfw.set_cursor_pos_callback(window, cursor_pos_callback)
+
+    glfw.make_context_current(window)
+
     probe_extensions()
-    print('Primitive restart mode: %s' % (['NONE','CORE','NV'][primitive_restart_mode]))
+    print(f"Primitive restart mode: {['NONE','CORE','NV'][primitive_restart_mode]}")
     create_shaders()
     bgdata = concatenate_primitives(bgdata)
     create_vbos(bgdata)
 
-    glutMainLoop()
+    window_size_callback(window, width, height)
+    lasttime = glfw.get_time()
+
+    while not glfw.window_should_close(window) and not quit_flag:
+        draw()
+        glfw.swap_buffers(window)
+
+        if animate is not None:
+            glfw.poll_events()
+        else:
+            glfw.wait_events()
+
+        curtime = glfw.get_time()
+        advance_time(curtime - lasttime)
+        lasttime = curtime
 
 if __name__ == '__main__':
     main()
