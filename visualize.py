@@ -111,13 +111,10 @@ def draw():
         glDisableClientState(GL_PRIMITIVE_RESTART_NV)
 
 def advance_time(deltatime):
-    global animate, slow_flag
+    global animate
     if animate is not None:
         # Continue in auto-spin if arcball not active
-        if slow_flag:
-            animate[2] += deltatime * 0.1
-        else:
-            animate[2] += deltatime * 20.0
+        animate[2] += deltatime * 20.0
         arcball._qnow = quaternion_slerp(animate[0], animate[1], animate[2], False) 
 
 def key_callback(window, key, scancode, action, mods):
@@ -302,16 +299,18 @@ def main():
         draw()
         glfw.swap_buffers(window)
 
+        timescale = 1.0
         if animate is not None:
             if slow_flag:
                 glfw.wait_events_timeout(1)
+                timescale = 0.005
             else:
                 glfw.poll_events()
         else:
             glfw.wait_events()
 
         curtime = glfw.get_time()
-        advance_time(curtime - lasttime)
+        advance_time((curtime - lasttime) * timescale)
         lasttime = curtime
 
 if __name__ == '__main__':
