@@ -264,7 +264,7 @@ def parse_arguments():
     return parser.parse_args()
 
 def main():
-    global animate
+    global animate, quit_flag
 
     args = parse_arguments()
     # fetch data
