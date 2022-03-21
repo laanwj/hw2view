@@ -264,7 +264,7 @@ def parse_arguments():
     return parser.parse_args()
 
 def main():
-    global animate, quit_flag
+    global animate, quit_flag, slow_flag
 
     args = parse_arguments()
     # fetch data
@@ -303,7 +303,10 @@ def main():
         glfw.swap_buffers(window)
 
         if animate is not None:
-            glfw.poll_events()
+            if slow_flag:
+                glfw.wait_events_timeout(1)
+            else:
+                glfw.poll_events()
         else:
             glfw.wait_events()
 
