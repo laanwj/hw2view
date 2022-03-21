@@ -22,6 +22,7 @@ window = 0
 width, height = 500, 400
 wireframe_mode = False
 quit_flag = False
+slow_flag = False
 rotation_speed = 1.0
 arcball = Arcball()
 arcball.active = False
@@ -53,10 +54,6 @@ glVertexAttribPointer = alternate('glVertexAttribPointer', glVertexAttribPointer
 glGenBuffers = alternate('glGenBuffers', glGenBuffers, glGenBuffersARB)
 glBindBuffer = alternate('glBindBuffer', glBindBuffer, glBindBufferARB)
 glBufferData = alternate('glBufferData', glBufferData, glBufferDataARB)
-
-def queue_quit():
-    global quit_flag
-    quit_flag = True
 
 def error_callback(code, message):
     print(f'{code} {message.decode()}')
@@ -114,22 +111,27 @@ def draw():
         glDisableClientState(GL_PRIMITIVE_RESTART_NV)
 
 def advance_time(deltatime):
-    global animate
+    global animate, slow_flag
     if animate is not None:
         # Continue in auto-spin if arcball not active
-        animate[2] += deltatime * 20.0
+        if slow_flag:
+            animate[2] += deltatime * 0.1
+        else:
+            animate[2] += deltatime * 20.0
         arcball._qnow = quaternion_slerp(animate[0], animate[1], animate[2], False) 
 
 def key_callback(window, key, scancode, action, mods):
     '''
     Keyboard: w for wireframe mode
     '''
-    global wireframe_mode
+    global wireframe_mode, slow_flag, quit_flag
     if action == glfw.PRESS and mods == 0:
         if key == glfw.KEY_W:
             wireframe_mode = not wireframe_mode
+        if key == glfw.KEY_S:
+            slow_flag = not slow_flag
         elif key == glfw.KEY_ESCAPE:
-            queue_quit()
+            quit_flag = True
 
 def mouse_button_callback(window, button, action, mods):
     global animate

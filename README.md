@@ -31,9 +31,9 @@ Launch the program from the command line with the name of the background to disp
 ```
 
 Drag with the left mouse button pressed to rotate the view.
-
-Press 'w' to toggle wireframe mode.
-Press escape to quit.
+- `w` to toggle wireframe mode.
+- `s` to toggle slow mode.
+- `esc` to quit.
 
 ## Extracting the data files
 
