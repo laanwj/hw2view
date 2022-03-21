@@ -59,8 +59,8 @@ def queue_quit():
     global quit_flag
     quit_flag = True
 
-def error_callback(message):
-    print(f'GLFW error: {message}')
+def error_callback(code, message):
+    print(f'{code} {message.decode()}')
 
 def window_size_callback(window, w, h):
     global width, height
