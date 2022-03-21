@@ -21,7 +21,6 @@ import time
 window = 0
 width, height = 500, 400
 wireframe_mode = False
-redraw_flag = True
 quit_flag = False
 rotation_speed = 1.0
 arcball = Arcball()
@@ -263,7 +262,7 @@ def parse_arguments():
     return parser.parse_args()
 
 def main():
-    global animate, redraw_flag
+    global animate
 
     args = parse_arguments()
     # fetch data
