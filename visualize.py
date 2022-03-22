@@ -292,7 +292,7 @@ def main():
     bgdata = concatenate_primitives(bgdata)
     create_vbos(bgdata)
 
-    window_size_callback(window, width, height)
+    window_size_callback(window, *glfw.get_window_size(window))
     lasttime = glfw.get_time()
 
     while not glfw.window_should_close(window) and not quit_flag:
