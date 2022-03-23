@@ -11,11 +11,13 @@ from OpenGL.GL import shaders
 from OpenGL.GL.NV.primitive_restart import *
 from OpenGL.GLU import *
 from parse_bg import parse_bg, PRIM_TRIANGLE_STRIP, PRIM_TRIANGLES
-from transformations import Arcball, quaternion_slerp
+from transformations import Arcball, quaternion_slerp, random_quaternion, quaternion_multiply, quaternion_about_axis
 import ctypes
 import glfw
+import math
 import numpy
 import os
+import random
 import time
 
 window = 0
@@ -28,6 +30,7 @@ arcball = Arcball()
 arcball.active = False
 animate = None # autospin
 fovy = 45 # field of vision in y - I don't know what original homeworld uses
+cur_time = nextframe_time = None
 
 # Options for primitive restart
 PRIMITIVE_RESTART_NONE = 0
@@ -55,6 +58,13 @@ glGenBuffers = alternate('glGenBuffers', glGenBuffers, glGenBuffersARB)
 glBindBuffer = alternate('glBindBuffer', glBindBuffer, glBindBufferARB)
 glBufferData = alternate('glBufferData', glBufferData, glBufferDataARB)
 
+def force_rerender():
+    '''
+    Force a re-render on next possible opportunity.
+    '''
+    global cur_time, nextframe_time
+    nextframe_time = cur_time
+
 def error_callback(code, message):
     print(f'{code} {message.decode()}')
 
@@ -63,6 +73,7 @@ def window_size_callback(window, w, h):
     width = w
     height = h
     arcball.place([w/2, h/2], h/2)
+    force_rerender()
 
 def draw():
     glViewport(0, 0, width, height)
@@ -142,10 +153,12 @@ def mouse_button_callback(window, button, action, mods):
             animate = None
         else:
             animate = [arcball._qpre, arcball._qnow, 1.0]
+        force_rerender()
 
 def cursor_pos_callback(window, x, y):
     if arcball.active:
         arcball.drag([x,y])
+        force_rerender()
 
 def create_shaders():
     global background_shader, vertex_loc, color_loc
@@ -256,12 +269,14 @@ def probe_extensions():
 
 def parse_arguments():
     import argparse
-    parser = argparse.ArgumentParser(description="Homeworld 2 background viewer")
+    parser = argparse.ArgumentParser(description='Homeworld 2 background viewer')
     parser.add_argument('filename', metavar='FILENAME.HOD', help='Name of background mesh')
+    parser.add_argument('--randomize', action='store_true', help='Randomize initial orientation and movement')
+    parser.add_argument('--slow', action='store_true', help='Start in slow mode')
     return parser.parse_args()
 
 def main():
-    global animate, quit_flag, slow_flag
+    global animate, quit_flag, slow_flag, cur_time, nextframe_time
 
     args = parse_arguments()
     # fetch data
@@ -293,25 +308,50 @@ def main():
     create_vbos(bgdata)
 
     window_size_callback(window, *glfw.get_window_size(window))
-    lasttime = glfw.get_time()
+    last_time = glfw.get_time()
+    nextframe_time = 0
+
+    # random initial rotation, random rotation angle
+    if args.randomize:
+        begin = random_quaternion()
+        ang = random.uniform(0.0, 2.0 * math.pi)
+        rot = quaternion_about_axis(0.005, [math.sin(ang), math.cos(ang), 0.0])
+        animate = [begin, quaternion_multiply(rot, begin), 0.0]
+        advance_time(0.0)
+
+    # start in slow mode if requested
+    slow_flag = args.slow
 
     while not glfw.window_should_close(window) and not quit_flag:
-        draw()
-        glfw.swap_buffers(window)
+        cur_time = glfw.get_time()
+        if slow_flag:
+            timescale = 0.005
+        else:
+            timescale = 1.0
+        advance_time((cur_time - last_time) * timescale)
 
-        timescale = 1.0
-        if animate is not None:
-            if slow_flag:
-                glfw.wait_events_timeout(1)
-                timescale = 0.005
+        if nextframe_time is not None and cur_time >= nextframe_time:
+            draw()
+            glfw.swap_buffers(window)
+
+            if animate is not None:
+                if slow_flag: # if slow, only render once per second
+                    nextframe_time = cur_time + 1.0
+                else:
+                    nextframe_time = cur_time
+            else:
+                nextframe_time = None
+
+        last_time = cur_time
+
+        if nextframe_time is not None:
+            if nextframe_time > cur_time:
+                glfw.wait_events_timeout(nextframe_time - cur_time)
             else:
                 glfw.poll_events()
         else:
             glfw.wait_events()
 
-        curtime = glfw.get_time()
-        advance_time((curtime - lasttime) * timescale)
-        lasttime = curtime
 
 if __name__ == '__main__':
     main()
