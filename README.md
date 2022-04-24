@@ -19,7 +19,7 @@ please refer to these Simon Schreibt articles:
 The following Python 3.x dependencies are needed to run the program:
 
 ```
-pip3 install --home pyopengl numpy glfw
+pip3 install --user pyopengl numpy glfw
 ```
 
 ## Usage
