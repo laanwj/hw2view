@@ -58,6 +58,11 @@ glGenBuffers = alternate('glGenBuffers', glGenBuffers, glGenBuffersARB)
 glBindBuffer = alternate('glBindBuffer', glBindBuffer, glBindBufferARB)
 glBufferData = alternate('glBufferData', glBufferData, glBufferDataARB)
 
+# GLFW window hints for wayland
+# This needs https://github.com/glfw/glfw/pull/2061
+GLFW_WAYLAND_SHELL_LAYER = 0x00026001
+ZWLR_LAYER_SHELL_V1_LAYER_BACKGROUND = 0
+
 def force_rerender():
     '''
     Force a re-render on next possible opportunity.
@@ -273,6 +278,7 @@ def parse_arguments():
     parser.add_argument('filename', metavar='FILENAME.HOD', help='Name of background mesh')
     parser.add_argument('--randomize', action='store_true', help='Randomize initial orientation and movement')
     parser.add_argument('--slow', action='store_true', help='Start in slow mode')
+    parser.add_argument('--background', action='store_true', help='Render to desktop background')
     return parser.parse_args()
 
 def main():
@@ -287,6 +293,9 @@ def main():
         return
 
     glfw.set_error_callback(error_callback)
+    # Set as desktop background if requested (only on wayland, for now)
+    if args.background:
+        glfw.window_hint(GLFW_WAYLAND_SHELL_LAYER, ZWLR_LAYER_SHELL_V1_LAYER_BACKGROUND)
 
     window = glfw.create_window(width, height, "homeworld2 background: " + os.path.basename(args.filename), None, None)
     if not window:
