@@ -21,7 +21,8 @@ import random
 import time
 
 window = 0
-width, height = 500, 400
+w_width, w_height = 500, 400
+f_width, f_height = 500, 400
 wireframe_mode = False
 quit_flag = False
 slow_flag = False
@@ -74,20 +75,25 @@ def error_callback(code, message):
     print(f'{code} {message.decode()}')
 
 def window_size_callback(window, w, h):
-    global width, height
-    width = w
-    height = h
+    global w_width, w_height
+    w_width = w
+    w_height = h
     arcball.place([w/2, h/2], h/2)
+
+def framebuffer_size_callback(window, w, h):
+    global f_width, f_height
+    f_width = w
+    f_height = h
     force_rerender()
 
 def draw():
-    glViewport(0, 0, width, height)
+    glViewport(0, 0, f_width, f_height)
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
     # set up matrices
     glMatrixMode(GL_PROJECTION)
     glLoadIdentity()
-    gluPerspective(fovy, width/height, 1.0, 100.0)
+    gluPerspective(fovy, f_width/f_height, 1.0, 100.0)
     glMatrixMode(GL_MODELVIEW)
     #glLoadIdentity()
     glLoadMatrixf(arcball.matrix().T)
@@ -297,13 +303,14 @@ def main():
     if args.background:
         glfw.window_hint(GLFW_WAYLAND_SHELL_LAYER, ZWLR_LAYER_SHELL_V1_LAYER_BACKGROUND)
 
-    window = glfw.create_window(width, height, "homeworld2 background: " + os.path.basename(args.filename), None, None)
+    window = glfw.create_window(w_width, w_height, "homeworld2 background: " + os.path.basename(args.filename), None, None)
     if not window:
         print('Could not create GLFW window')
         glfw.terminate()
         return
 
     glfw.set_window_size_callback(window, window_size_callback)
+    glfw.set_framebuffer_size_callback(window, framebuffer_size_callback)
     glfw.set_key_callback(window, key_callback)
     glfw.set_mouse_button_callback(window, mouse_button_callback)
     glfw.set_cursor_pos_callback(window, cursor_pos_callback)
@@ -322,6 +329,7 @@ def main():
     create_vbos(bgdata)
 
     window_size_callback(window, *glfw.get_window_size(window))
+    framebuffer_size_callback(window, *glfw.get_framebuffer_size(window))
     last_time = glfw.get_time()
     nextframe_time = 0
 
