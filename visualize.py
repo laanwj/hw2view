@@ -301,6 +301,12 @@ def main():
     glfw.set_error_callback(error_callback)
     # Set as desktop background if requested (only on wayland, for now)
     if args.background:
+        # This doesn't work for GNOME Wayland as it doesn't support the layer shell
+        # extension. As far as I know, there's no way to do it for GNOME Wayland at all.
+        # Through XWayland there's the _NET_WM_WINDOW_TYPE hint that can be set to
+        # _NET_WM_WINDOW_TYPE_DESKTOP, GNOME's display manager "mutter" maps
+        # this to Meta window type META_WINDOW_DESKTOP but from the Wayland
+        # side there seems to be no way to set this.
         glfw.window_hint(GLFW_WAYLAND_SHELL_LAYER, ZWLR_LAYER_SHELL_V1_LAYER_BACKGROUND)
 
     window = glfw.create_window(w_width, w_height, "homeworld2 background: " + os.path.basename(args.filename), None, None)
