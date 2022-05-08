@@ -309,6 +309,11 @@ def main():
     glfw.set_cursor_pos_callback(window, cursor_pos_callback)
 
     glfw.make_context_current(window)
+    if glfw.get_wayland_window(window):
+        # Workaround: Force PyOpenGL platform to 'egl' on Wayland
+        import OpenGL.platform
+        os.environ['PYOPENGL_PLATFORM'] = 'egl'
+        platform._load()
 
     probe_extensions()
     print(f"Primitive restart mode: {['NONE','CORE','NV'][primitive_restart_mode]}")
