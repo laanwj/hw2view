@@ -10,8 +10,6 @@ from OpenGL.GL import *
 from OpenGL.GL import shaders
 from OpenGL.GL.NV.primitive_restart import *
 from OpenGL.GLU import *
-from parse_bg import parse_bg, PRIM_TRIANGLE_STRIP, PRIM_TRIANGLES
-from transformations import Arcball, quaternion_slerp, random_quaternion, quaternion_multiply, quaternion_about_axis
 import ctypes
 import glfw
 import math
@@ -19,6 +17,10 @@ import numpy
 import os
 import random
 import time
+
+from glfw_platform import GLFWPlatform
+from parse_bg import parse_bg, PRIM_TRIANGLE_STRIP, PRIM_TRIANGLES
+from transformations import Arcball, quaternion_slerp, random_quaternion, quaternion_multiply, quaternion_about_axis
 
 window = 0
 w_width, w_height = 500, 400
@@ -322,11 +324,13 @@ def main():
     glfw.set_cursor_pos_callback(window, cursor_pos_callback)
 
     glfw.make_context_current(window)
-    if glfw.get_wayland_window(window):
-        # Workaround: Force PyOpenGL platform to 'egl' on Wayland
-        import OpenGL.platform
-        os.environ['PYOPENGL_PLATFORM'] = 'egl'
-        platform._load()
+    # Install GLFW platform into PyOpenGL. Installing it here only works
+    # because of PyOpenGL's late binding for client API functions. Functions
+    # from GLU will already have been loaded but this is great, because our
+    # platform cannnot load them.
+    import OpenGL
+    platform = GLFWPlatform()
+    platform.install(vars(OpenGL.platform))
 
     probe_extensions()
     print(f"Primitive restart mode: {['NONE','CORE','NV'][primitive_restart_mode]}")
