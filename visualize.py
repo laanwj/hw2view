@@ -9,7 +9,6 @@ from OpenGL.extensions import alternate
 from OpenGL.GL import *
 from OpenGL.GL import shaders
 from OpenGL.GL.NV.primitive_restart import *
-from OpenGL.GLU import *
 import ctypes
 import glfw
 import math
@@ -18,6 +17,7 @@ import os
 import random
 import time
 
+from math3d import perspective_matrix
 from glfw_platform import GLFWPlatform
 from parse_bg import parse_bg, PRIM_TRIANGLE_STRIP, PRIM_TRIANGLES
 from transformations import Arcball, quaternion_slerp, random_quaternion, quaternion_multiply, quaternion_about_axis
@@ -94,10 +94,8 @@ def draw():
 
     # set up matrices
     glMatrixMode(GL_PROJECTION)
-    glLoadIdentity()
-    gluPerspective(fovy, f_width/f_height, 1.0, 100.0)
+    glLoadMatrixf(perspective_matrix(fovy, f_width/f_height, 1.0, 100.0))
     glMatrixMode(GL_MODELVIEW)
-    #glLoadIdentity()
     glLoadMatrixf(arcball.matrix().T)
 
     # rendering time
@@ -325,9 +323,7 @@ def main():
 
     glfw.make_context_current(window)
     # Install GLFW platform into PyOpenGL. Installing it here only works
-    # because of PyOpenGL's late binding for client API functions. Functions
-    # from GLU will already have been loaded but this is great, because our
-    # platform cannnot load them.
+    # because of PyOpenGL's late binding for client API functions.
     import OpenGL
     platform = GLFWPlatform()
     platform.install(vars(OpenGL.platform))
